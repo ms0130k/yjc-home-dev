@@ -166,6 +166,83 @@ const boxSpecs2: BoxSpecTable[] = [
   },
 ]
 
+// 아이스 박스 규격 3 테이블 데이터
+const boxSpecs3: BoxSpecTable[] = [
+  {
+    title: '송이/버섯 피자박스',
+    specs: [
+      { name: '송이 0.5kg', outer: '270*205*150', inner: '235*170*110', quantity: '32*' },
+      { name: '송이 1kg', outer: '310*240*180', inner: '270*200*120', quantity: '24*' },
+      { name: '송이 2kg', outer: '310*240*220', inner: '270*200*170', quantity: '20*' },
+      { name: '송이 3kg', outer: '310*240*255', inner: '270*195*200', quantity: '16*' },
+      { name: '양송이 2kg', outer: '380*250*190', inner: '330*200*120', quantity: '20*' },
+      { name: '느타리버섯2kg(신)', outer: '420*290*150', inner: '380*250*110', quantity: '16*' },
+      { name: '느타리버섯2kg', outer: '440*310*145', inner: '400*270*110', quantity: '14*' },
+      { name: '느타리버섯3kg', outer: '440*310*200', inner: '400*270*110', quantity: '10*' },
+      { name: '피자박스', outer: '430*340*200', inner: '380*290*120', quantity: '10*' },
+      { name: '블루6kg (피자 대)', outer: '350*350*280', inner: '300*300*230', quantity: '8*' },
+    ],
+  },
+  {
+    title: '새우/ 바지락 박스',
+    specs: [
+      { name: '바지락 3K', outer: '385*285*195', inner: '340*240*150', quantity: '14*' },
+      { name: '바지락 7K', outer: '360*315*280', inner: '310*260*220', quantity: '10*' },
+      { name: '바지락 10K', outer: '450*370*280', inner: '395*315*225', quantity: '8*' },
+      { name: '냉동새우박스', outer: '430*340*200', inner: '380*290*120', quantity: '10*' },
+      { name: '회 3K', outer: '364*295*150', inner: '320*252*110', quantity: '16*' },
+    ],
+  },
+  {
+    title: '새우/어상자박스',
+    specs: [
+      { name: '대하 1K', outer: '305*205*95', inner: '280*180*65', quantity: '40*' },
+      { name: '대하 2K', outer: '335*235*130', inner: '305*205*85', quantity: '32*' },
+      { name: '망계반품', outer: '250*250*180', inner: '210*210*130', quantity: '24*' },
+      { name: '망계박스', outer: '260*260*250', inner: '220*220*200', quantity: '16' },
+      { name: '굴박스 (소)', outer: '260*260*260', inner: '220*220*210', quantity: '16*' },
+      { name: '굴박스 (대)', outer: '300*300*275', inner: '250*250*225', quantity: '16*' },
+      { name: '어상자 5K(신)', outer: '505*345*185', inner: '450*290*125', quantity: '12*' },
+      { name: '어상자 7.5K', outer: '560*370*170', inner: '500*310*112', quantity: '12*' },
+      { name: '어상자 10K', outer: '560*370*215', inner: '500*310*160', quantity: '10*' },
+      { name: '어상자 12K', outer: '550*355*215', inner: '495*305*165', quantity: '10*' },
+      { name: '어상자 15kg', outer: '555*370*280', inner: '495*310*225', quantity: '8*' },
+      { name: '어상자 15k (신)', outer: '557*370*298', inner: '500*310*238', quantity: '8*' },
+      { name: '어상자 18K', outer: '555*370*330', inner: '505*320*265', quantity: '6*' },
+      { name: '어상자 20K', outer: '620*440*335', inner: '550*370*255', quantity: '3*' },
+      { name: '어상자 30K', outer: '770*470*275', inner: '698*399*200', quantity: '4*' },
+      { name: '30K-중박스', outer: '770*470*270', inner: '697*400*200', quantity: '4*' },
+      { name: '30K-대박스', outer: '770*470*310', inner: '700*400*240', quantity: '4*' },
+    ],
+  },
+]
+
+// 스티로폼 재단 데이터
+interface CornerBoxSpec {
+  name: string
+  size: string
+  quantity: string
+}
+
+interface FoamPanelSpec {
+  name: string
+  description: string
+}
+
+// 코너/모서리 보호 데이터
+const cornerBoxSpecs: CornerBoxSpec[] = [
+  { name: '코너 소', size: '60*60*60(두께 15)', quantity: '600*' },
+  { name: '샌추리코너 [코너 중]', size: '80*80*60(두께 20)', quantity: '360*' },
+  { name: '코너 대', size: '175*95*95(두께25)', quantity: '96*' },
+]
+
+// 맞춤 평판 패널 데이터
+const foamPanelSpecs: FoamPanelSpec[] = [
+  { name: '평판', description: '1790*800*600 사이즈 (3X6 스티로폼 원단)' },
+  { name: '평판 재단', description: '맞춤 사이즈로 재단 가능 (막대기/ 평판)' },
+  { name: '도형 품파기 재단', description: '막대기 모형 품파기로 재단 가능' },
+]
+
 defineComponent({
   name: 'BoxSpecsView',
 })
@@ -175,7 +252,13 @@ defineComponent({
   <main class="box-specs-view">
     <!-- 박스규격 이미지 영역 -->
     <div class="box-specs-banner">
-      <div class="banner-text">박스규격</div>
+      <div class="banner-content">
+        <h1 class="banner-title">영진화학 스티로폼 박스 규격표</h1>
+        <p class="banner-description">
+          * 자세한 사항이나 기타 규격 문의는 전화 주시면 친절히 안내 드립니다.
+        </p>
+        <p class="banner-tel">TEL : 031-997-0280</p>
+      </div>
     </div>
 
     <div class="container">
@@ -248,13 +331,70 @@ defineComponent({
         </div>
 
         <div v-else-if="activeTab === 'ice-box-3'" class="tab-content">
-          <h2>아이스 박스 규격 3</h2>
-          <p>아이스 박스 규격 3에 대한 상세 설명입니다. 여기에 제품 정보가 표시됩니다.</p>
+          <!-- 각 박스 유형 별로 테이블 렌더링 -->
+          <div v-for="(tableData, index) in boxSpecs3" :key="index" class="specs-table-container">
+            <table class="specs-table">
+              <thead>
+                <tr>
+                  <th rowspan="2">{{ tableData.title }}</th>
+                  <th colspan="2">규격(mm)</th>
+                  <th rowspan="2">한묶음 수량</th>
+                </tr>
+                <tr>
+                  <th>외경(mm)</th>
+                  <th>내경(mm)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(spec, specIndex) in tableData.specs" :key="specIndex">
+                  <td>{{ spec.name }}</td>
+                  <td>{{ spec.outer }}</td>
+                  <td>{{ spec.inner }}</td>
+                  <td>{{ spec.quantity }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <div v-else-if="activeTab === 'styrofoam-cutting'" class="tab-content">
-          <h2>스티로폼 재단</h2>
-          <p>스티로폼 재단에 대한 상세 설명입니다. 여기에 제품 정보가 표시됩니다.</p>
+          <!-- 각 박스 유형 별로 테이블 렌더링 -->
+          <!-- 코너/모서리 보호 테이블 -->
+          <div class="cutting-table-container">
+            <table class="cutting-table">
+              <thead>
+                <tr>
+                  <th>코너/ 모서리 보호</th>
+                  <th>규격(mm)</th>
+                  <th>한묶음 수량</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(spec, index) in cornerBoxSpecs" :key="index">
+                  <td>{{ spec.name }}</td>
+                  <td>{{ spec.size }}</td>
+                  <td>{{ spec.quantity }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 맞춤 평판/품파기 재단 테이블 -->
+          <div class="cutting-table-container">
+            <table class="cutting-table">
+              <thead>
+                <tr>
+                  <th colspan="2">맞춤 평판/ 패드 제작 (건축용 및 제품 보호용)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(spec, index) in foamPanelSpecs" :key="index">
+                  <td>{{ spec.name }}</td>
+                  <td>{{ spec.description }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -269,17 +409,34 @@ defineComponent({
 
 .box-specs-banner {
   height: 250px;
-  background-color: #cc0000; /* 붉은색 영역 표시 */
+  background-color: #0c4da2;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 40px;
 }
 
-.banner-text {
+.banner-content {
+  text-align: center;
+}
+
+.banner-title {
   color: white;
   font-size: 40px;
   font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.banner-description {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.banner-tel {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .container {
@@ -386,6 +543,46 @@ defineComponent({
 }
 
 .specs-table tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* 스티로폼 재단 페이지 스타일 */
+.cutting-table-container {
+  overflow-x: auto;
+  margin-bottom: 30px;
+}
+
+.cutting-table-container h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.cutting-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.cutting-table th,
+.cutting-table td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.cutting-table th {
+  background-color: #f0f4f8;
+  font-weight: bold;
+  color: #333;
+}
+
+.cutting-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.cutting-table tr:hover {
   background-color: #f0f0f0;
 }
 </style>
