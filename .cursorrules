@@ -43,5 +43,10 @@
     "language": "korean",
     "style": "informal",
     "tone": "friendly"
+  },
+  "convention": {
+    "principal": [
+      "vue 파일에 직접 style 작성하지 않고 파일로 작성하여 관리한다."
+    ]
   }
 }
