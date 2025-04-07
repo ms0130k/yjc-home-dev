@@ -29,7 +29,7 @@ defineComponent({
             <span class="menu-underline"></span>
           </li>
           <li class="menu-item">
-            <a href="/products" @click.prevent="navigateTo('/products')">제품소개</a>
+            <a href="/box-specs" @click.prevent="navigateTo('/box-specs')">박스규격</a>
             <span class="menu-underline"></span>
           </li>
           <li class="menu-item">
