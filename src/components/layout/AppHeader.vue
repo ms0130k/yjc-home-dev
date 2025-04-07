@@ -16,6 +16,11 @@ defineComponent({
 <template>
   <header class="app-header">
     <div class="header-container">
+      <!-- 회사 로고 -->
+      <div class="company-logo" @click="navigateTo('/')">
+        <h1>영진화학</h1>
+      </div>
+
       <!-- 메인 메뉴 -->
       <nav class="main-menu">
         <ul>
@@ -28,11 +33,7 @@ defineComponent({
             <span class="menu-underline"></span>
           </li>
           <li class="menu-item">
-            <a href="/rnd" @click.prevent="navigateTo('/rnd')">R&D</a>
-            <span class="menu-underline"></span>
-          </li>
-          <li class="menu-item">
-            <a href="/business" @click.prevent="navigateTo('/business')">사업영역</a>
+            <a href="/search" @click.prevent="navigateTo('/search')">제품검색</a>
             <span class="menu-underline"></span>
           </li>
           <li class="menu-item">
@@ -66,45 +67,61 @@ defineComponent({
 .header-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
   height: 80px;
 }
 
+.company-logo {
+  cursor: pointer;
+}
+
+.company-logo h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #2e7d32;
+  font-weight: 700;
+}
+
 .main-menu {
   display: flex;
-  justify-content: center;
-  width: 100%;
+  justify-content: flex-end;
+  height: 100%;
 }
 
 .main-menu > ul {
   display: flex;
-  justify-content: center;
   list-style: none;
   padding: 0;
   margin: 0;
+  height: 100%;
 }
 
 .menu-item {
   position: relative;
-  margin: 0 25px;
-  padding: 10px 5px;
+  margin: 0 20px;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .menu-item > a {
-  display: block;
+  display: flex;
+  align-items: center;
+  height: 100%;
   color: #333;
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
   transition: color 0.3s;
-  padding-bottom: 5px;
 }
 
 .menu-item > a:hover {
   color: #2e7d32;
+  background-color: transparent;
 }
 
 /* 언더라인 효과 스타일 */
@@ -128,8 +145,6 @@ defineComponent({
   border: none;
   cursor: pointer;
   padding: 10px;
-  position: absolute;
-  right: 20px;
 }
 
 .mobile-menu-button span {
