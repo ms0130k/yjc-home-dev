@@ -1,0 +1,47 @@
+{
+  "tabWidth": 2,
+  "indentWidth": 2,
+  "useTabs": false,
+  "lineWidth": 100,
+  "wrapLineWidth": 100,
+  "insertFinalNewline": true,
+  "bracketSpacing": true,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "semi": true,
+  "arrowParens": "avoid",
+  "jsxBracketSameLine": false,
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "tabWidth": 4
+      }
+    },
+    {
+      "files": "*.vue",
+      "options": {
+        "parser": "vue"
+      }
+    },
+    {
+      "files": "*.ts",
+      "options": {
+        "parser": "typescript"
+      }
+    }
+  ],
+  "formatter": "auto",
+  "ignorePattern": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    ".git/**"
+  ],
+  "conversation": {
+    "language": "korean",
+    "style": "informal",
+    "tone": "friendly"
+  }
+}
