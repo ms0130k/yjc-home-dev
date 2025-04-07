@@ -87,7 +87,7 @@ import 'primeicons/primeicons.css' // 아이콘
 import '/node_modules/primeflex/primeflex.css' // PrimeFlex 그리드 시스템
 
 // 전역 스타일 임포트
-import './assets/main.css'
+import './assets/css/main.css'
 
 const app = createApp(App)
 

@@ -33,6 +33,10 @@ defineComponent({
             <span class="menu-underline"></span>
           </li>
           <li class="menu-item">
+            <a href="/products" @click.prevent="navigateTo('/products')">제품안내</a>
+            <span class="menu-underline"></span>
+          </li>
+          <li class="menu-item">
             <a href="/search" @click.prevent="navigateTo('/search')">제품검색</a>
             <span class="menu-underline"></span>
           </li>

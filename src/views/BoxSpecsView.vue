@@ -6,6 +6,7 @@ const tabItems = [
   { id: 'ice-box-2', label: '아이스 박스 규격 2' },
   { id: 'ice-box-3', label: '아이스 박스 규격 3' },
   { id: 'styrofoam-cutting', label: '스티로폼 재단' },
+  { id: 'img-sample', label: '이미지 샘플' },
 ]
 const activeTab = ref(tabItems[0].id)
 
@@ -395,6 +396,10 @@ defineComponent({
               </tbody>
             </table>
           </div>
+        </div>
+
+        <div v-else-if="activeTab === 'img-sample'" class="tab-content">
+          <img src="@/assets/images/box-spec.jpeg" alt="샘플 이미지" />
         </div>
       </div>
     </div>

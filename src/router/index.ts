@@ -19,6 +19,11 @@ const router = createRouter({
       name: 'box-specs',
       component: () => import('../views/BoxSpecsView.vue'),
     },
+    {
+      path: '/products',
+      name: 'products',
+      component: () => import('../views/ProductsView.vue'),
+    },
   ],
 })
 
