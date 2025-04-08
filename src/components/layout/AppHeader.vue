@@ -5,14 +5,28 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const router = useRouter()
 const isMobileMenuOpen = ref(false)
 const showScrollTop = ref(false)
+const isMoreOptionsOpen = ref(false)
 
 const navigateTo = (path: string) => {
   router.push(path)
   isMobileMenuOpen.value = false // 페이지 이동 시 모바일 메뉴 닫기
 }
 
+const navigateAndClose = (path: string) => {
+  router.push(path)
+  closeMoreOptions()
+}
+
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
+}
+
+const toggleMoreOptions = () => {
+  isMoreOptionsOpen.value = !isMoreOptionsOpen.value
+}
+
+const closeMoreOptions = () => {
+  isMoreOptionsOpen.value = false
 }
 
 // 스크롤 상단 버튼 표시 여부 결정
@@ -139,7 +153,91 @@ onUnmounted(() => {
     </svg>
   </a>
 
-  <!-- 전화걸기 플로팅 배너 -->
+  <!-- 모바일용 더보기/닫기 버튼 -->
+  <button
+    v-if="!isMoreOptionsOpen"
+    class="more-options-button"
+    @click="toggleMoreOptions"
+    title="더 많은 옵션"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="2" />
+      <circle cx="12" cy="5" r="2" />
+      <circle cx="12" cy="19" r="2" />
+    </svg>
+  </button>
+
+  <button
+    v-else
+    class="more-options-button close-button-mobile"
+    @click="closeMoreOptions"
+    title="닫기"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+      />
+    </svg>
+  </button>
+
+  <!-- 모바일용 기능 메뉴 오버레이 -->
+  <div
+    class="mobile-options-overlay"
+    :class="{ open: isMoreOptionsOpen }"
+    @click="closeMoreOptions"
+  ></div>
+
+  <!-- 모바일용 기능 메뉴 -->
+  <div class="mobile-options-menu" :class="{ open: isMoreOptionsOpen }">
+    <!-- 전화걸기 버튼 -->
+    <a href="tel:031-997-0280" class="mobile-option-item" title="전화 문의하기">
+      <div class="option-icon phone-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+          />
+        </svg>
+      </div>
+      <span>전화</span>
+    </a>
+
+    <!-- 오시는길 버튼 -->
+    <a
+      href="/location"
+      @click.prevent="navigateAndClose('/location')"
+      class="mobile-option-item"
+      title="오시는길"
+    >
+      <div class="option-icon location-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+          />
+        </svg>
+      </div>
+      <span>오시는길</span>
+    </a>
+
+    <!-- 카카오톡 버튼 (모바일 메뉴 내부용) -->
+    <a
+      href="https://open.kakao.com/o/sy5Lanaf"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mobile-option-item"
+      title="카카오톡 문의하기"
+    >
+      <div class="option-icon kakao-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M12,2.772c-5.523,0-10,3.53-10,7.885,0,2.815,1.872,5.285,4.687,6.68-.153.528-.984,3.4-1.017,3.624,0,0-.02.169.09.234A.3.3,0,0,0,6,21.209c.315-.043,3.649-2.385,4.226-2.792A12.608,12.608,0,0,0,12,18.541c5.523,0,10-3.53,10-7.884S17.523,2.772,12,2.772Z"
+          ></path>
+        </svg>
+      </div>
+      <span>카카오톡</span>
+    </a>
+  </div>
+
+  <!-- 전화걸기 플로팅 배너 (모바일 전용이지만 미사용) -->
   <a href="tel:031-997-0280" class="call-floating-button" title="전화 문의하기">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path
@@ -388,7 +486,7 @@ onUnmounted(() => {
 /* 카카오톡 플로팅 배너 스타일 */
 .kakao-floating-button {
   position: fixed;
-  bottom: 100px; /* 위치 조정 */
+  bottom: 30px;
   right: 30px;
   width: 60px;
   height: 60px;
@@ -417,73 +515,186 @@ onUnmounted(() => {
   fill: #000000;
 }
 
-/* 전화걸기 플로팅 배너 스타일 */
+/* 전화걸기 플로팅 배너 스타일 - 기존에 있었지만 미사용 */
 .call-floating-button {
+  display: none; /* 항상 숨김 처리 */
+}
+
+/* 모바일용 더보기 버튼 스타일 */
+.more-options-button {
   position: fixed;
-  bottom: 30px; /* 카카오 버튼 아래로 위치 변경 */
-  right: 30px; /* 카카오 버튼과 동일한 가로 위치 */
+  bottom: 30px;
+  right: 30px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #4caf50; /* 녹색 배경 */
-  display: none; /* 기본적으로 숨김 */
+  background-color: #1a237e; /* 짙은 남색 */
+  display: none; /* 기본적으로 숨김 (데스크톱) */
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   z-index: 999;
+  cursor: pointer;
+  border: none;
+  padding: 0;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-  padding: 0;
-  border: none;
 }
 
-.call-floating-button:hover {
-  transform: translateY(-5px);
+.more-options-button svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+}
+
+.more-options-button.close-button-mobile svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+}
+
+.more-options-button:hover {
+  transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.call-floating-button svg {
-  width: 30px;
-  height: 30px;
+/* 모바일용 메뉴 오버레이 스타일 */
+.mobile-options-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.mobile-options-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 모바일용 메뉴 스타일 */
+.mobile-options-menu {
+  position: fixed;
+  bottom: 110px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+}
+
+.mobile-options-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* 모바일 옵션 아이템 스타일 */
+.mobile-option-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  gap: 5px;
+}
+
+.option-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.option-icon svg {
+  width: 28px;
+  height: 28px;
   fill: white;
+}
+
+.option-icon.phone-icon {
+  background-color: #1a237e; /* 짙은 남색으로 통일 */
+}
+
+.option-icon.location-icon {
+  background-color: #1a237e; /* 짙은 남색으로 통일 */
+}
+
+.option-icon.kakao-icon {
+  background-color: #fee500; /* 카카오톡 노란색 유지 */
+}
+
+.option-icon.kakao-icon svg {
+  fill: #000000;
+}
+
+.mobile-option-item span {
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* 모바일에서 크기 조정 */
 @media (max-width: 768px) {
   .kakao-floating-button {
-    width: 50px;
-    height: 50px;
-    bottom: 80px; /* 모바일에서 위치 조정 */
-    right: 20px;
+    display: none; /* 모바일에서는 카카오톡 플로팅 버튼 숨김 */
   }
 
-  .kakao-floating-button svg {
-    width: 30px;
-    height: 30px;
-  }
-
-  /* 모바일에서만 전화걸기 버튼 표시 */
-  .call-floating-button {
-    display: flex;
+  .more-options-button {
+    display: flex; /* 모바일에서만 더보기 버튼 표시 */
     width: 50px;
     height: 50px;
     bottom: 20px;
-    right: 20px; /* 카카오톡 버튼과 동일한 가로 위치 */
+    right: 20px;
   }
 
-  .call-floating-button svg {
-    width: 26px;
-    height: 26px;
+  .more-options-button svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .mobile-options-menu {
+    bottom: 90px;
+    right: 20px;
+  }
+
+  .option-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .option-icon svg {
+    width: 24px;
+    height: 24px;
   }
 
   /* 스크롤 버튼이 표시될 때 버튼들 위치 조정 */
-  .scroll-top-button.visible ~ .kakao-floating-button {
-    bottom: 140px; /* 스크롤 버튼이 있을 때 위로 올림 */
+  .scroll-top-button.visible ~ .more-options-button {
+    bottom: 80px;
   }
 
-  .scroll-top-button.visible ~ .call-floating-button {
-    bottom: 80px; /* 스크롤 버튼이 있을 때 위로 올림 */
+  .scroll-top-button.visible ~ .mobile-options-menu {
+    bottom: 150px;
   }
 }
 
