@@ -86,14 +86,14 @@ const boxSpecs: BoxSpecTable[] = [
 // 아이스 박스 규격 2 테이블 데이터
 const boxSpecs2: BoxSpecTable[] = [
   {
-    title: '정육박스 (통절/간없음)',
+    title: '정육박스 (통형/칸없음)',
     specs: [
       { name: '갈비2kg', outer: '305*250*145', inner: '250*203*115', quantity: '28*' },
       { name: 'LA-2KG', outer: '330*270*170', inner: '285*225*128', quantity: '28*' },
     ],
   },
   {
-    title: '정육박스 (간있음/간형)',
+    title: '정육박스 (칸있음/칸형)',
     specs: [
       { name: '갈비3kg (3칸)', outer: '445*240*155', inner: '175*120*55 (1칸)', quantity: '10*' },
       { name: '갈비4kg (4칸)', outer: '430*310*145', inner: '175*120*55 (1칸)', quantity: '10*' },
@@ -121,7 +121,7 @@ const boxSpecs2: BoxSpecTable[] = [
     ],
   },
   {
-    title: '등바구니 박스 (턱있음/등제반용)',
+    title: '등바구니 박스 (턱있음/등채반용)',
     specs: [
       { name: '등바구니 2kg', outer: '425*300*150', inner: '375*245*90', quantity: '10*' },
       { name: '등바구니 3kg(소)', outer: '460*340*145', inner: '415*295*95', quantity: '10*' },
@@ -131,7 +131,7 @@ const boxSpecs2: BoxSpecTable[] = [
     ],
   },
   {
-    title: '정육박스 (통절/간없음)',
+    title: '정육박스 (통형/칸없음)',
     specs: [
       { name: 'T-5', outer: '375*290*140', inner: '335*250*75+25', quantity: '12*' },
       { name: 'T5-1 (T5보다높음)', outer: '385*300*160', inner: '340*255*85+25', quantity: '12*' },
@@ -149,14 +149,14 @@ const boxSpecs2: BoxSpecTable[] = [
     specs: [
       { name: '사각 통형 박스 소', outer: '260*282*170', inner: '230*252*140', quantity: '16*' },
       { name: '사각 통형박스 대', outer: '470*260*170', inner: '440*230*140', quantity: '16*' },
-      { name: '통형박스 소 (간없음)', outer: '350*225*225', inner: '310*190*170', quantity: '16*' },
+      { name: '통형박스 소 (칸없음)', outer: '350*225*225', inner: '310*190*170', quantity: '16*' },
       {
         name: '통형박스 소 (세로칸없음)',
         outer: '350*225*225',
         inner: '310*190*170',
         quantity: '10*',
       },
-      { name: '통형박스 대 (간없음)', outer: '350*225*265', inner: '310*187*210', quantity: '10*' },
+      { name: '통형박스 대 (칸없음)', outer: '350*225*265', inner: '310*187*210', quantity: '10*' },
       {
         name: '통형박스 대 (세로칸없음)',
         outer: '350*225*265',
