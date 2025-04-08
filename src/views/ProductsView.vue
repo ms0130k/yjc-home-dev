@@ -854,6 +854,8 @@ defineComponent({
 .box-specs-view {
   padding-top: 80px;
   min-height: 100vh;
+  position: relative;
+  z-index: 1; /* 헤더의 z-index 1000보다 낮게 설정 */
 }
 
 .box-specs-banner {
@@ -898,6 +900,10 @@ defineComponent({
   display: flex;
   border-bottom: 1px solid #ddd;
   margin-bottom: 30px;
+  overflow-x: auto; /* 모바일에서 가로 스크롤 가능하도록 */
+  -webkit-overflow-scrolling: touch; /* iOS에서 부드러운 스크롤을 위해 */
+  white-space: nowrap; /* 탭이 한 줄에 표시되도록 */
+  padding-bottom: 5px; /* 스크롤바 공간 확보 */
 }
 
 .tab-button {
@@ -1214,5 +1220,40 @@ defineComponent({
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 8px;
+}
+
+/* 모바일 반응형 스타일 추가 */
+@media (max-width: 968px) {
+  .box-specs-tabs {
+    padding-bottom: 10px;
+  }
+
+  .tab-button {
+    padding: 10px 15px;
+    min-height: 60px;
+    min-width: 120px; /* 모바일에서 최소 너비 설정 */
+  }
+
+  .box-specs-banner {
+    height: 200px;
+  }
+
+  .banner-title {
+    font-size: 32px;
+  }
+
+  .electronics-image-container,
+  .damage-prevention-image-container,
+  .packaging-pad-image-container {
+    width: 100%;
+    height: 300px;
+  }
+
+  .electronics-images,
+  .damage-prevention-images,
+  .packaging-pad-images {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 </style>

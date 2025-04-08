@@ -649,6 +649,8 @@ watch(
 .search-view {
   padding-top: 80px;
   min-height: 100vh;
+  position: relative;
+  z-index: 1; /* 헤더의 z-index 1000보다 낮게 설정 */
 }
 
 .search-banner {
@@ -1009,5 +1011,73 @@ watch(
 .page-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* 엑셀 내보내기 버튼 스타일 */
+.export-button {
+  float: right;
+  background-color: #217346; /* Excel 색상 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.2s;
+}
+
+.export-button:hover {
+  background-color: #185c36;
+}
+
+.export-icon {
+  font-size: 16px;
+}
+
+@media (max-width: 968px) {
+  .search-banner {
+    height: 180px;
+  }
+
+  .banner-title {
+    font-size: 32px;
+  }
+
+  .sort-left-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .sort-dimensions {
+    flex-wrap: wrap;
+  }
+
+  .dimension-values,
+  .dimension-header {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .export-button {
+    float: none;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .result-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tolerance-info,
+  .sort-info {
+    margin-left: 0;
+    margin-top: 5px;
+  }
 }
 </style>
