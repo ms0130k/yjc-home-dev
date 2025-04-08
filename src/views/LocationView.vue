@@ -32,11 +32,11 @@ const mapLoaded = ref(false)
 onMounted(() => {
   // 카카오맵 API 스크립트 동적 로드
   const script = document.createElement('script')
-  script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=9d08a56f06c2c243b6c6fb02a22b3957&autoload=false`
+  script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=a5ef8f3b9321b2b00dfe51aabebccb35&autoload=false`
   script.async = true
 
   script.onload = () => {
-    window.kakao.maps.load(() => {
+    kakao.maps.load(() => {
       initializeMap()
       mapLoaded.value = true
     })
@@ -51,22 +51,21 @@ const initializeMap = () => {
   if (!container) return // 컨테이너가 없으면 초기화하지 않음
 
   const options = {
-    center: new window.kakao.maps.LatLng(companyLocation.lat, companyLocation.lng),
+    center: new kakao.maps.LatLng(companyLocation.lat, companyLocation.lng),
     level: 3,
   }
-
-  const map = new window.kakao.maps.Map(container, options)
+  const map = new kakao.maps.Map(container, options);
 
   // 마커 추가
-  const markerPosition = new window.kakao.maps.LatLng(companyLocation.lat, companyLocation.lng)
-  const marker = new window.kakao.maps.Marker({
+  const markerPosition = new kakao.maps.LatLng(companyLocation.lat, companyLocation.lng)
+  const marker = new kakao.maps.Marker({
     position: markerPosition,
   })
   marker.setMap(map)
 
   // 인포윈도우 추가
   const infoContent = `<div style="padding:10px;width:200px;text-align:center;"><strong>${companyLocation.name}</strong></div>`
-  const infoWindow = new window.kakao.maps.InfoWindow({
+  const infoWindow = new kakao.maps.InfoWindow({
     content: infoContent,
   })
   infoWindow.open(map, marker)
