@@ -19,10 +19,11 @@ declare global {
 // 회사 위치 정보
 const companyLocation = {
   name: '영진화학',
-  address: '경기도 김포시 양촌읍 황금로 117번길',
+  address: '경기도 김포시 대곶면 대곶로 202번길 215 (송마리 245-1)',
   phone: '031-997-0280',
-  lat: 37.6503, // 카카오맵에서 확인한 위도 (예시 값이므로 실제 위치로 변경 필요)
-  lng: 126.6225, // 카카오맵에서 확인한 경도 (예시 값이므로 실제 위치로 변경 필요)
+  email: 'yjin6038@hanmail.net',
+  lat: 37.640739, // 김포시 대곶면 송마리 근처 위도 좌표
+  lng: 126.578385, // 김포시 대곶면 송마리 근처 경도 좌표
 }
 
 const mapLoaded = ref(false)
@@ -31,7 +32,7 @@ const mapLoaded = ref(false)
 onMounted(() => {
   // 카카오맵 API 스크립트 동적 로드
   const script = document.createElement('script')
-  script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=KAKAO_MAP_API_KEY&autoload=false`
+  script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=9d08a56f06c2c243b6c6fb02a22b3957&autoload=false`
   script.async = true
 
   script.onload = () => {
@@ -47,6 +48,8 @@ onMounted(() => {
 // 지도 초기화 함수
 const initializeMap = () => {
   const container = document.getElementById('company-map')
+  if (!container) return // 컨테이너가 없으면 초기화하지 않음
+
   const options = {
     center: new window.kakao.maps.LatLng(companyLocation.lat, companyLocation.lng),
     level: 3,
@@ -68,6 +71,29 @@ const initializeMap = () => {
   })
   infoWindow.open(map, marker)
 }
+
+// 클립보드 복사 함수
+const copyToClipboard = (text: string) => {
+  if (navigator && navigator.clipboard) {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        alert('주소가 클립보드에 복사되었습니다.')
+      })
+      .catch((err) => {
+        console.error('클립보드 복사 실패:', err)
+      })
+  } else {
+    // 대체 방법: 임시 input 요소 사용
+    const tempInput = document.createElement('input')
+    tempInput.value = text
+    document.body.appendChild(tempInput)
+    tempInput.select()
+    document.execCommand('copy')
+    document.body.removeChild(tempInput)
+    alert('주소가 클립보드에 복사되었습니다.')
+  }
+}
 </script>
 
 <template>
@@ -87,10 +113,7 @@ const initializeMap = () => {
           <div class="info-item">
             <h3 class="info-title">주소</h3>
             <p class="info-content">{{ companyLocation.address }}</p>
-            <button
-              class="copy-button"
-              @click="window.navigator.clipboard.writeText(companyLocation.address)"
-            >
+            <button class="copy-button" @click="copyToClipboard(companyLocation.address)">
               주소 복사
             </button>
           </div>
@@ -98,6 +121,11 @@ const initializeMap = () => {
           <div class="info-item">
             <h3 class="info-title">연락처</h3>
             <p class="info-content">{{ companyLocation.phone }}</p>
+          </div>
+
+          <div class="info-item">
+            <h3 class="info-title">이메일</h3>
+            <p class="info-content">{{ companyLocation.email }}</p>
           </div>
 
           <div class="info-item">
@@ -126,11 +154,11 @@ const initializeMap = () => {
           <div class="transport-card">
             <h3 class="transport-title">자가용 이용 시</h3>
             <div class="transport-content">
-              <p><strong>경기 서북부에서 오실 경우:</strong></p>
-              <p>김포한강로(37번국도) → 양촌읍 방향 → 황금로 117번길</p>
-
               <p><strong>서울에서 오실 경우:</strong></p>
-              <p>올림픽대로 → 김포IC → 김포한강로 → 양촌읍 방향 → 황금로 117번길</p>
+              <p>서울외곽순환도로 → 김포IC → 48번국도 → 대곶면 방향 → 대곶로 202번길</p>
+
+              <p><strong>인천에서 오실 경우:</strong></p>
+              <p>올림픽대로 → 김포대교 → 48번국도 → 대곶면 방향 → 대곶로 202번길</p>
             </div>
           </div>
 
@@ -138,10 +166,10 @@ const initializeMap = () => {
             <h3 class="transport-title">대중교통 이용 시</h3>
             <div class="transport-content">
               <p><strong>지하철:</strong></p>
-              <p>김포골드라인 '양촌역' 하차 → 버스 환승 → '영진화학' 하차</p>
+              <p>김포골드라인 '김포공항역' 하차 → 버스 환승(60번, 70번) → '대곶면' 하차</p>
 
               <p><strong>버스:</strong></p>
-              <p>김포버스터미널에서 60번, 70번 버스 이용 → '양촌읍' 하차 → 도보 10분</p>
+              <p>김포버스터미널에서 대곶면 방면 버스 이용 → '대곶면사무소' 하차 → 택시 이용</p>
             </div>
           </div>
         </div>
