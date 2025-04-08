@@ -1,16 +1,11 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { defineComponent } from 'vue'
 
 const router = useRouter()
 
 const navigateTo = (path: string) => {
   router.push(path)
 }
-
-defineComponent({
-  name: 'AppHeader',
-})
 </script>
 
 <template>
@@ -25,7 +20,7 @@ defineComponent({
       <nav class="main-menu">
         <ul>
           <li class="menu-item">
-            <a href="/company" @click.prevent="navigateTo('/company')">회사소개</a>
+            <a href="/about" @click.prevent="navigateTo('/about')">회사소개</a>
             <span class="menu-underline"></span>
           </li>
           <li class="menu-item">
