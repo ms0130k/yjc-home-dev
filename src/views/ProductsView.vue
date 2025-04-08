@@ -752,6 +752,69 @@ defineComponent({
             </table>
           </div>
         </div>
+
+        <div v-else-if="activeTab === 'electronics-protection'" class="tab-content">
+          <div class="electronics-protection-content">
+            <div class="electronics-images">
+              <div class="electronics-image-container">
+                <img
+                  src="/src/assets/images/break/전자제품1.jpeg"
+                  alt="전자제품 파손방지 이미지1"
+                  class="electronics-image"
+                />
+              </div>
+              <div class="electronics-image-container">
+                <img
+                  src="/src/assets/images/break/전자제품2.jpeg"
+                  alt="전자제품 파손방지 이미지2"
+                  class="electronics-image"
+                />
+              </div>
+            </div>
+
+            <div class="electronics-description">
+              <h3>전자제품 파손방지</h3>
+              <p>금형제작/제품생산</p>
+              <p>TV/공기청정기/청소기등</p>
+              <p>생산문의 031-997-0280</p>
+            </div>
+          </div>
+        </div>
+
+        <div v-else-if="activeTab === 'damage-prevention'" class="tab-content">
+          <div class="damage-prevention-content">
+            <div class="damage-prevention-images">
+              <div class="damage-prevention-image-container">
+                <img
+                  src="/src/assets/images/break/스티로폼1.jpeg"
+                  alt="파손방지 스티로폼 이미지1"
+                  class="damage-prevention-image"
+                />
+              </div>
+              <div class="damage-prevention-image-container">
+                <img
+                  src="/src/assets/images/break/스티로폼2.jpeg"
+                  alt="파손방지 스티로폼 이미지2"
+                  class="damage-prevention-image"
+                />
+              </div>
+              <div class="damage-prevention-image-container">
+                <img
+                  src="/src/assets/images/break/스티로폼3.jpeg"
+                  alt="파손방지 스티로폼 이미지3"
+                  class="damage-prevention-image"
+                />
+              </div>
+            </div>
+
+            <div class="damage-prevention-description">
+              <h3>파손방지 스티로폼</h3>
+              <p>맞춤형 스티로폼 제작</p>
+              <p>가전제품/유리제품/가구제품 등</p>
+              <p>생산문의 031-997-0280</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -981,5 +1044,94 @@ defineComponent({
 .specs-table th:nth-child(6),
 .specs-table td:nth-child(6) {
   width: 15%;
+}
+
+/* 전자제품 파손방지 스타일 */
+.electronics-protection-content {
+  padding: 20px 0;
+}
+
+.electronics-images {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 30px 0;
+}
+
+.electronics-image-container {
+  width: 450px;
+  height: 450px;
+  overflow: hidden;
+}
+
+.electronics-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.electronics-description {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.electronics-description h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.electronics-description p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+/* 파손방지 스티로폼 스타일 */
+.damage-prevention-content {
+  padding: 20px 0;
+}
+
+.damage-prevention-images {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.damage-prevention-image-container {
+  width: 350px;
+  height: 350px;
+  overflow: hidden;
+}
+
+.damage-prevention-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.damage-prevention-description {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.damage-prevention-description h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.damage-prevention-description p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 8px;
 }
 </style>
