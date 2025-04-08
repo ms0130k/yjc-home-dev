@@ -14,6 +14,7 @@ interface ProductItem {
   innerWidth: string
   innerDepth: string
   innerHeight: string
+  [key: string]: string // 인덱스 타입 추가
 }
 
 interface SearchFilters {
@@ -24,6 +25,12 @@ interface SearchFilters {
   outerWidth: string
   outerDepth: string
   outerHeight: string
+}
+
+interface SortDirections {
+  width: 'asc' | 'desc' | 'none'
+  depth: 'asc' | 'desc' | 'none'
+  height: 'asc' | 'desc' | 'none'
 }
 
 const products = ref<ProductItem[]>([])
@@ -42,6 +49,43 @@ const tolerance = ref<number>(0)
 const filteredProducts = ref<ProductItem[]>([])
 const selectedCategory = ref<string>('all')
 const categories = ref<string[]>([])
+const sortDimension = ref<'inner' | 'outer'>('inner') // 내경/외경 정렬 기준
+const sortDirections = ref<SortDirections>({
+  width: 'none',
+  depth: 'none',
+  height: 'none',
+})
+
+// 추가 데이터
+const currentPage = ref(1)
+const itemsPerPage = 20
+
+// 페이지네이션 관련 계산 속성
+const totalPages = computed(() => Math.ceil(filteredProducts.value.length / itemsPerPage))
+const paginatedProducts = computed(() => {
+  const startIndex = (currentPage.value - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  return filteredProducts.value.slice(startIndex, endIndex)
+})
+
+// 페이지 변경 함수
+const goToPage = (page: number) => {
+  if (page >= 1 && page <= totalPages.value) {
+    currentPage.value = page
+  }
+}
+
+// 정렬 방향 설정 함수
+const setSortDirection = (dimension: 'width' | 'depth' | 'height', direction: 'asc' | 'desc') => {
+  // 같은 방향을 다시 클릭하면 정렬 해제
+  if (sortDirections.value[dimension] === direction) {
+    sortDirections.value[dimension] = 'none'
+  } else {
+    // 반대 방향이 활성화되어 있었다면 해제하고 현재 방향 활성화
+    sortDirections.value[dimension] = direction
+  }
+  applyFilters()
+}
 
 onMounted(async () => {
   try {
@@ -88,6 +132,46 @@ const sortByDefault = (items: ProductItem[]) => {
   })
 }
 
+// 커스텀 정렬 함수: 선택한 내경/외경 기준으로 정렬
+const sortByDimensions = (items: ProductItem[]) => {
+  return [...items].sort((a, b) => {
+    // 정렬 기준 확인 (내경 또는 외경)
+    const prefix = sortDimension.value === 'inner' ? 'inner' : 'outer'
+
+    // 가로 기준 정렬
+    if (sortDirections.value.width !== 'none') {
+      const widthA = Number(a[`${prefix}Width`] || 0)
+      const widthB = Number(b[`${prefix}Width`] || 0)
+      if (widthA !== widthB) {
+        return sortDirections.value.width === 'asc' ? widthA - widthB : widthB - widthA
+      }
+    }
+
+    // 세로 기준 정렬
+    if (sortDirections.value.depth !== 'none') {
+      const depthA = Number(a[`${prefix}Depth`] || 0)
+      const depthB = Number(b[`${prefix}Depth`] || 0)
+      if (depthA !== depthB) {
+        return sortDirections.value.depth === 'asc' ? depthA - depthB : depthB - depthA
+      }
+    }
+
+    // 높이 기준 정렬
+    if (sortDirections.value.height !== 'none') {
+      const heightA = Number(a[`${prefix}Height`] || 0)
+      const heightB = Number(b[`${prefix}Height`] || 0)
+      if (heightA !== heightB) {
+        return sortDirections.value.height === 'asc' ? heightA - heightB : heightB - heightA
+      }
+    }
+
+    // 기본 정렬 (분류 > 제품명 순)
+    const categoryCompare = a.mainCategory.localeCompare(b.mainCategory)
+    if (categoryCompare !== 0) return categoryCompare
+    return a.name.localeCompare(b.name)
+  })
+}
+
 // 오차 범위 내에 있는지 확인하는 함수
 const isWithinTolerance = (value: string, target: string, toleranceValue: number): boolean => {
   if (!value || !target || !toleranceValue) return false
@@ -116,6 +200,12 @@ const clearFilters = () => {
   }
   selectedCategory.value = 'all'
   tolerance.value = 0
+  sortDimension.value = 'inner'
+  sortDirections.value = {
+    width: 'none',
+    depth: 'none',
+    height: 'none',
+  }
 
   // 필터 초기화시 기본 정렬 적용
   filteredProducts.value = sortByDefault([...products.value])
@@ -185,8 +275,11 @@ const applyFilters = () => {
     )
   }
 
-  // 기본 정렬 적용
-  filteredProducts.value = sortByDefault(result)
+  // 정렬 적용
+  filteredProducts.value = sortByDimensions(result)
+
+  // 첫 페이지로 이동
+  currentPage.value = 1
 }
 
 const totalCount = computed(() => filteredProducts.value.length)
@@ -208,7 +301,7 @@ onMounted(() => {
 
 // 검색 필터 또는 카테고리가 변경될 때마다 필터 적용
 watch(
-  [searchFilters, selectedCategory, tolerance],
+  [searchFilters, selectedCategory, tolerance, sortDimension, sortDirections],
   () => {
     applyFilters()
   },
@@ -337,8 +430,92 @@ watch(
             </div>
           </div>
 
-          <div class="filter-actions">
-            <button @click="clearFilters" class="clear-button">조건 초기화</button>
+          <div class="filter-section">
+            <h3 class="filter-section-title">정렬</h3>
+            <div class="sorting-options">
+              <div class="sort-controls">
+                <div class="sort-left-group">
+                  <div class="dimension-radio">
+                    <label class="radio-label">
+                      <input type="radio" v-model="sortDimension" value="inner" /> 내경
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" v-model="sortDimension" value="outer" /> 외경
+                    </label>
+                  </div>
+
+                  <div class="sort-dimensions">
+                    <div class="sort-toggle-group">
+                      <span class="sort-label">가로</span>
+                      <div class="sort-buttons">
+                        <button
+                          @click="setSortDirection('width', 'asc')"
+                          class="sort-toggle"
+                          :class="{ active: sortDirections.width === 'asc' }"
+                          title="가로 오름차순"
+                        >
+                          ▲
+                        </button>
+                        <button
+                          @click="setSortDirection('width', 'desc')"
+                          class="sort-toggle"
+                          :class="{ active: sortDirections.width === 'desc' }"
+                          title="가로 내림차순"
+                        >
+                          ▼
+                        </button>
+                      </div>
+                    </div>
+                    <div class="sort-toggle-group">
+                      <span class="sort-label">세로</span>
+                      <div class="sort-buttons">
+                        <button
+                          @click="setSortDirection('depth', 'asc')"
+                          class="sort-toggle"
+                          :class="{ active: sortDirections.depth === 'asc' }"
+                          title="세로 오름차순"
+                        >
+                          ▲
+                        </button>
+                        <button
+                          @click="setSortDirection('depth', 'desc')"
+                          class="sort-toggle"
+                          :class="{ active: sortDirections.depth === 'desc' }"
+                          title="세로 내림차순"
+                        >
+                          ▼
+                        </button>
+                      </div>
+                    </div>
+                    <div class="sort-toggle-group">
+                      <span class="sort-label">높이</span>
+                      <div class="sort-buttons">
+                        <button
+                          @click="setSortDirection('height', 'asc')"
+                          class="sort-toggle"
+                          :class="{ active: sortDirections.height === 'asc' }"
+                          title="높이 오름차순"
+                        >
+                          ▲
+                        </button>
+                        <button
+                          @click="setSortDirection('height', 'desc')"
+                          class="sort-toggle"
+                          :class="{ active: sortDirections.height === 'desc' }"
+                          title="높이 내림차순"
+                        >
+                          ▼
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="filter-actions">
+                  <button @click="clearFilters" class="clear-button">조건 초기화</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -355,6 +532,28 @@ watch(
             검색 결과: <strong>{{ totalCount }}개</strong>의 제품이 검색되었습니다.
             <span v-if="tolerance > 0" class="tolerance-info">
               (±{{ tolerance }} 오차범위 적용)
+            </span>
+            <span
+              v-if="
+                sortDirections.width !== 'none' ||
+                sortDirections.depth !== 'none' ||
+                sortDirections.height !== 'none'
+              "
+              class="sort-info"
+            >
+              [{{ sortDimension === 'inner' ? '내경' : '외경' }} 기준
+              <template v-if="sortDirections.width !== 'none'">
+                가로 {{ sortDirections.width === 'asc' ? '▲' : '▼' }}
+              </template>
+              <template v-if="sortDirections.depth !== 'none'">
+                {{ sortDirections.width !== 'none' ? ',' : '' }} 세로
+                {{ sortDirections.depth === 'asc' ? '▲' : '▼' }}
+              </template>
+              <template v-if="sortDirections.height !== 'none'">
+                {{ sortDirections.width !== 'none' || sortDirections.depth !== 'none' ? ',' : '' }}
+                높이 {{ sortDirections.height === 'asc' ? '▲' : '▼' }}
+              </template>
+              ]
             </span>
           </div>
 
@@ -387,8 +586,8 @@ watch(
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(product, index) in filteredProducts" :key="index">
-                  <td>{{ index + 1 }}</td>
+                <tr v-for="(product, index) in paginatedProducts" :key="index">
+                  <td>{{ (currentPage - 1) * itemsPerPage + index + 1 }}</td>
                   <td>{{ product.mainCategory }}</td>
                   <td>{{ product.name }}</td>
                   <td class="dimensions-cell">
@@ -409,6 +608,37 @@ watch(
                 </tr>
               </tbody>
             </table>
+
+            <!-- 페이지네이션 추가 -->
+            <div v-if="totalPages > 1" class="pagination">
+              <button
+                @click="goToPage(currentPage - 1)"
+                class="page-button"
+                :disabled="currentPage === 1"
+              >
+                이전
+              </button>
+
+              <div class="page-numbers">
+                <button
+                  v-for="page in totalPages"
+                  :key="page"
+                  @click="goToPage(page)"
+                  class="page-number"
+                  :class="{ active: currentPage === page }"
+                >
+                  {{ page }}
+                </button>
+              </div>
+
+              <button
+                @click="goToPage(currentPage + 1)"
+                class="page-button"
+                :disabled="currentPage === totalPages"
+              >
+                다음
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -546,7 +776,8 @@ watch(
   color: #555;
 }
 
-.tolerance-info {
+.tolerance-info,
+.sort-info {
   margin-left: 10px;
   color: #0c4da2;
   font-weight: 500;
@@ -574,13 +805,12 @@ watch(
 .products-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
 }
 
 .products-table th,
 .products-table td {
   border: 1px solid #ddd;
-  padding: 12px 15px;
+  padding: 6px 10px;
   text-align: center;
 }
 
@@ -600,7 +830,7 @@ watch(
 }
 
 .dimensions-cell {
-  padding: 8px 5px;
+  padding: 4px 5px;
 }
 
 .products-table th {
@@ -617,6 +847,87 @@ watch(
   background-color: #f0f0f0;
 }
 
+/* 정렬 기능 관련 스타일 수정 */
+.sort-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.sort-left-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dimension-radio {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sort-dimensions {
+  display: flex;
+  gap: 15px;
+}
+
+.sort-toggle-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sort-label {
+  font-size: 14px;
+  color: #555;
+  min-width: 30px;
+}
+
+.sort-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.sort-toggle {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  padding: 0;
+  transition: all 0.2s;
+  color: #aaa;
+}
+
+.sort-toggle:hover {
+  background-color: #f0f0f0;
+}
+
+.sort-toggle.active {
+  background-color: #e0e8f0;
+  color: #0c4da2;
+  font-weight: bold;
+}
+
+.filter-actions {
+  margin-top: 0;
+}
+
 @media (max-width: 768px) {
   .filter-row {
     flex-direction: column;
@@ -629,5 +940,75 @@ watch(
   .search-filters {
     padding: 15px;
   }
+
+  .sort-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+  }
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 5px;
+}
+
+.page-number {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.page-number:hover:not(.active) {
+  background-color: #f0f0f0;
+}
+
+.page-number.active {
+  background-color: #0c4da2;
+  color: white;
+  border-color: #0c4da2;
+}
+
+.page-button {
+  padding: 0 10px;
+  height: 32px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.page-button:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+.page-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 </style>
