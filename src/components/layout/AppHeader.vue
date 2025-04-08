@@ -91,6 +91,15 @@ onUnmounted(() => {
 
       <!-- 모바일 메뉴 드로어 -->
       <nav class="mobile-menu" :class="{ open: isMobileMenuOpen }">
+        <div class="mobile-menu-header">
+          <button class="close-button" @click="toggleMobileMenu" aria-label="메뉴 닫기">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path
+                d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59 7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12 5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+              />
+            </svg>
+          </button>
+        </div>
         <ul class="mobile-menu-items">
           <li class="mobile-menu-item">
             <a href="/about" @click.prevent="navigateTo('/about')">회사소개</a>
@@ -127,6 +136,15 @@ onUnmounted(() => {
       <path
         d="M12,2.772c-5.523,0-10,3.53-10,7.885,0,2.815,1.872,5.285,4.687,6.68-.153.528-.984,3.4-1.017,3.624,0,0-.02.169.09.234A.3.3,0,0,0,6,21.209c.315-.043,3.649-2.385,4.226-2.792A12.608,12.608,0,0,0,12,18.541c5.523,0,10-3.53,10-7.884S17.523,2.772,12,2.772ZM7.048,12.858a.578.578,0,0,1-1.154,0V9.431h-.9a.565.565,0,1,1,0-1.13H7.948a.565.565,0,1,1,0,1.13h-.9Zm4.849.464a.875.875,0,0,1-.367.079.472.472,0,0,1-.48-.254l-.286-.748H9.005l-.286.748a.472.472,0,0,1-.48.254.874.874,0,0,1-.366-.079c-.159-.074-.312-.275-.137-.819L9.116,8.87a.8.8,0,0,1,1.538,0L12.033,12.5C12.209,13.047,12.056,13.249,11.9,13.322Zm2.916,0H12.962a.542.542,0,0,1-.553-.529V8.878a.589.589,0,0,1,1.178,0v3.389h1.226a.529.529,0,1,1,0,1.058Zm4.292-.054a.566.566,0,0,1-.347.116.573.573,0,0,1-.461-.229l-1.353-1.793-.2.2v1.259a.577.577,0,0,1-1.154,0V8.878a.577.577,0,0,1,1.154,0v1.24l1.609-1.61a.448.448,0,0,1,.32-.128.584.584,0,0,1,.567.536.451.451,0,0,1-.127.351L17.8,10.582l1.42,1.881a.577.577,0,0,1-.113.808ZM9.885,9.74l.576,1.637H9.308Z"
       ></path>
+    </svg>
+  </a>
+
+  <!-- 전화걸기 플로팅 배너 -->
+  <a href="tel:031-997-0280" class="call-floating-button" title="전화 문의하기">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+      />
     </svg>
   </a>
 
@@ -294,16 +312,48 @@ onUnmounted(() => {
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   transition: right 0.3s ease;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-menu.open {
   right: 0;
 }
 
+.mobile-menu-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.close-button:hover {
+  background-color: #f5f5f5;
+}
+
+.close-button svg {
+  fill: #333;
+}
+
 .mobile-menu-items {
   list-style: none;
-  padding: 80px 0 0 0;
+  padding: 10px 0 0 0;
   margin: 0;
+  flex: 1;
 }
 
 .mobile-menu-item {
@@ -338,7 +388,7 @@ onUnmounted(() => {
 /* 카카오톡 플로팅 배너 스타일 */
 .kakao-floating-button {
   position: fixed;
-  bottom: 30px;
+  bottom: 100px; /* 위치 조정 */
   right: 30px;
   width: 60px;
   height: 60px;
@@ -367,18 +417,73 @@ onUnmounted(() => {
   fill: #000000;
 }
 
+/* 전화걸기 플로팅 배너 스타일 */
+.call-floating-button {
+  position: fixed;
+  bottom: 30px; /* 카카오 버튼 아래로 위치 변경 */
+  right: 30px; /* 카카오 버튼과 동일한 가로 위치 */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #4caf50; /* 녹색 배경 */
+  display: none; /* 기본적으로 숨김 */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  padding: 0;
+  border: none;
+}
+
+.call-floating-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.call-floating-button svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+
 /* 모바일에서 크기 조정 */
 @media (max-width: 768px) {
   .kakao-floating-button {
     width: 50px;
     height: 50px;
-    bottom: 20px;
+    bottom: 80px; /* 모바일에서 위치 조정 */
     right: 20px;
   }
 
   .kakao-floating-button svg {
     width: 30px;
     height: 30px;
+  }
+
+  /* 모바일에서만 전화걸기 버튼 표시 */
+  .call-floating-button {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px; /* 카카오톡 버튼과 동일한 가로 위치 */
+  }
+
+  .call-floating-button svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* 스크롤 버튼이 표시될 때 버튼들 위치 조정 */
+  .scroll-top-button.visible ~ .kakao-floating-button {
+    bottom: 140px; /* 스크롤 버튼이 있을 때 위로 올림 */
+  }
+
+  .scroll-top-button.visible ~ .call-floating-button {
+    bottom: 80px; /* 스크롤 버튼이 있을 때 위로 올림 */
   }
 }
 
@@ -423,11 +528,6 @@ onUnmounted(() => {
   background-color: #f5f5f5;
 }
 
-/* 스크롤 버튼이 표시될 때 카카오 버튼 위치 조정 */
-.scroll-top-button.visible + .kakao-floating-button {
-  bottom: 100px;
-}
-
 /* 모바일에서 크기와 위치 조정 */
 @media (max-width: 768px) {
   .scroll-top-button {
@@ -440,10 +540,6 @@ onUnmounted(() => {
   .scroll-top-button svg {
     width: 20px;
     height: 20px;
-  }
-
-  .scroll-top-button.visible + .kakao-floating-button {
-    bottom: 80px;
   }
 }
 </style>
