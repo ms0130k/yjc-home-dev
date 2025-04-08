@@ -38,17 +38,18 @@ const searchFilters = ref<SearchFilters>({
   outerDepth: '',
   outerHeight: '',
 })
+const tolerance = ref<number>(0)
 const filteredProducts = ref<ProductItem[]>([])
 const selectedCategory = ref<string>('all')
 const categories = ref<string[]>([])
-const sortBy = ref<string>('name')
-const sortDirection = ref<'asc' | 'desc'>('asc')
 
 onMounted(async () => {
   try {
     const response = await axios.get('/yjc-data.json')
     products.value = response.data
-    filteredProducts.value = response.data
+
+    // 정렬된 데이터 설정
+    filteredProducts.value = sortByDefault([...response.data])
 
     // 카테고리 목록 추출
     const uniqueCategories = new Set<string>()
@@ -67,10 +68,42 @@ onMounted(async () => {
   }
 })
 
-const searchProducts = () => {
-  applyFilters()
+// 기본 정렬 함수: 분류 > 제품명 > 외경 > 내경 순
+const sortByDefault = (items: ProductItem[]) => {
+  return [...items].sort((a, b) => {
+    // 1. 분류 기준 정렬
+    const categoryCompare = a.mainCategory.localeCompare(b.mainCategory)
+    if (categoryCompare !== 0) return categoryCompare
+
+    // 2. 제품명 기준 정렬
+    const nameCompare = a.name.localeCompare(b.name)
+    if (nameCompare !== 0) return nameCompare
+
+    // 3. 외경 기준 정렬
+    const outerCompare = a.outer.localeCompare(b.outer)
+    if (outerCompare !== 0) return outerCompare
+
+    // 4. 내경 기준 정렬
+    return a.inner.localeCompare(b.inner)
+  })
 }
 
+// 오차 범위 내에 있는지 확인하는 함수
+const isWithinTolerance = (value: string, target: string, toleranceValue: number): boolean => {
+  if (!value || !target || !toleranceValue) return false
+
+  // 숫자가 아닌 경우 문자열 비교
+  if (isNaN(Number(value)) || isNaN(Number(target))) {
+    return value.includes(target)
+  }
+
+  const valueNum = Number(value)
+  const targetNum = Number(target)
+
+  return valueNum >= targetNum - toleranceValue && valueNum <= targetNum + toleranceValue
+}
+
+// 필터 초기화 함수
 const clearFilters = () => {
   searchFilters.value = {
     name: '',
@@ -82,7 +115,10 @@ const clearFilters = () => {
     outerHeight: '',
   }
   selectedCategory.value = 'all'
-  applyFilters()
+  tolerance.value = 0
+
+  // 필터 초기화시 기본 정렬 적용
+  filteredProducts.value = sortByDefault([...products.value])
 }
 
 const applyFilters = () => {
@@ -99,89 +135,58 @@ const applyFilters = () => {
     result = result.filter((product) => product.name.toLowerCase().includes(nameKeyword))
   }
 
-  // 내경 필터링
+  // 내경 필터링 (오차 범위 적용)
   if (searchFilters.value.innerWidth.trim()) {
     result = result.filter((product) =>
-      product.innerWidth?.includes(searchFilters.value.innerWidth),
+      tolerance.value > 0
+        ? isWithinTolerance(product.innerWidth, searchFilters.value.innerWidth, tolerance.value)
+        : product.innerWidth?.includes(searchFilters.value.innerWidth),
     )
   }
 
   if (searchFilters.value.innerDepth.trim()) {
     result = result.filter((product) =>
-      product.innerDepth?.includes(searchFilters.value.innerDepth),
+      tolerance.value > 0
+        ? isWithinTolerance(product.innerDepth, searchFilters.value.innerDepth, tolerance.value)
+        : product.innerDepth?.includes(searchFilters.value.innerDepth),
     )
   }
 
   if (searchFilters.value.innerHeight.trim()) {
     result = result.filter((product) =>
-      product.innerHeight?.includes(searchFilters.value.innerHeight),
+      tolerance.value > 0
+        ? isWithinTolerance(product.innerHeight, searchFilters.value.innerHeight, tolerance.value)
+        : product.innerHeight?.includes(searchFilters.value.innerHeight),
     )
   }
 
-  // 외경 필터링
+  // 외경 필터링 (오차 범위 적용)
   if (searchFilters.value.outerWidth.trim()) {
     result = result.filter((product) =>
-      product.outerWidth?.includes(searchFilters.value.outerWidth),
+      tolerance.value > 0
+        ? isWithinTolerance(product.outerWidth, searchFilters.value.outerWidth, tolerance.value)
+        : product.outerWidth?.includes(searchFilters.value.outerWidth),
     )
   }
 
   if (searchFilters.value.outerDepth.trim()) {
     result = result.filter((product) =>
-      product.outerDepth?.includes(searchFilters.value.outerDepth),
+      tolerance.value > 0
+        ? isWithinTolerance(product.outerDepth, searchFilters.value.outerDepth, tolerance.value)
+        : product.outerDepth?.includes(searchFilters.value.outerDepth),
     )
   }
 
   if (searchFilters.value.outerHeight.trim()) {
     result = result.filter((product) =>
-      product.outerHeight?.includes(searchFilters.value.outerHeight),
+      tolerance.value > 0
+        ? isWithinTolerance(product.outerHeight, searchFilters.value.outerHeight, tolerance.value)
+        : product.outerHeight?.includes(searchFilters.value.outerHeight),
     )
   }
 
-  // 정렬 적용
-  result = sortProducts(result)
-
-  filteredProducts.value = result
-}
-
-const sortProducts = (products: ProductItem[]) => {
-  return [...products].sort((a, b) => {
-    let valueA, valueB
-
-    switch (sortBy.value) {
-      case 'name':
-        valueA = a.name
-        valueB = b.name
-        break
-      case 'category':
-        valueA = a.mainCategory
-        valueB = b.mainCategory
-        break
-      case 'outer':
-        valueA = a.outer
-        valueB = b.outer
-        break
-      case 'inner':
-        valueA = a.inner
-        valueB = b.inner
-        break
-      default:
-        valueA = a.name
-        valueB = b.name
-    }
-
-    const compareResult = valueA.localeCompare(valueB)
-    return sortDirection.value === 'asc' ? compareResult : -compareResult
-  })
-}
-
-const toggleSort = (field: string) => {
-  if (sortBy.value === field) {
-    sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc'
-  } else {
-    sortBy.value = field
-    sortDirection.value = 'asc'
-  }
-  applyFilters()
+  // 기본 정렬 적용
+  filteredProducts.value = sortByDefault(result)
 }
 
 const totalCount = computed(() => filteredProducts.value.length)
@@ -203,7 +208,7 @@ onMounted(() => {
 
 // 검색 필터 또는 카테고리가 변경될 때마다 필터 적용
 watch(
-  [searchFilters, selectedCategory],
+  [searchFilters, selectedCategory, tolerance],
   () => {
     applyFilters()
   },
@@ -231,6 +236,18 @@ watch(
                 <option v-for="category in categories" :key="category" :value="category">
                   {{ category }}
                 </option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="tolerance-select">±오차범위</label>
+              <select id="tolerance-select" v-model="tolerance" class="filter-input">
+                <option :value="0">오차범위 없음</option>
+                <option :value="10">±10</option>
+                <option :value="20">±20</option>
+                <option :value="30">±30</option>
+                <option :value="40">±40</option>
+                <option :value="50">±50</option>
+                <option :value="60">±60</option>
               </select>
             </div>
           </div>
@@ -322,7 +339,6 @@ watch(
 
           <div class="filter-actions">
             <button @click="clearFilters" class="clear-button">조건 초기화</button>
-            <button @click="searchProducts" class="search-button">검색</button>
           </div>
         </div>
       </div>
@@ -337,6 +353,9 @@ watch(
         <div v-else>
           <div class="result-summary">
             검색 결과: <strong>{{ totalCount }}개</strong>의 제품이 검색되었습니다.
+            <span v-if="tolerance > 0" class="tolerance-info">
+              (±{{ tolerance }} 오차범위 적용)
+            </span>
           </div>
 
           <div v-if="filteredProducts.length === 0" class="no-results">검색 결과가 없습니다.</div>
@@ -346,18 +365,8 @@ watch(
               <thead>
                 <tr>
                   <th>순번</th>
-                  <th @click="toggleSort('category')" class="sortable-header">
-                    분류
-                    <span v-if="sortBy === 'category'" class="sort-icon">
-                      {{ sortDirection === 'asc' ? '▲' : '▼' }}
-                    </span>
-                  </th>
-                  <th @click="toggleSort('name')" class="sortable-header">
-                    제품명
-                    <span v-if="sortBy === 'name'" class="sort-icon">
-                      {{ sortDirection === 'asc' ? '▲' : '▼' }}
-                    </span>
-                  </th>
+                  <th>분류</th>
+                  <th>제품명</th>
                   <th>
                     내경
                     <div class="dimension-header">
@@ -531,25 +540,16 @@ watch(
   background-color: #e0e0e0;
 }
 
-.search-button {
-  background-color: #0c4da2;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.2s;
-}
-
-.search-button:hover {
-  background-color: #0a3c82;
-}
-
 .result-summary {
   margin-bottom: 15px;
   font-size: 16px;
   color: #555;
+}
+
+.tolerance-info {
+  margin-left: 10px;
+  color: #0c4da2;
+  font-weight: 500;
 }
 
 .loading-message,
@@ -607,21 +607,6 @@ watch(
   background-color: #f0f4f8;
   font-weight: bold;
   color: #333;
-}
-
-.sortable-header {
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.2s;
-}
-
-.sortable-header:hover {
-  background-color: #e0e8f0;
-}
-
-.sort-icon {
-  margin-left: 5px;
-  font-size: 12px;
 }
 
 .products-table tr:nth-child(even) {
