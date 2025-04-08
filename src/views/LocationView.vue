@@ -146,34 +146,6 @@ const copyToClipboard = (text: string) => {
         <p v-if="!mapLoaded" class="map-loading">지도를 불러오는 중입니다...</p>
       </section>
 
-      <!-- 교통편 안내 섹션 -->
-      <section class="transportation-section">
-        <h2 class="section-title">교통편 안내</h2>
-
-        <div class="transportation-cards">
-          <div class="transport-card">
-            <h3 class="transport-title">자가용 이용 시</h3>
-            <div class="transport-content">
-              <p><strong>서울에서 오실 경우:</strong></p>
-              <p>서울외곽순환도로 → 김포IC → 48번국도 → 대곶면 방향 → 대곶로 202번길</p>
-
-              <p><strong>인천에서 오실 경우:</strong></p>
-              <p>올림픽대로 → 김포대교 → 48번국도 → 대곶면 방향 → 대곶로 202번길</p>
-            </div>
-          </div>
-
-          <div class="transport-card">
-            <h3 class="transport-title">대중교통 이용 시</h3>
-            <div class="transport-content">
-              <p><strong>지하철:</strong></p>
-              <p>김포골드라인 '김포공항역' 하차 → 버스 환승(60번, 70번) → '대곶면' 하차</p>
-
-              <p><strong>버스:</strong></p>
-              <p>김포버스터미널에서 대곶면 방면 버스 이용 → '대곶면사무소' 하차 → 택시 이용</p>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   </main>
 </template>
