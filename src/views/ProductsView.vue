@@ -593,17 +593,14 @@ defineComponent({
             <table class="specs-table">
               <thead>
                 <tr>
-                  <th>품명</th>
-                  <th>사진</th>
+                  <th rowspan="2">품명</th>
+                  <th rowspan="2">사진</th>
                   <th colspan="2">규격</th>
-                  <th>한묶음 수량</th>
+                  <th rowspan="2">한묶음 수량</th>
                 </tr>
                 <tr>
-                  <th></th>
-                  <th></th>
                   <th>외경(mm)</th>
                   <th>내경(mm)</th>
-                  <th></th>
                 </tr>
               </thead>
               <tbody>
