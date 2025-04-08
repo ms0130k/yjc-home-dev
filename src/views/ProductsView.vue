@@ -565,7 +565,7 @@ defineComponent({
     <!-- 박스규격 이미지 영역 -->
     <div class="box-specs-banner">
       <div class="banner-content">
-        <h1 class="banner-title">영진화학 스티로폼 박스 규격표</h1>
+        <h1 class="banner-title">제품 안내</h1>
         <p class="banner-description">
           * 자세한 사항이나 기타 규격 문의는 전화 주시면 친절히 안내 드립니다.
         </p>
@@ -807,8 +807,8 @@ defineComponent({
             </div>
 
             <div class="damage-prevention-description">
-              <h3>각종 유리병  파손방지</h3>
-              <p>금형제작 /제품생산 </p>
+              <h3>각종 유리병 파손방지</h3>
+              <p>금형제작 /제품생산</p>
               <p>캔들/ 이유식/와인/ 오일병 파손방지</p>
             </div>
           </div>
@@ -841,9 +841,10 @@ defineComponent({
             </div>
 
             <div class="packaging-pad-description">
-              <h3>상품 파손 방지</h3>
-              <p>맞춤 사이즈 제작가능맞춤 사이즈 제작가능</p>
-              <p>유리/거울/목재 파손방지 </p>
+              <h3>각종 목재 유리 포장PAD</h3>
+              <p>목재/유리/거울 등 맞춤 사이즈 제작 가능</p>
+              <p>운송 중 파손 방지를 위한 최적의 포장 솔루션</p>
+              <p>문의: 054-975-5300</p>
             </div>
           </div>
         </div>
