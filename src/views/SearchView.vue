@@ -608,7 +608,6 @@ watch(
                 </tr>
               </tbody>
             </table>
-
           </div>
           <!-- 페이지네이션 추가 -->
           <div v-if="totalPages > 1" class="pagination">

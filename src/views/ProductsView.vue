@@ -2,14 +2,14 @@
 import { defineComponent, ref } from 'vue'
 
 const tabItems = [
-  { id: 'kimchi-box', label: '김치/가공식품 보냉박스' },
-  { id: 'mushroom-box', label: '송이/식품 보냉박스' },
-  { id: 'meat-box', label: '축산물 보냉박스' },
-  { id: 'fish-box', label: '어상자/식품 보냉박스' },
-  { id: 'multipurpose-box', label: '다용도 보냉박스' },
-  { id: 'electronics-protection', label: '전자제품 파손방지' },
-  { id: 'damage-prevention', label: '파손방지 스티로폼' },
-  { id: 'packaging-pad', label: '각종 목재 유리 포장PAD' },
+  { id: 'kimchi-box', label: '김치/가공식품\n보냉박스' },
+  { id: 'mushroom-box', label: '송이/식품\n보냉박스' },
+  { id: 'meat-box', label: '축산물\n보냉박스' },
+  { id: 'fish-box', label: '어상자/식품\n보냉박스' },
+  { id: 'multipurpose-box', label: '다용도\n보냉박스' },
+  { id: 'electronics-protection', label: '전자제품\n파손방지' },
+  { id: 'damage-prevention', label: '파손방지\n스티로폼' },
+  { id: 'packaging-pad', label: '각종 목재 유리\n포장PAD' },
 ]
 const activeTab = ref(tabItems[0].id)
 
@@ -909,6 +909,12 @@ defineComponent({
   position: relative;
   outline: none;
   color: #555;
+  white-space: pre-line;
+  text-align: center;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tab-button.active {

@@ -39,6 +39,10 @@ const navigateTo = (path: string) => {
             <a href="/support" @click.prevent="navigateTo('/support')">고객지원</a>
             <span class="menu-underline"></span>
           </li>
+          <li class="menu-item">
+            <a href="/location" @click.prevent="navigateTo('/location')">오시는길</a>
+            <span class="menu-underline"></span>
+          </li>
         </ul>
       </nav>
 
