@@ -71,29 +71,6 @@ const initializeMap = () => {
   })
   infoWindow.open(map, marker)
 }
-
-// 클립보드 복사 함수
-const copyToClipboard = (text: string) => {
-  if (navigator && navigator.clipboard) {
-    navigator.clipboard
-      .writeText(text)
-      .then(() => {
-        alert('주소가 클립보드에 복사되었습니다.')
-      })
-      .catch((err) => {
-        console.error('클립보드 복사 실패:', err)
-      })
-  } else {
-    // 대체 방법: 임시 input 요소 사용
-    const tempInput = document.createElement('input')
-    tempInput.value = text
-    document.body.appendChild(tempInput)
-    tempInput.select()
-    document.execCommand('copy')
-    document.body.removeChild(tempInput)
-    alert('주소가 클립보드에 복사되었습니다.')
-  }
-}
 </script>
 
 <template>
@@ -113,28 +90,11 @@ const copyToClipboard = (text: string) => {
           <div class="info-item">
             <h3 class="info-title">주소</h3>
             <p class="info-content">{{ companyLocation.address }}</p>
-            <button class="copy-button" @click="copyToClipboard(companyLocation.address)">
-              주소 복사
-            </button>
           </div>
 
           <div class="info-item">
             <h3 class="info-title">연락처</h3>
             <p class="info-content">{{ companyLocation.phone }}</p>
-          </div>
-
-          <div class="info-item">
-            <h3 class="info-title">이메일</h3>
-            <p class="info-content">{{ companyLocation.email }}</p>
-          </div>
-
-          <div class="info-item">
-            <h3 class="info-title">영업시간</h3>
-            <p class="info-content">
-              평일: 09:00 ~ 18:00<br />
-              점심시간: 12:00 ~ 13:00<br />
-              토요일, 일요일, 공휴일 휴무
-            </p>
           </div>
         </div>
       </section>
