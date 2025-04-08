@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const router = useRouter()
 const isMobileMenuOpen = ref(false)
+const showScrollTop = ref(false)
 
 const navigateTo = (path: string) => {
   router.push(path)
@@ -13,6 +14,27 @@ const navigateTo = (path: string) => {
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
 }
+
+// 스크롤 상단 버튼 표시 여부 결정
+const checkScrollPosition = () => {
+  showScrollTop.value = window.scrollY > 300
+}
+
+// 페이지 상단으로 스크롤
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', checkScrollPosition)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', checkScrollPosition)
+})
 </script>
 
 <template>
@@ -95,14 +117,30 @@ const toggleMobileMenu = () => {
 
   <!-- 카카오톡 플로팅 배너 추가 -->
   <a
-    href="https://open.kakao.com/o/영진화학"
+    href="https://open.kakao.com/o/sy5Lanaf"
     target="_blank"
     rel="noopener noreferrer"
     class="kakao-floating-button"
     title="카카오톡 문의하기"
   >
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2.772c-5.523,0-10,3.53-10,7.885,0,2.815,1.872,5.285,4.687,6.68-.153.528-.984,3.4-1.017,3.624,0,0-.02.169.09.234A.3.3,0,0,0,6,21.209c.315-.043,3.649-2.385,4.226-2.792A12.608,12.608,0,0,0,12,18.541c5.523,0,10-3.53,10-7.884S17.523,2.772,12,2.772ZM7.048,12.858a.578.578,0,0,1-1.154,0V9.431h-.9a.565.565,0,1,1,0-1.13H7.948a.565.565,0,1,1,0,1.13h-.9Zm4.849.464a.875.875,0,0,1-.367.079.472.472,0,0,1-.48-.254l-.286-.748H9.005l-.286.748a.472.472,0,0,1-.48.254.874.874,0,0,1-.366-.079c-.159-.074-.312-.275-.137-.819L9.116,8.87a.8.8,0,0,1,1.538,0L12.033,12.5C12.209,13.047,12.056,13.249,11.9,13.322Zm2.916,0H12.962a.542.542,0,0,1-.553-.529V8.878a.589.589,0,0,1,1.178,0v3.389h1.226a.529.529,0,1,1,0,1.058Zm4.292-.054a.566.566,0,0,1-.347.116.573.573,0,0,1-.461-.229l-1.353-1.793-.2.2v1.259a.577.577,0,0,1-1.154,0V8.878a.577.577,0,0,1,1.154,0v1.24l1.609-1.61a.448.448,0,0,1,.32-.128.584.584,0,0,1,.567.536.451.451,0,0,1-.127.351L17.8,10.582l1.42,1.881a.577.577,0,0,1-.113.808ZM9.885,9.74l.576,1.637H9.308Z"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M12,2.772c-5.523,0-10,3.53-10,7.885,0,2.815,1.872,5.285,4.687,6.68-.153.528-.984,3.4-1.017,3.624,0,0-.02.169.09.234A.3.3,0,0,0,6,21.209c.315-.043,3.649-2.385,4.226-2.792A12.608,12.608,0,0,0,12,18.541c5.523,0,10-3.53,10-7.884S17.523,2.772,12,2.772ZM7.048,12.858a.578.578,0,0,1-1.154,0V9.431h-.9a.565.565,0,1,1,0-1.13H7.948a.565.565,0,1,1,0,1.13h-.9Zm4.849.464a.875.875,0,0,1-.367.079.472.472,0,0,1-.48-.254l-.286-.748H9.005l-.286.748a.472.472,0,0,1-.48.254.874.874,0,0,1-.366-.079c-.159-.074-.312-.275-.137-.819L9.116,8.87a.8.8,0,0,1,1.538,0L12.033,12.5C12.209,13.047,12.056,13.249,11.9,13.322Zm2.916,0H12.962a.542.542,0,0,1-.553-.529V8.878a.589.589,0,0,1,1.178,0v3.389h1.226a.529.529,0,1,1,0,1.058Zm4.292-.054a.566.566,0,0,1-.347.116.573.573,0,0,1-.461-.229l-1.353-1.793-.2.2v1.259a.577.577,0,0,1-1.154,0V8.878a.577.577,0,0,1,1.154,0v1.24l1.609-1.61a.448.448,0,0,1,.32-.128.584.584,0,0,1,.567.536.451.451,0,0,1-.127.351L17.8,10.582l1.42,1.881a.577.577,0,0,1-.113.808ZM9.885,9.74l.576,1.637H9.308Z"
+      ></path>
+    </svg>
   </a>
+
+  <!-- 스크롤 업 버튼 -->
+  <button
+    class="scroll-top-button"
+    @click="scrollToTop"
+    :class="{ visible: showScrollTop }"
+    title="맨 위로 이동"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M12 4l-8 8h5v8h6v-8h5z" />
+    </svg>
+  </button>
 </template>
 
 <style scoped>
@@ -309,21 +347,24 @@ const toggleMobileMenu = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   z-index: 999;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+  padding: 0;
+  border: none;
 }
 
 .kakao-floating-button:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.kakao-icon {
-  width: 32px;
-  height: 32px;
+.kakao-floating-button svg {
+  width: 30px;
+  height: 30px;
+  fill: #000000;
 }
 
 /* 모바일에서 크기 조정 */
@@ -335,9 +376,74 @@ const toggleMobileMenu = () => {
     right: 20px;
   }
 
-  .kakao-icon {
-    width: 28px;
-    height: 28px;
+  .kakao-floating-button svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* 스크롤 상단 버튼 스타일 */
+.scroll-top-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 998;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+  border: none;
+  transform: translateY(20px);
+}
+
+.scroll-top-button.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-button svg {
+  width: 24px;
+  height: 24px;
+  fill: #333;
+}
+
+.scroll-top-button:hover {
+  background-color: #f5f5f5;
+}
+
+/* 스크롤 버튼이 표시될 때 카카오 버튼 위치 조정 */
+.scroll-top-button.visible + .kakao-floating-button {
+  bottom: 100px;
+}
+
+/* 모바일에서 크기와 위치 조정 */
+@media (max-width: 768px) {
+  .scroll-top-button {
+    width: 40px;
+    height: 40px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .scroll-top-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .scroll-top-button.visible + .kakao-floating-button {
+    bottom: 80px;
   }
 }
 </style>
