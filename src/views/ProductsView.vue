@@ -776,7 +776,6 @@ defineComponent({
               <h3>전자제품 파손방지</h3>
               <p>금형제작/제품생산</p>
               <p>TV/공기청정기/청소기등</p>
-              <p>생산문의 031-997-0280</p>
             </div>
           </div>
         </div>
@@ -808,10 +807,43 @@ defineComponent({
             </div>
 
             <div class="damage-prevention-description">
-              <h3>파손방지 스티로폼</h3>
-              <p>맞춤형 스티로폼 제작</p>
-              <p>가전제품/유리제품/가구제품 등</p>
-              <p>생산문의 031-997-0280</p>
+              <h3>각종 유리병  파손방지</h3>
+              <p>금형제작 /제품생산 </p>
+              <p>캔들/ 이유식/와인/ 오일병 파손방지</p>
+            </div>
+          </div>
+        </div>
+
+        <div v-else-if="activeTab === 'packaging-pad'" class="tab-content">
+          <div class="packaging-pad-content">
+            <div class="packaging-pad-images">
+              <div class="packaging-pad-image-container">
+                <img
+                  src="/src/assets/images/break/목재유리1.jpeg"
+                  alt="목재 유리 포장PAD 이미지1"
+                  class="packaging-pad-image"
+                />
+              </div>
+              <div class="packaging-pad-image-container">
+                <img
+                  src="/src/assets/images/break/목재유리2.jpeg"
+                  alt="목재 유리 포장PAD 이미지2"
+                  class="packaging-pad-image"
+                />
+              </div>
+              <div class="packaging-pad-image-container">
+                <img
+                  src="/src/assets/images/break/목재유리3.jpeg"
+                  alt="목재 유리 포장PAD 이미지3"
+                  class="packaging-pad-image"
+                />
+              </div>
+            </div>
+
+            <div class="packaging-pad-description">
+              <h3>상품 파손 방지</h3>
+              <p>맞춤 사이즈 제작가능맞춤 사이즈 제작가능</p>
+              <p>유리/거울/목재 파손방지 </p>
             </div>
           </div>
         </div>
@@ -1130,6 +1162,51 @@ defineComponent({
 }
 
 .damage-prevention-description p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+/* 목재 유리 포장PAD 스타일 */
+.packaging-pad-content {
+  padding: 20px 0;
+}
+
+.packaging-pad-images {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.packaging-pad-image-container {
+  width: 350px;
+  height: 350px;
+  overflow: hidden;
+}
+
+.packaging-pad-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.packaging-pad-description {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.packaging-pad-description h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.packaging-pad-description p {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 8px;
