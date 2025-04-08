@@ -4,699 +4,1299 @@
     "outer": "280*210*150",
     "inner": "240*175*100",
     "quantity": "20*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "280",
+    "outerDepth": "210",
+    "outerHeight": "150",
+    "innerWidth": "240",
+    "innerDepth": "175",
+    "innerHeight": "100"
   },
   {
     "name": "계장원",
     "outer": "340*270*210",
     "inner": "300*230*150",
     "quantity": "20*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "340",
+    "outerDepth": "270",
+    "outerHeight": "210",
+    "innerWidth": "300",
+    "innerDepth": "230",
+    "innerHeight": "150"
   },
   {
     "name": "Y-21",
     "outer": "290*230*180",
     "inner": "250*190*140",
     "quantity": "24*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "290",
+    "outerDepth": "230",
+    "outerHeight": "180",
+    "innerWidth": "250",
+    "innerDepth": "190",
+    "innerHeight": "140"
   },
   {
     "name": "Y-22",
     "outer": "320*260*200",
     "inner": "270*210*130+30",
     "quantity": "20*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "320",
+    "outerDepth": "260",
+    "outerHeight": "200",
+    "innerWidth": "270",
+    "innerDepth": "210",
+    "innerHeight": "130"
   },
   {
     "name": "Y-23",
     "outer": "315*315*195",
     "inner": "270*270*140",
     "quantity": "20*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "315",
+    "outerDepth": "315",
+    "outerHeight": "195",
+    "innerWidth": "270",
+    "innerDepth": "270",
+    "innerHeight": "140"
   },
   {
     "name": "미인",
     "outer": "305*245*200",
     "inner": "265*205*140",
     "quantity": "20*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "305",
+    "outerDepth": "245",
+    "outerHeight": "200",
+    "innerWidth": "265",
+    "innerDepth": "205",
+    "innerHeight": "140"
   },
   {
     "name": "김1호(3~4kg)",
     "outer": "310*240*180",
     "inner": "270*200*120",
     "quantity": "24*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "310",
+    "outerDepth": "240",
+    "outerHeight": "180",
+    "innerWidth": "270",
+    "innerDepth": "200",
+    "innerHeight": "120"
   },
   {
     "name": "Y-2(멍게반쪽)",
     "outer": "250*250*180",
     "inner": "210*210*130",
     "quantity": "24*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "250",
+    "outerDepth": "250",
+    "outerHeight": "180",
+    "innerWidth": "210",
+    "innerDepth": "210",
+    "innerHeight": "130"
   },
   {
     "name": "Y-3 (방울토마토)",
     "outer": "303*220*185",
     "inner": "250*165*130",
     "quantity": "24*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "303",
+    "outerDepth": "220",
+    "outerHeight": "185",
+    "innerWidth": "250",
+    "innerDepth": "165",
+    "innerHeight": "130"
   },
   {
     "name": "S-3",
     "outer": "265*215*180",
     "inner": "225*175*135",
     "quantity": "24*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "265",
+    "outerDepth": "215",
+    "outerHeight": "180",
+    "innerWidth": "225",
+    "innerDepth": "175",
+    "innerHeight": "135"
   },
   {
     "name": "S-5",
     "outer": "255*315*220",
     "inner": "205*265*195",
     "quantity": "20*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "255",
+    "outerDepth": "315",
+    "outerHeight": "220",
+    "innerWidth": "205",
+    "innerDepth": "265",
+    "innerHeight": "195"
   },
   {
     "name": "김치2호(5kg)=멍개",
     "outer": "260*260*250",
     "inner": "220*220*200",
     "quantity": "20*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "260",
+    "outerDepth": "260",
+    "outerHeight": "250",
+    "innerWidth": "220",
+    "innerDepth": "220",
+    "innerHeight": "200"
   },
   {
     "name": "김치 2.5호(7kg)",
     "outer": "335*310*250",
     "inner": "290*260*190",
     "quantity": "10*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "335",
+    "outerDepth": "310",
+    "outerHeight": "250",
+    "innerWidth": "290",
+    "innerDepth": "260",
+    "innerHeight": "190"
   },
   {
     "name": "김치3호(10kg)",
     "outer": "385*295*270",
     "inner": "330*245*200",
     "quantity": "12*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "385",
+    "outerDepth": "295",
+    "outerHeight": "270",
+    "innerWidth": "330",
+    "innerDepth": "245",
+    "innerHeight": "200"
   },
   {
     "name": "김치4호(15kg)",
     "outer": "415*305*365",
     "inner": "365*255*290",
     "quantity": "8*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "415",
+    "outerDepth": "305",
+    "outerHeight": "365",
+    "innerWidth": "365",
+    "innerDepth": "255",
+    "innerHeight": "290"
   },
   {
     "name": "김치5호(20kg)",
     "outer": "460*370*315",
     "inner": "400*310*250",
     "quantity": "10*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "460",
+    "outerDepth": "370",
+    "outerHeight": "315",
+    "innerWidth": "400",
+    "innerDepth": "310",
+    "innerHeight": "250"
   },
   {
     "name": "김치6호",
     "outer": "530*410*300",
     "inner": "460*340*230",
     "quantity": "8*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "530",
+    "outerDepth": "410",
+    "outerHeight": "300",
+    "innerWidth": "460",
+    "innerDepth": "340",
+    "innerHeight": "230"
   },
   {
     "name": "BOX 7호",
     "outer": "360*300*205",
     "inner": "310*250*140",
     "quantity": "10",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "360",
+    "outerDepth": "300",
+    "outerHeight": "205",
+    "innerWidth": "310",
+    "innerDepth": "250",
+    "innerHeight": "140"
   },
   {
     "name": "다용도-1",
     "outer": "380*310*260",
     "inner": "330*260*170",
     "quantity": "8*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "380",
+    "outerDepth": "310",
+    "outerHeight": "260",
+    "innerWidth": "330",
+    "innerDepth": "260",
+    "innerHeight": "170"
   },
   {
     "name": "다용도-2",
     "outer": "375*305*250",
     "inner": "330*260*200",
     "quantity": "8*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "375",
+    "outerDepth": "305",
+    "outerHeight": "250",
+    "innerWidth": "330",
+    "innerDepth": "260",
+    "innerHeight": "200"
   },
   {
     "name": "다용도-3",
     "outer": "400*305*300",
     "inner": "345*245*230",
     "quantity": "8*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "400",
+    "outerDepth": "305",
+    "outerHeight": "300",
+    "innerWidth": "345",
+    "innerDepth": "245",
+    "innerHeight": "230"
   },
   {
     "name": "다용도-4",
     "outer": "430*320*275",
     "inner": "380*275*210",
     "quantity": "8*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "430",
+    "outerDepth": "320",
+    "outerHeight": "275",
+    "innerWidth": "380",
+    "innerDepth": "275",
+    "innerHeight": "210"
   },
   {
     "name": "S-14",
     "outer": "430*320*280",
     "inner": "374*265*230",
     "quantity": "8*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "430",
+    "outerDepth": "320",
+    "outerHeight": "280",
+    "innerWidth": "374",
+    "innerDepth": "265",
+    "innerHeight": "230"
   },
   {
     "name": "다용도-6",
     "outer": "370*310*230",
     "inner": "320*265*170",
     "quantity": "10*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "370",
+    "outerDepth": "310",
+    "outerHeight": "230",
+    "innerWidth": "320",
+    "innerDepth": "265",
+    "innerHeight": "170"
   },
   {
     "name": "다용도-7",
     "outer": "410*320*300",
     "inner": "360*265*210",
     "quantity": "10*",
-    "mainCategory": "김치/다용도박스"
+    "mainCategory": "김치/다용도박스",
+    "outerWidth": "410",
+    "outerDepth": "320",
+    "outerHeight": "300",
+    "innerWidth": "360",
+    "innerDepth": "265",
+    "innerHeight": "210"
   },
   {
     "name": "30K-중박스",
     "outer": "770*470*270",
     "inner": "697*400*200",
     "quantity": "4*",
-    "mainCategory": "대형박스"
+    "mainCategory": "대형박스",
+    "outerWidth": "770",
+    "outerDepth": "470",
+    "outerHeight": "270",
+    "innerWidth": "697",
+    "innerDepth": "400",
+    "innerHeight": "200"
   },
   {
     "name": "30K-대박스",
     "outer": "770*470*310",
     "inner": "700*400*240",
     "quantity": "4*",
-    "mainCategory": "대형박스"
+    "mainCategory": "대형박스",
+    "outerWidth": "770",
+    "outerDepth": "470",
+    "outerHeight": "310",
+    "innerWidth": "700",
+    "innerDepth": "400",
+    "innerHeight": "240"
   },
   {
     "name": "육수박스",
     "outer": "595*365*195",
     "inner": "540*305*145",
     "quantity": "12*",
-    "mainCategory": "대형박스"
+    "mainCategory": "대형박스",
+    "outerWidth": "595",
+    "outerDepth": "365",
+    "outerHeight": "195",
+    "innerWidth": "540",
+    "innerDepth": "305",
+    "innerHeight": "145"
   },
   {
     "name": "샤베트박스",
     "outer": "605*325*450",
     "inner": "550*265*360",
     "quantity": "4*",
-    "mainCategory": "대형박스"
+    "mainCategory": "대형박스",
+    "outerWidth": "605",
+    "outerDepth": "325",
+    "outerHeight": "450",
+    "innerWidth": "550",
+    "innerDepth": "265",
+    "innerHeight": "360"
   },
   {
     "name": "대형박스",
     "outer": "715*485*395",
     "inner": "655*428*265+83",
     "quantity": "4*",
-    "mainCategory": "대형박스"
+    "mainCategory": "대형박스",
+    "outerWidth": "715",
+    "outerDepth": "485",
+    "outerHeight": "395",
+    "innerWidth": "655",
+    "innerDepth": "428",
+    "innerHeight": "265"
   },
   {
     "name": "메디-300",
     "outer": "470*470*485",
     "inner": "400*400*400",
     "quantity": "2*",
-    "mainCategory": "대형박스"
+    "mainCategory": "대형박스",
+    "outerWidth": "470",
+    "outerDepth": "470",
+    "outerHeight": "485",
+    "innerWidth": "400",
+    "innerDepth": "400",
+    "innerHeight": "400"
   },
   {
     "name": "메디-500",
     "outer": "570*420*550",
     "inner": "490*340*430",
     "quantity": "2*",
-    "mainCategory": "대형박스"
+    "mainCategory": "대형박스",
+    "outerWidth": "570",
+    "outerDepth": "420",
+    "outerHeight": "550",
+    "innerWidth": "490",
+    "innerDepth": "340",
+    "innerHeight": "430"
   },
   {
     "name": "Y-23",
     "outer": "315*315*195",
     "inner": "270*270*100/140",
     "quantity": "20*",
-    "mainCategory": "블루베리박스"
+    "mainCategory": "블루베리박스",
+    "outerWidth": "315",
+    "outerDepth": "315",
+    "outerHeight": "195",
+    "innerWidth": "270",
+    "innerDepth": "270",
+    "innerHeight": "100"
   },
   {
     "name": "블루베리 1kg",
     "outer": "310*240*180",
     "inner": "270*200*80/120",
     "quantity": "24*",
-    "mainCategory": "블루베리박스"
+    "mainCategory": "블루베리박스",
+    "outerWidth": "310",
+    "outerDepth": "240",
+    "outerHeight": "180",
+    "innerWidth": "270",
+    "innerDepth": "200",
+    "innerHeight": "80"
   },
   {
     "name": "블루베리 2kg",
     "outer": "310*240*255",
     "inner": "270*195*160/200",
     "quantity": "16*",
-    "mainCategory": "블루베리박스"
+    "mainCategory": "블루베리박스",
+    "outerWidth": "310",
+    "outerDepth": "240",
+    "outerHeight": "255",
+    "innerWidth": "270",
+    "innerDepth": "195",
+    "innerHeight": "160"
   },
   {
     "name": "블루베리 3kg",
     "outer": "550*350*210",
     "inner": "495*300*150",
     "quantity": "10*",
-    "mainCategory": "블루베리박스"
+    "mainCategory": "블루베리박스",
+    "outerWidth": "550",
+    "outerDepth": "350",
+    "outerHeight": "210",
+    "innerWidth": "495",
+    "innerDepth": "300",
+    "innerHeight": "150"
   },
   {
     "name": "블루베리 4kg",
     "outer": "375*305*250",
     "inner": "330*260*200",
     "quantity": "8*",
-    "mainCategory": "블루베리박스"
+    "mainCategory": "블루베리박스",
+    "outerWidth": "375",
+    "outerDepth": "305",
+    "outerHeight": "250",
+    "innerWidth": "330",
+    "innerDepth": "260",
+    "innerHeight": "200"
   },
   {
     "name": "블루베리 6kg",
     "outer": "350*350*280",
     "inner": "300*300*230",
     "quantity": "8*",
-    "mainCategory": "블루베리박스"
+    "mainCategory": "블루베리박스",
+    "outerWidth": "350",
+    "outerDepth": "350",
+    "outerHeight": "280",
+    "innerWidth": "300",
+    "innerDepth": "300",
+    "innerHeight": "230"
   },
   {
     "name": "갈비2kg",
     "outer": "305*250*145",
     "inner": "250*203*115",
     "quantity": "28*",
-    "mainCategory": "정육박스 (통형/칸없음)"
+    "mainCategory": "정육박스 (통형/칸없음)",
+    "outerWidth": "305",
+    "outerDepth": "250",
+    "outerHeight": "145",
+    "innerWidth": "250",
+    "innerDepth": "203",
+    "innerHeight": "115"
   },
   {
     "name": "LA-2KG",
     "outer": "330*270*170",
     "inner": "285*225*128",
     "quantity": "28*",
-    "mainCategory": "정육박스 (통형/칸없음)"
+    "mainCategory": "정육박스 (통형/칸없음)",
+    "outerWidth": "330",
+    "outerDepth": "270",
+    "outerHeight": "170",
+    "innerWidth": "285",
+    "innerDepth": "225",
+    "innerHeight": "128"
   },
   {
     "name": "갈비3kg (3칸)",
     "outer": "445*240*155",
     "inner": "175*120*55 (1칸)",
     "quantity": "10*",
-    "mainCategory": "정육박스 (칸있음/칸형)"
+    "mainCategory": "정육박스 (칸있음/칸형)",
+    "outerWidth": "445",
+    "outerDepth": "240",
+    "outerHeight": "155",
+    "innerWidth": "175",
+    "innerDepth": "120",
+    "innerHeight": "55"
   },
   {
     "name": "갈비4kg (4칸)",
     "outer": "430*310*145",
     "inner": "175*120*55 (1칸)",
     "quantity": "10*",
-    "mainCategory": "정육박스 (칸있음/칸형)"
+    "mainCategory": "정육박스 (칸있음/칸형)",
+    "outerWidth": "430",
+    "outerDepth": "310",
+    "outerHeight": "145",
+    "innerWidth": "175",
+    "innerDepth": "120",
+    "innerHeight": "55"
   },
   {
     "name": "갈비 5kg (5칸)",
     "outer": "435*365*150",
     "inner": "175*120*55 (1칸)",
     "quantity": "10*",
-    "mainCategory": "정육박스 (칸있음/칸형)"
+    "mainCategory": "정육박스 (칸있음/칸형)",
+    "outerWidth": "435",
+    "outerDepth": "365",
+    "outerHeight": "150",
+    "innerWidth": "175",
+    "innerDepth": "120",
+    "innerHeight": "55"
   },
   {
     "name": "스킨 3구 (3칸)",
     "outer": "540*260*120",
     "inner": "210*150*55 (1칸)",
     "quantity": "16*",
-    "mainCategory": "정육박스 (스킨/칸형)"
+    "mainCategory": "정육박스 (스킨/칸형)",
+    "outerWidth": "540",
+    "outerDepth": "260",
+    "outerHeight": "120",
+    "innerWidth": "210",
+    "innerDepth": "150",
+    "innerHeight": "55"
   },
   {
     "name": "스킨 4구 (4칸)",
     "outer": "490*370*120",
     "inner": "210*150*55 (1칸)",
     "quantity": "16*",
-    "mainCategory": "정육박스 (스킨/칸형)"
+    "mainCategory": "정육박스 (스킨/칸형)",
+    "outerWidth": "490",
+    "outerDepth": "370",
+    "outerHeight": "120",
+    "innerWidth": "210",
+    "innerDepth": "150",
+    "innerHeight": "55"
   },
   {
     "name": "스킨 3구-2 (3칸)",
     "outer": "565*280*115",
     "inner": "225*155*55 (1칸)",
     "quantity": "16*",
-    "mainCategory": "정육박스 (스킨/칸형)"
+    "mainCategory": "정육박스 (스킨/칸형)",
+    "outerWidth": "565",
+    "outerDepth": "280",
+    "outerHeight": "115",
+    "innerWidth": "225",
+    "innerDepth": "155",
+    "innerHeight": "55"
   },
   {
     "name": "스킨 4구-2 (4칸)",
     "outer": "525*385*115",
     "inner": "225*155*55 (1칸)",
     "quantity": "12*",
-    "mainCategory": "정육박스 (스킨/칸형)"
+    "mainCategory": "정육박스 (스킨/칸형)",
+    "outerWidth": "525",
+    "outerDepth": "385",
+    "outerHeight": "115",
+    "innerWidth": "225",
+    "innerDepth": "155",
+    "innerHeight": "55"
   },
   {
     "name": "LA-2칸",
     "outer": "530*360*150",
     "inner": "290*225*60(1칸)",
     "quantity": "10*",
-    "mainCategory": "정육박스 (스킨/칸형)"
+    "mainCategory": "정육박스 (스킨/칸형)",
+    "outerWidth": "530",
+    "outerDepth": "360",
+    "outerHeight": "150",
+    "innerWidth": "290",
+    "innerDepth": "225",
+    "innerHeight": "60"
   },
   {
     "name": "등바구니 2kg",
     "outer": "425*300*150",
     "inner": "375*245*90",
     "quantity": "10*",
-    "mainCategory": "등바구니 박스 (턱있음/등채반용)"
+    "mainCategory": "등바구니 박스 (턱있음/등채반용)",
+    "outerWidth": "425",
+    "outerDepth": "300",
+    "outerHeight": "150",
+    "innerWidth": "375",
+    "innerDepth": "245",
+    "innerHeight": "90"
   },
   {
     "name": "등바구니 3kg(소)",
     "outer": "460*340*145",
     "inner": "415*295*95",
     "quantity": "10*",
-    "mainCategory": "등바구니 박스 (턱있음/등채반용)"
+    "mainCategory": "등바구니 박스 (턱있음/등채반용)",
+    "outerWidth": "460",
+    "outerDepth": "340",
+    "outerHeight": "145",
+    "innerWidth": "415",
+    "innerDepth": "295",
+    "innerHeight": "95"
   },
   {
     "name": "등바구니 3kg",
     "outer": "465*340*140",
     "inner": "420*285*90",
     "quantity": "10*",
-    "mainCategory": "등바구니 박스 (턱있음/등채반용)"
+    "mainCategory": "등바구니 박스 (턱있음/등채반용)",
+    "outerWidth": "465",
+    "outerDepth": "340",
+    "outerHeight": "140",
+    "innerWidth": "420",
+    "innerDepth": "285",
+    "innerHeight": "90"
   },
   {
     "name": "등바구니 4kg",
     "outer": "520*410*175",
     "inner": "450*330*100",
     "quantity": "5*",
-    "mainCategory": "등바구니 박스 (턱있음/등채반용)"
+    "mainCategory": "등바구니 박스 (턱있음/등채반용)",
+    "outerWidth": "520",
+    "outerDepth": "410",
+    "outerHeight": "175",
+    "innerWidth": "450",
+    "innerDepth": "330",
+    "innerHeight": "100"
   },
   {
     "name": "등바구니 5kg",
     "outer": "565*445*190",
     "inner": "495*370*110",
     "quantity": "5*",
-    "mainCategory": "등바구니 박스 (턱있음/등채반용)"
+    "mainCategory": "등바구니 박스 (턱있음/등채반용)",
+    "outerWidth": "565",
+    "outerDepth": "445",
+    "outerHeight": "190",
+    "innerWidth": "495",
+    "innerDepth": "370",
+    "innerHeight": "110"
   },
   {
     "name": "T-5",
     "outer": "375*290*140",
     "inner": "335*250*75+25",
     "quantity": "12*",
-    "mainCategory": "정육박스 (통형/칸없음)"
+    "mainCategory": "정육박스 (통형/칸없음)",
+    "outerWidth": "375",
+    "outerDepth": "290",
+    "outerHeight": "140",
+    "innerWidth": "335",
+    "innerDepth": "250",
+    "innerHeight": "75"
   },
   {
     "name": "T5-1 (T5보다높음)",
     "outer": "385*300*160",
     "inner": "340*255*85+25",
     "quantity": "12*",
-    "mainCategory": "정육박스 (통형/칸없음)"
+    "mainCategory": "정육박스 (통형/칸없음)",
+    "outerWidth": "385",
+    "outerDepth": "300",
+    "outerHeight": "160",
+    "innerWidth": "340",
+    "innerDepth": "255",
+    "innerHeight": "85"
   },
   {
     "name": "종합 1호",
     "outer": "450*350*145",
     "inner": "400*300*75",
     "quantity": "10*",
-    "mainCategory": "정육박스 (통형/칸없음)"
+    "mainCategory": "정육박스 (통형/칸없음)",
+    "outerWidth": "450",
+    "outerDepth": "350",
+    "outerHeight": "145",
+    "innerWidth": "400",
+    "innerDepth": "300",
+    "innerHeight": "75"
   },
   {
     "name": "종합 2호",
     "outer": "445*350*170",
     "inner": "400*303*75 + 55",
     "quantity": "10*",
-    "mainCategory": "정육박스 (통형/칸없음)"
+    "mainCategory": "정육박스 (통형/칸없음)",
+    "outerWidth": "445",
+    "outerDepth": "350",
+    "outerHeight": "170",
+    "innerWidth": "400",
+    "innerDepth": "303",
+    "innerHeight": "75"
   },
   {
     "name": "종합 2호-1",
     "outer": "465*365*170",
     "inner": "427*320*75 + 50",
     "quantity": "10*",
-    "mainCategory": "정육박스 (통형/칸없음)"
+    "mainCategory": "정육박스 (통형/칸없음)",
+    "outerWidth": "465",
+    "outerDepth": "365",
+    "outerHeight": "170",
+    "innerWidth": "427",
+    "innerDepth": "320",
+    "innerHeight": "75"
   },
   {
     "name": "종합 3호",
     "outer": "415*325*155",
     "inner": "370*275*110",
     "quantity": "10*",
-    "mainCategory": "정육박스 (통형/칸없음)"
+    "mainCategory": "정육박스 (통형/칸없음)",
+    "outerWidth": "415",
+    "outerDepth": "325",
+    "outerHeight": "155",
+    "innerWidth": "370",
+    "innerDepth": "275",
+    "innerHeight": "110"
   },
   {
     "name": "종합 4호",
     "outer": "490*435*170",
     "inner": "440*385*120",
     "quantity": "5*",
-    "mainCategory": "정육박스 (통형/칸없음)"
+    "mainCategory": "정육박스 (통형/칸없음)",
+    "outerWidth": "490",
+    "outerDepth": "435",
+    "outerHeight": "170",
+    "innerWidth": "440",
+    "innerDepth": "385",
+    "innerHeight": "120"
   },
   {
     "name": "종합 5호",
     "outer": "425*300*150",
     "inner": "375*245*90",
     "quantity": "10*",
-    "mainCategory": "정육박스 (통형/칸없음)"
+    "mainCategory": "정육박스 (통형/칸없음)",
+    "outerWidth": "425",
+    "outerDepth": "300",
+    "outerHeight": "150",
+    "innerWidth": "375",
+    "innerDepth": "245",
+    "innerHeight": "90"
   },
   {
     "name": "종합 6호",
     "outer": "360*290*155",
     "inner": "320*255*120",
     "quantity": "14*",
-    "mainCategory": "정육박스 (통형/칸없음)"
+    "mainCategory": "정육박스 (통형/칸없음)",
+    "outerWidth": "360",
+    "outerDepth": "290",
+    "outerHeight": "155",
+    "innerWidth": "320",
+    "innerDepth": "255",
+    "innerHeight": "120"
   },
   {
     "name": "사각 통형 박스 소",
     "outer": "260*282*170",
     "inner": "230*252*140",
     "quantity": "16*",
-    "mainCategory": "기타 정육박스"
+    "mainCategory": "기타 정육박스",
+    "outerWidth": "260",
+    "outerDepth": "282",
+    "outerHeight": "170",
+    "innerWidth": "230",
+    "innerDepth": "252",
+    "innerHeight": "140"
   },
   {
     "name": "사각 통형박스 대",
     "outer": "470*260*170",
     "inner": "440*230*140",
     "quantity": "16*",
-    "mainCategory": "기타 정육박스"
+    "mainCategory": "기타 정육박스",
+    "outerWidth": "470",
+    "outerDepth": "260",
+    "outerHeight": "170",
+    "innerWidth": "440",
+    "innerDepth": "230",
+    "innerHeight": "140"
   },
   {
     "name": "통형박스 소 (칸없음)",
     "outer": "350*225*225",
     "inner": "310*190*170",
     "quantity": "16*",
-    "mainCategory": "기타 정육박스"
+    "mainCategory": "기타 정육박스",
+    "outerWidth": "350",
+    "outerDepth": "225",
+    "outerHeight": "225",
+    "innerWidth": "310",
+    "innerDepth": "190",
+    "innerHeight": "170"
   },
   {
     "name": "통형박스 소 (세로칸없음)",
     "outer": "350*225*225",
     "inner": "310*190*170",
     "quantity": "10*",
-    "mainCategory": "기타 정육박스"
+    "mainCategory": "기타 정육박스",
+    "outerWidth": "350",
+    "outerDepth": "225",
+    "outerHeight": "225",
+    "innerWidth": "310",
+    "innerDepth": "190",
+    "innerHeight": "170"
   },
   {
     "name": "통형박스 대 (칸없음)",
     "outer": "350*225*265",
     "inner": "310*187*210",
     "quantity": "10*",
-    "mainCategory": "기타 정육박스"
+    "mainCategory": "기타 정육박스",
+    "outerWidth": "350",
+    "outerDepth": "225",
+    "outerHeight": "265",
+    "innerWidth": "310",
+    "innerDepth": "187",
+    "innerHeight": "210"
   },
   {
     "name": "통형박스 대 (세로칸없음)",
     "outer": "350*225*265",
     "inner": "310*187*210",
     "quantity": "8*",
-    "mainCategory": "기타 정육박스"
+    "mainCategory": "기타 정육박스",
+    "outerWidth": "350",
+    "outerDepth": "225",
+    "outerHeight": "265",
+    "innerWidth": "310",
+    "innerDepth": "187",
+    "innerHeight": "210"
   },
   {
     "name": "송이 0.5kg",
     "outer": "270*205*150",
     "inner": "235*170*110",
     "quantity": "32*",
-    "mainCategory": "송이/버섯 피자박스"
+    "mainCategory": "송이/버섯 피자박스",
+    "outerWidth": "270",
+    "outerDepth": "205",
+    "outerHeight": "150",
+    "innerWidth": "235",
+    "innerDepth": "170",
+    "innerHeight": "110"
   },
   {
     "name": "송이 1kg",
     "outer": "310*240*180",
     "inner": "270*200*120",
     "quantity": "24*",
-    "mainCategory": "송이/버섯 피자박스"
+    "mainCategory": "송이/버섯 피자박스",
+    "outerWidth": "310",
+    "outerDepth": "240",
+    "outerHeight": "180",
+    "innerWidth": "270",
+    "innerDepth": "200",
+    "innerHeight": "120"
   },
   {
     "name": "송이 2kg",
     "outer": "310*240*220",
     "inner": "270*200*170",
     "quantity": "20*",
-    "mainCategory": "송이/버섯 피자박스"
+    "mainCategory": "송이/버섯 피자박스",
+    "outerWidth": "310",
+    "outerDepth": "240",
+    "outerHeight": "220",
+    "innerWidth": "270",
+    "innerDepth": "200",
+    "innerHeight": "170"
   },
   {
     "name": "송이 3kg",
     "outer": "310*240*255",
     "inner": "270*195*200",
     "quantity": "16*",
-    "mainCategory": "송이/버섯 피자박스"
+    "mainCategory": "송이/버섯 피자박스",
+    "outerWidth": "310",
+    "outerDepth": "240",
+    "outerHeight": "255",
+    "innerWidth": "270",
+    "innerDepth": "195",
+    "innerHeight": "200"
   },
   {
     "name": "양송이 2kg",
     "outer": "380*250*190",
     "inner": "330*200*120",
     "quantity": "20*",
-    "mainCategory": "송이/버섯 피자박스"
+    "mainCategory": "송이/버섯 피자박스",
+    "outerWidth": "380",
+    "outerDepth": "250",
+    "outerHeight": "190",
+    "innerWidth": "330",
+    "innerDepth": "200",
+    "innerHeight": "120"
   },
   {
     "name": "느타리버섯2kg(신)",
     "outer": "420*290*150",
     "inner": "380*250*110",
     "quantity": "16*",
-    "mainCategory": "송이/버섯 피자박스"
+    "mainCategory": "송이/버섯 피자박스",
+    "outerWidth": "420",
+    "outerDepth": "290",
+    "outerHeight": "150",
+    "innerWidth": "380",
+    "innerDepth": "250",
+    "innerHeight": "110"
   },
   {
     "name": "느타리버섯2kg",
     "outer": "440*310*145",
     "inner": "400*270*110",
     "quantity": "14*",
-    "mainCategory": "송이/버섯 피자박스"
+    "mainCategory": "송이/버섯 피자박스",
+    "outerWidth": "440",
+    "outerDepth": "310",
+    "outerHeight": "145",
+    "innerWidth": "400",
+    "innerDepth": "270",
+    "innerHeight": "110"
   },
   {
     "name": "느타리버섯3kg",
     "outer": "440*310*200",
     "inner": "400*270*110",
     "quantity": "10*",
-    "mainCategory": "송이/버섯 피자박스"
+    "mainCategory": "송이/버섯 피자박스",
+    "outerWidth": "440",
+    "outerDepth": "310",
+    "outerHeight": "200",
+    "innerWidth": "400",
+    "innerDepth": "270",
+    "innerHeight": "110"
   },
   {
     "name": "피자박스",
     "outer": "430*340*200",
     "inner": "380*290*120",
     "quantity": "10*",
-    "mainCategory": "송이/버섯 피자박스"
+    "mainCategory": "송이/버섯 피자박스",
+    "outerWidth": "430",
+    "outerDepth": "340",
+    "outerHeight": "200",
+    "innerWidth": "380",
+    "innerDepth": "290",
+    "innerHeight": "120"
   },
   {
     "name": "블루6kg (피자 대)",
     "outer": "350*350*280",
     "inner": "300*300*230",
     "quantity": "8*",
-    "mainCategory": "송이/버섯 피자박스"
+    "mainCategory": "송이/버섯 피자박스",
+    "outerWidth": "350",
+    "outerDepth": "350",
+    "outerHeight": "280",
+    "innerWidth": "300",
+    "innerDepth": "300",
+    "innerHeight": "230"
   },
   {
     "name": "바지락 3K",
     "outer": "385*285*195",
     "inner": "340*240*150",
     "quantity": "14*",
-    "mainCategory": "새우/ 바지락 박스"
+    "mainCategory": "새우/ 바지락 박스",
+    "outerWidth": "385",
+    "outerDepth": "285",
+    "outerHeight": "195",
+    "innerWidth": "340",
+    "innerDepth": "240",
+    "innerHeight": "150"
   },
   {
     "name": "바지락 7K",
     "outer": "360*315*280",
     "inner": "310*260*220",
     "quantity": "10*",
-    "mainCategory": "새우/ 바지락 박스"
+    "mainCategory": "새우/ 바지락 박스",
+    "outerWidth": "360",
+    "outerDepth": "315",
+    "outerHeight": "280",
+    "innerWidth": "310",
+    "innerDepth": "260",
+    "innerHeight": "220"
   },
   {
     "name": "바지락 10K",
     "outer": "450*370*280",
     "inner": "395*315*225",
     "quantity": "8*",
-    "mainCategory": "새우/ 바지락 박스"
+    "mainCategory": "새우/ 바지락 박스",
+    "outerWidth": "450",
+    "outerDepth": "370",
+    "outerHeight": "280",
+    "innerWidth": "395",
+    "innerDepth": "315",
+    "innerHeight": "225"
   },
   {
     "name": "냉동새우박스",
     "outer": "430*340*200",
     "inner": "380*290*120",
     "quantity": "10*",
-    "mainCategory": "새우/ 바지락 박스"
+    "mainCategory": "새우/ 바지락 박스",
+    "outerWidth": "430",
+    "outerDepth": "340",
+    "outerHeight": "200",
+    "innerWidth": "380",
+    "innerDepth": "290",
+    "innerHeight": "120"
   },
   {
     "name": "회 3K",
     "outer": "364*295*150",
     "inner": "320*252*110",
     "quantity": "16*",
-    "mainCategory": "새우/ 바지락 박스"
+    "mainCategory": "새우/ 바지락 박스",
+    "outerWidth": "364",
+    "outerDepth": "295",
+    "outerHeight": "150",
+    "innerWidth": "320",
+    "innerDepth": "252",
+    "innerHeight": "110"
   },
   {
     "name": "대하 1K",
     "outer": "305*205*95",
     "inner": "280*180*65",
     "quantity": "40*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "305",
+    "outerDepth": "205",
+    "outerHeight": "95",
+    "innerWidth": "280",
+    "innerDepth": "180",
+    "innerHeight": "65"
   },
   {
     "name": "대하 2K",
     "outer": "335*235*130",
     "inner": "305*205*85",
     "quantity": "32*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "335",
+    "outerDepth": "235",
+    "outerHeight": "130",
+    "innerWidth": "305",
+    "innerDepth": "205",
+    "innerHeight": "85"
   },
   {
     "name": "망계반품",
     "outer": "250*250*180",
     "inner": "210*210*130",
     "quantity": "24*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "250",
+    "outerDepth": "250",
+    "outerHeight": "180",
+    "innerWidth": "210",
+    "innerDepth": "210",
+    "innerHeight": "130"
   },
   {
     "name": "망계박스",
     "outer": "260*260*250",
     "inner": "220*220*200",
     "quantity": "16",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "260",
+    "outerDepth": "260",
+    "outerHeight": "250",
+    "innerWidth": "220",
+    "innerDepth": "220",
+    "innerHeight": "200"
   },
   {
     "name": "굴박스 (소)",
     "outer": "260*260*260",
     "inner": "220*220*210",
     "quantity": "16*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "260",
+    "outerDepth": "260",
+    "outerHeight": "260",
+    "innerWidth": "220",
+    "innerDepth": "220",
+    "innerHeight": "210"
   },
   {
     "name": "굴박스 (대)",
     "outer": "300*300*275",
     "inner": "250*250*225",
     "quantity": "16*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "300",
+    "outerDepth": "300",
+    "outerHeight": "275",
+    "innerWidth": "250",
+    "innerDepth": "250",
+    "innerHeight": "225"
   },
   {
     "name": "어상자 5K(신)",
     "outer": "505*345*185",
     "inner": "450*290*125",
     "quantity": "12*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "505",
+    "outerDepth": "345",
+    "outerHeight": "185",
+    "innerWidth": "450",
+    "innerDepth": "290",
+    "innerHeight": "125"
   },
   {
     "name": "어상자 7.5K",
     "outer": "560*370*170",
     "inner": "500*310*112",
     "quantity": "12*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "560",
+    "outerDepth": "370",
+    "outerHeight": "170",
+    "innerWidth": "500",
+    "innerDepth": "310",
+    "innerHeight": "112"
   },
   {
     "name": "어상자 10K",
     "outer": "560*370*215",
     "inner": "500*310*160",
     "quantity": "10*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "560",
+    "outerDepth": "370",
+    "outerHeight": "215",
+    "innerWidth": "500",
+    "innerDepth": "310",
+    "innerHeight": "160"
   },
   {
     "name": "어상자 12K",
     "outer": "550*355*215",
     "inner": "495*305*165",
     "quantity": "10*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "550",
+    "outerDepth": "355",
+    "outerHeight": "215",
+    "innerWidth": "495",
+    "innerDepth": "305",
+    "innerHeight": "165"
   },
   {
     "name": "어상자 15kg",
     "outer": "555*370*280",
     "inner": "495*310*225",
     "quantity": "8*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "555",
+    "outerDepth": "370",
+    "outerHeight": "280",
+    "innerWidth": "495",
+    "innerDepth": "310",
+    "innerHeight": "225"
   },
   {
     "name": "어상자 15k (신)",
     "outer": "557*370*298",
     "inner": "500*310*238",
     "quantity": "8*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "557",
+    "outerDepth": "370",
+    "outerHeight": "298",
+    "innerWidth": "500",
+    "innerDepth": "310",
+    "innerHeight": "238"
   },
   {
     "name": "어상자 18K",
     "outer": "555*370*330",
     "inner": "505*320*265",
     "quantity": "6*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "555",
+    "outerDepth": "370",
+    "outerHeight": "330",
+    "innerWidth": "505",
+    "innerDepth": "320",
+    "innerHeight": "265"
   },
   {
     "name": "어상자 20K",
     "outer": "620*440*335",
     "inner": "550*370*255",
     "quantity": "3*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "620",
+    "outerDepth": "440",
+    "outerHeight": "335",
+    "innerWidth": "550",
+    "innerDepth": "370",
+    "innerHeight": "255"
   },
   {
     "name": "어상자 30K",
     "outer": "770*470*275",
     "inner": "698*399*200",
     "quantity": "4*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "770",
+    "outerDepth": "470",
+    "outerHeight": "275",
+    "innerWidth": "698",
+    "innerDepth": "399",
+    "innerHeight": "200"
   },
   {
     "name": "30K-중박스",
     "outer": "770*470*270",
     "inner": "697*400*200",
     "quantity": "4*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "770",
+    "outerDepth": "470",
+    "outerHeight": "270",
+    "innerWidth": "697",
+    "innerDepth": "400",
+    "innerHeight": "200"
   },
   {
     "name": "30K-대박스",
     "outer": "770*470*310",
     "inner": "700*400*240",
     "quantity": "4*",
-    "mainCategory": "새우/어상자박스"
+    "mainCategory": "새우/어상자박스",
+    "outerWidth": "770",
+    "outerDepth": "470",
+    "outerHeight": "310",
+    "innerWidth": "700",
+    "innerDepth": "400",
+    "innerHeight": "240"
   }
 ]
