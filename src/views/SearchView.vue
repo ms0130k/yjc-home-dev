@@ -609,36 +609,36 @@ watch(
               </tbody>
             </table>
 
-            <!-- 페이지네이션 추가 -->
-            <div v-if="totalPages > 1" class="pagination">
-              <button
-                @click="goToPage(currentPage - 1)"
-                class="page-button"
-                :disabled="currentPage === 1"
-              >
-                이전
-              </button>
+          </div>
+          <!-- 페이지네이션 추가 -->
+          <div v-if="totalPages > 1" class="pagination">
+            <button
+              @click="goToPage(currentPage - 1)"
+              class="page-button"
+              :disabled="currentPage === 1"
+            >
+              이전
+            </button>
 
-              <div class="page-numbers">
-                <button
-                  v-for="page in totalPages"
-                  :key="page"
-                  @click="goToPage(page)"
-                  class="page-number"
-                  :class="{ active: currentPage === page }"
-                >
-                  {{ page }}
-                </button>
-              </div>
-
+            <div class="page-numbers">
               <button
-                @click="goToPage(currentPage + 1)"
-                class="page-button"
-                :disabled="currentPage === totalPages"
+                v-for="page in totalPages"
+                :key="page"
+                @click="goToPage(page)"
+                class="page-number"
+                :class="{ active: currentPage === page }"
               >
-                다음
+                {{ page }}
               </button>
             </div>
+
+            <button
+              @click="goToPage(currentPage + 1)"
+              class="page-button"
+              :disabled="currentPage === totalPages"
+            >
+              다음
+            </button>
           </div>
         </div>
       </div>
