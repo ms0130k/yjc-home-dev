@@ -362,8 +362,8 @@ onUnmounted(() => {
 }
 
 .kakao-floating-button svg {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   fill: #000000;
 }
 
@@ -377,8 +377,8 @@ onUnmounted(() => {
   }
 
   .kakao-floating-button svg {
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
   }
 }
 
