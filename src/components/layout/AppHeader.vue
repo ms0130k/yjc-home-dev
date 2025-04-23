@@ -62,48 +62,72 @@ onUnmounted(() => {
         <div class="nav-item-wrapper">
           <router-link to="/about" class="nav-item">회사소개</router-link>
           <div class="dropdown-menu">
-            <router-link to="/about/ceo" class="dropdown-item">CEO 인사말</router-link>
-            <router-link to="/about/history" class="dropdown-item">회사연혁</router-link>
-            <router-link to="/about/safety" class="dropdown-item">안전보건경영방침</router-link>
-            <router-link to="/about/quality" class="dropdown-item">품질경영방침</router-link>
-            <router-link to="/about/location" class="dropdown-item">오시는길</router-link>
-            <router-link to="/about/certificates" class="dropdown-item">특허&인증서</router-link>
+            <div class="dropdown-menu-content">
+              <div class="dropdown-column">
+                <router-link to="/about/ceo" class="dropdown-item">CEO 인사말</router-link>
+                <router-link to="/about/history" class="dropdown-item">회사연혁</router-link>
+                <router-link to="/about/safety" class="dropdown-item">안전보건경영방침</router-link>
+                <router-link to="/about/quality" class="dropdown-item">품질경영방침</router-link>
+                <router-link to="/about/location" class="dropdown-item">오시는길</router-link>
+                <router-link to="/about/certificates" class="dropdown-item"
+                  >특허&인증서</router-link
+                >
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="nav-item-wrapper">
           <router-link to="/products" class="nav-item">제품소개</router-link>
           <div class="dropdown-menu">
-            <router-link to="/products/box" class="dropdown-item">박스규격</router-link>
-            <router-link to="/products/industrial" class="dropdown-item">산업용제품</router-link>
-            <router-link to="/products/electronics" class="dropdown-item">전자제품</router-link>
-            <router-link to="/products/precision" class="dropdown-item">정밀부품</router-link>
+            <div class="dropdown-menu-content">
+              <div class="dropdown-column">
+                <router-link to="/products/box" class="dropdown-item">박스규격</router-link>
+                <router-link to="/products/industrial" class="dropdown-item"
+                  >산업용제품</router-link
+                >
+                <router-link to="/products/electronics" class="dropdown-item">전자제품</router-link>
+                <router-link to="/products/precision" class="dropdown-item">정밀부품</router-link>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="nav-item-wrapper">
           <router-link to="/rnd" class="nav-item">기술자료</router-link>
           <div class="dropdown-menu">
-            <router-link to="/rnd/intro" class="dropdown-item">연구소 소개</router-link>
-            <router-link to="/rnd/equipment" class="dropdown-item">장비현황</router-link>
-            <router-link to="/rnd/development" class="dropdown-item">연구개발</router-link>
+            <div class="dropdown-menu-content">
+              <div class="dropdown-column">
+                <router-link to="/rnd/intro" class="dropdown-item">연구소 소개</router-link>
+                <router-link to="/rnd/equipment" class="dropdown-item">장비현황</router-link>
+                <router-link to="/rnd/development" class="dropdown-item">연구개발</router-link>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="nav-item-wrapper">
           <router-link to="/business" class="nav-item">제품검색</router-link>
           <div class="dropdown-menu">
-            <router-link to="/search" class="dropdown-item">제품문의</router-link>
-            <router-link to="/business/msds" class="dropdown-item">MSDS</router-link>
-            <router-link to="/business/news" class="dropdown-item">NEWS&공지</router-link>
+            <div class="dropdown-menu-content">
+              <div class="dropdown-column">
+                <router-link to="/search" class="dropdown-item">제품문의</router-link>
+                <router-link to="/business/msds" class="dropdown-item">MSDS</router-link>
+                <router-link to="/business/news" class="dropdown-item">NEWS&공지</router-link>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="nav-item-wrapper">
           <router-link to="/support" class="nav-item">고객지원</router-link>
           <div class="dropdown-menu">
-            <router-link to="/support/inquiry" class="dropdown-item">제품문의</router-link>
-            <router-link to="/support/news" class="dropdown-item">공지사항</router-link>
+            <div class="dropdown-menu-content">
+              <div class="dropdown-column">
+                <router-link to="/support/inquiry" class="dropdown-item">제품문의</router-link>
+                <router-link to="/support/news" class="dropdown-item">공지사항</router-link>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
@@ -280,8 +304,10 @@ onUnmounted(() => {
 
 <style scoped>
 .header {
-  background-color: white;
-  position: relative;
+  background-color: #ffffff;
+  position: absolute;
+  left: 0;
+  right: 0;
   z-index: 100;
   height: 70px;
   width: 100%;
@@ -295,6 +321,7 @@ onUnmounted(() => {
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  background-color: #ffffff;
 }
 
 .logo {
@@ -320,6 +347,7 @@ onUnmounted(() => {
   display: flex;
   gap: 2.5rem;
   margin-right: 1.5rem;
+  position: relative;
 }
 
 .nav-item-wrapper {
@@ -336,6 +364,7 @@ onUnmounted(() => {
   font-weight: 500;
   padding: 0.5rem 0;
   transition: color 0.3s;
+  white-space: nowrap;
 }
 
 .nav-item:hover {
@@ -345,38 +374,48 @@ onUnmounted(() => {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   min-width: 200px;
-  background-color: white;
+  background-color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-10px);
   transition: all 0.3s ease;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
+  z-index: 1000;
 }
 
 .nav-item-wrapper:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+}
+
+.dropdown-menu-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+
+.dropdown-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .dropdown-item {
   display: block;
-  padding: 0.8rem 1.5rem;
+  padding: 0.5rem 1rem;
   color: #333;
   text-decoration: none;
   font-size: 1rem;
-  transition:
-    background-color 0.3s,
-    color 0.3s;
+  transition: all 0.3s ease;
   white-space: nowrap;
 }
 
 .dropdown-item:hover {
-  background-color: #f5f5f5;
   color: #1a237e;
+  background-color: #f5f5f5;
 }
 
 @media (max-width: 768px) {
