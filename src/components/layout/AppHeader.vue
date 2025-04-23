@@ -61,72 +61,63 @@ onUnmounted(() => {
       <nav class="nav-menu">
         <div class="nav-item-wrapper">
           <router-link to="/about" class="nav-item">회사소개</router-link>
-          <div class="dropdown-menu">
-            <div class="dropdown-menu-content">
-              <div class="dropdown-column">
-                <router-link to="/about/ceo" class="dropdown-item">CEO 인사말</router-link>
-                <router-link to="/about/history" class="dropdown-item">회사연혁</router-link>
-                <router-link to="/about/safety" class="dropdown-item">안전보건경영방침</router-link>
-                <router-link to="/about/quality" class="dropdown-item">품질경영방침</router-link>
-                <router-link to="/about/location" class="dropdown-item">오시는길</router-link>
-                <router-link to="/about/certificates" class="dropdown-item"
-                  >특허&인증서</router-link
-                >
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="nav-item-wrapper">
           <router-link to="/products" class="nav-item">제품소개</router-link>
-          <div class="dropdown-menu">
-            <div class="dropdown-menu-content">
-              <div class="dropdown-column">
-                <router-link to="/products/box" class="dropdown-item">박스규격</router-link>
-                <router-link to="/products/industrial" class="dropdown-item"
-                  >산업용제품</router-link
-                >
-                <router-link to="/products/electronics" class="dropdown-item">전자제품</router-link>
-                <router-link to="/products/precision" class="dropdown-item">정밀부품</router-link>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="nav-item-wrapper">
           <router-link to="/rnd" class="nav-item">기술자료</router-link>
-          <div class="dropdown-menu">
-            <div class="dropdown-menu-content">
-              <div class="dropdown-column">
-                <router-link to="/rnd/intro" class="dropdown-item">연구소 소개</router-link>
-                <router-link to="/rnd/equipment" class="dropdown-item">장비현황</router-link>
-                <router-link to="/rnd/development" class="dropdown-item">연구개발</router-link>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="nav-item-wrapper">
           <router-link to="/business" class="nav-item">제품검색</router-link>
-          <div class="dropdown-menu">
-            <div class="dropdown-menu-content">
-              <div class="dropdown-column">
-                <router-link to="/search" class="dropdown-item">제품문의</router-link>
-                <router-link to="/business/msds" class="dropdown-item">MSDS</router-link>
-                <router-link to="/business/news" class="dropdown-item">NEWS&공지</router-link>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="nav-item-wrapper">
           <router-link to="/support" class="nav-item">고객지원</router-link>
-          <div class="dropdown-menu">
-            <div class="dropdown-menu-content">
-              <div class="dropdown-column">
-                <router-link to="/support/inquiry" class="dropdown-item">제품문의</router-link>
-                <router-link to="/support/news" class="dropdown-item">공지사항</router-link>
-              </div>
+        </div>
+
+        <!-- 메가 메뉴 -->
+        <div class="mega-menu">
+          <div class="mega-menu-content">
+            <div class="dropdown-column">
+              <h3>회사소개</h3>
+              <router-link to="/about/ceo" class="dropdown-item">CEO 인사말</router-link>
+              <router-link to="/about/history" class="dropdown-item">회사연혁</router-link>
+              <router-link to="/about/safety" class="dropdown-item">안전보건경영방침</router-link>
+              <router-link to="/about/quality" class="dropdown-item">품질경영방침</router-link>
+              <router-link to="/about/location" class="dropdown-item">오시는길</router-link>
+              <router-link to="/about/certificates" class="dropdown-item">특허&인증서</router-link>
+            </div>
+
+            <div class="dropdown-column">
+              <h3>제품소개</h3>
+              <router-link to="/products/box" class="dropdown-item">박스규격</router-link>
+              <router-link to="/products/industrial" class="dropdown-item">산업용제품</router-link>
+              <router-link to="/products/electronics" class="dropdown-item">전자제품</router-link>
+              <router-link to="/products/precision" class="dropdown-item">정밀부품</router-link>
+            </div>
+
+            <div class="dropdown-column">
+              <h3>기술자료</h3>
+              <router-link to="/rnd/intro" class="dropdown-item">연구소 소개</router-link>
+              <router-link to="/rnd/equipment" class="dropdown-item">장비현황</router-link>
+              <router-link to="/rnd/development" class="dropdown-item">연구개발</router-link>
+            </div>
+
+            <div class="dropdown-column">
+              <h3>제품검색</h3>
+              <router-link to="/search" class="dropdown-item">제품문의</router-link>
+              <router-link to="/business/msds" class="dropdown-item">MSDS</router-link>
+              <router-link to="/business/news" class="dropdown-item">NEWS&공지</router-link>
+            </div>
+
+            <div class="dropdown-column">
+              <h3>고객지원</h3>
+              <router-link to="/support/inquiry" class="dropdown-item">제품문의</router-link>
+              <router-link to="/support/news" class="dropdown-item">공지사항</router-link>
             </div>
           </div>
         </div>
@@ -305,7 +296,7 @@ onUnmounted(() => {
 <style scoped>
 .header {
   background-color: #ffffff;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   z-index: 100;
@@ -351,7 +342,7 @@ onUnmounted(() => {
 }
 
 .nav-item-wrapper {
-  position: relative;
+  position: static;
   height: 70px;
   display: flex;
   align-items: center;
@@ -371,67 +362,68 @@ onUnmounted(() => {
   color: #1a237e;
 }
 
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 200px;
+/* 메가 메뉴 스타일 */
+.mega-menu {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100vw;
   background-color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  padding: 1rem 0;
   z-index: 1000;
+  transform: translateY(-10px);
 }
 
-.nav-item-wrapper:hover .dropdown-menu {
+.nav-menu:hover .mega-menu {
   opacity: 1;
   visibility: visible;
+  transform: translateY(0);
 }
 
-.dropdown-menu-content {
+.mega-menu-content {
+  max-width: 1920px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  padding: 0 1rem;
+  justify-content: space-between;
+  padding: 2rem 4rem;
+  gap: 2rem;
 }
 
 .dropdown-column {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
+}
+
+.dropdown-column h3 {
+  color: #1a237e;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #1a237e;
 }
 
 .dropdown-item {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;
   color: #333;
   text-decoration: none;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: color 0.3s;
   white-space: nowrap;
 }
 
 .dropdown-item:hover {
   color: #1a237e;
-  background-color: #f5f5f5;
 }
 
 @media (max-width: 768px) {
-  .header {
-    height: 50px;
-  }
-
-  .logo img {
-    height: 35px;
-  }
-
-  .logo-text {
-    font-size: 1.2rem;
-  }
-
-  .nav-menu {
+  .mega-menu {
     display: none;
   }
 }
