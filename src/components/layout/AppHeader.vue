@@ -52,41 +52,60 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header class="app-header">
-    <div class="header-container">
-      <!-- 회사 로고 -->
-      <div class="company-logo" @click="navigateTo('/')">
-        <h1>영진화학</h1>
-      </div>
+  <header class="header">
+    <div class="header-content">
+      <router-link to="/" class="logo">
+        <span class="logo-text">영진화학</span>
+      </router-link>
 
-      <!-- 메인 메뉴 (데스크톱) -->
-      <nav class="main-menu">
-        <ul>
-          <li class="menu-item">
-            <a href="/about" @click.prevent="navigateTo('/about')">회사소개</a>
-            <span class="menu-underline"></span>
-          </li>
-          <li class="menu-item">
-            <a href="/box-specs" @click.prevent="navigateTo('/box-specs')">박스규격</a>
-            <span class="menu-underline"></span>
-          </li>
-          <li class="menu-item">
-            <a href="/products" @click.prevent="navigateTo('/products')">제품안내</a>
-            <span class="menu-underline"></span>
-          </li>
-          <li class="menu-item">
-            <a href="/search" @click.prevent="navigateTo('/search')">제품검색</a>
-            <span class="menu-underline"></span>
-          </li>
-          <li class="menu-item">
-            <a href="/support" @click.prevent="navigateTo('/support')">제품문의</a>
-            <span class="menu-underline"></span>
-          </li>
-          <li class="menu-item">
-            <a href="/location" @click.prevent="navigateTo('/location')">오시는길</a>
-            <span class="menu-underline"></span>
-          </li>
-        </ul>
+      <nav class="nav-menu">
+        <div class="nav-item-wrapper">
+          <router-link to="/about" class="nav-item">회사소개</router-link>
+          <div class="dropdown-menu">
+            <router-link to="/about/ceo" class="dropdown-item">CEO 인사말</router-link>
+            <router-link to="/about/history" class="dropdown-item">회사연혁</router-link>
+            <router-link to="/about/safety" class="dropdown-item">안전보건경영방침</router-link>
+            <router-link to="/about/quality" class="dropdown-item">품질경영방침</router-link>
+            <router-link to="/about/location" class="dropdown-item">오시는길</router-link>
+            <router-link to="/about/certificates" class="dropdown-item">특허&인증서</router-link>
+          </div>
+        </div>
+
+        <div class="nav-item-wrapper">
+          <router-link to="/products" class="nav-item">제품소개</router-link>
+          <div class="dropdown-menu">
+            <router-link to="/products/box" class="dropdown-item">박스규격</router-link>
+            <router-link to="/products/industrial" class="dropdown-item">산업용제품</router-link>
+            <router-link to="/products/electronics" class="dropdown-item">전자제품</router-link>
+            <router-link to="/products/precision" class="dropdown-item">정밀부품</router-link>
+          </div>
+        </div>
+
+        <div class="nav-item-wrapper">
+          <router-link to="/rnd" class="nav-item">기술자료</router-link>
+          <div class="dropdown-menu">
+            <router-link to="/rnd/intro" class="dropdown-item">연구소 소개</router-link>
+            <router-link to="/rnd/equipment" class="dropdown-item">장비현황</router-link>
+            <router-link to="/rnd/development" class="dropdown-item">연구개발</router-link>
+          </div>
+        </div>
+
+        <div class="nav-item-wrapper">
+          <router-link to="/business" class="nav-item">제품검색</router-link>
+          <div class="dropdown-menu">
+            <router-link to="/search" class="dropdown-item">제품문의</router-link>
+            <router-link to="/business/msds" class="dropdown-item">MSDS</router-link>
+            <router-link to="/business/news" class="dropdown-item">NEWS&공지</router-link>
+          </div>
+        </div>
+
+        <div class="nav-item-wrapper">
+          <router-link to="/support" class="nav-item">고객지원</router-link>
+          <div class="dropdown-menu">
+            <router-link to="/support/inquiry" class="dropdown-item">제품문의</router-link>
+            <router-link to="/support/news" class="dropdown-item">공지사항</router-link>
+          </div>
+        </div>
       </nav>
 
       <!-- 모바일 메뉴 버튼 -->
@@ -260,89 +279,122 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.app-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
+.header {
   background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
+  height: 70px;
+  width: 100%;
 }
 
-.header-container {
+.header-content {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 20px;
-  height: 80px;
-}
-
-.company-logo {
-  cursor: pointer;
-}
-
-.company-logo h1 {
-  margin: 0;
-  font-size: 24px;
-  color: #2e7d32;
-  font-weight: 700;
-}
-
-.main-menu {
-  display: flex;
-  justify-content: flex-end;
   height: 100%;
 }
 
-.main-menu > ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  height: 100%;
-}
-
-.menu-item {
-  position: relative;
-  margin: 0 20px;
-  padding: 0;
-  height: 100%;
+.logo {
   display: flex;
   align-items: center;
-}
-
-.menu-item > a {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  color: #333;
   text-decoration: none;
+  color: inherit;
+  margin-left: 1.5rem;
+}
+
+.logo img {
+  height: 60px;
+  margin-right: 1rem;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #1a237e;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2.5rem;
+  margin-right: 1.5rem;
+}
+
+.nav-item-wrapper {
+  position: relative;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #333;
   font-weight: 500;
-  font-size: 16px;
+  padding: 0.5rem 0;
   transition: color 0.3s;
 }
 
-.menu-item > a:hover {
-  color: #2e7d32;
-  background-color: transparent;
+.nav-item:hover {
+  color: #1a237e;
 }
 
-/* 언더라인 효과 스타일 */
-.menu-underline {
+.dropdown-menu {
   position: absolute;
-  bottom: 0;
+  top: 100%;
   left: 0;
-  width: 0;
-  height: 3px;
-  background-color: #2e7d32;
-  transition: width 0.3s ease;
+  min-width: 200px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
 }
 
-.menu-item:hover .menu-underline {
-  width: 100%;
+.nav-item-wrapper:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.8rem 1.5rem;
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  white-space: nowrap;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+  color: #1a237e;
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 50px;
+  }
+
+  .logo img {
+    height: 35px;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  .nav-menu {
+    display: none;
+  }
 }
 
 /* 모바일 메뉴 버튼 스타일 */
@@ -464,7 +516,7 @@ onUnmounted(() => {
   padding: 15px 20px;
   color: #333;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 1.2rem;
   transition: background-color 0.3s;
 }
 
@@ -474,7 +526,7 @@ onUnmounted(() => {
 }
 
 @media (max-width: 968px) {
-  .main-menu {
+  .nav-menu {
     display: none;
   }
 

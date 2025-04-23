@@ -9,9 +9,11 @@
       <div class="banner-image">
         <!-- 이미지는 background-image로 설정됩니다 -->
       </div>
-      <div class="banner-content">
-        <h1 class="banner-title">오늘의 신뢰할수 있는 기술이</h1>
-        <p class="banner-subtitle">친환경 제품을 위한 내일의 기회를 만듭니다.</p>
+      <div class="banner-wrapper">
+        <div class="banner-content">
+          <h1 class="banner-title">오늘의 신뢰할수 있는 기술이</h1>
+          <p class="banner-subtitle">친환경 제품을 위한 내일의 기회를 만듭니다.</p>
+        </div>
       </div>
     </section>
 
@@ -30,9 +32,12 @@
 <style scoped>
 .main-banner {
   position: relative;
-  width: 100%;
-  height: 500px; /* 배너 높이 조정 */
+  width: 100vw;
+  height: 600px;
   overflow: hidden;
+  margin-top: -100px;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
 .banner-image {
@@ -41,16 +46,23 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('@/assets/images/main/main-factory.jpg'); /* 이미지 경로는 실제 이미지에 맞게 수정 필요 */
+  background-image: url('@/assets/images/main/main-factory.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
+.banner-wrapper {
+  position: relative;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
 .banner-content {
   position: absolute;
-  top: 50%;
-  left: 10%;
+  top: 60%;
   transform: translateY(-50%);
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -58,14 +70,14 @@
 }
 
 .banner-title {
-  font-size: 2.5rem;
+  font-size: 3.2rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
 .banner-subtitle {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: normal;
   margin: 0;
 }
@@ -73,24 +85,26 @@
 /* 반응형 스타일 */
 @media (max-width: 768px) {
   .main-banner {
-    height: 300px;
+    height: 400px;
+    margin-top: -80px;
   }
 
-  .banner-content {
-    left: 5%;
-    right: 5%;
+  .banner-wrapper {
+    padding: 0 1rem;
   }
 
   .banner-title {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 
   .banner-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 }
 
 .container {
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
