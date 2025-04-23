@@ -12,17 +12,11 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  base: '/', // GitHub Pages의 경우 '/repository-name/'로 설정
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
-    rollupOptions: {
-      input: {
-        main: fileURLToPath(new URL('./index.html', import.meta.url)),
-        data: fileURLToPath(new URL('./yjc-data.json', import.meta.url)),
-      },
-    },
   },
   publicDir: 'public',
 })
