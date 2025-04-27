@@ -755,14 +755,14 @@ defineComponent({
             <div class="electronics-images">
               <div class="electronics-image-container">
                 <img
-                  src="/src/assets/images/break/전자제품1.jpeg"
+                  src="/public/images/break/전자제품1.jpeg"
                   alt="전자제품 파손방지 이미지1"
                   class="electronics-image"
                 />
               </div>
               <div class="electronics-image-container">
                 <img
-                  src="/src/assets/images/break/전자제품2.jpeg"
+                  src="/public/images/break/전자제품2.jpeg"
                   alt="전자제품 파손방지 이미지2"
                   class="electronics-image"
                 />
@@ -782,21 +782,21 @@ defineComponent({
             <div class="damage-prevention-images">
               <div class="damage-prevention-image-container">
                 <img
-                  src="/src/assets/images/break/스티로폼1.jpeg"
+                  src="/public/images/break/스티로폼1.jpeg"
                   alt="파손방지 스티로폼 이미지1"
                   class="damage-prevention-image"
                 />
               </div>
               <div class="damage-prevention-image-container">
                 <img
-                  src="/src/assets/images/break/스티로폼2.jpeg"
+                  src="/public/images/break/스티로폼2.jpeg"
                   alt="파손방지 스티로폼 이미지2"
                   class="damage-prevention-image"
                 />
               </div>
               <div class="damage-prevention-image-container">
                 <img
-                  src="/src/assets/images/break/스티로폼3.jpeg"
+                  src="/public/images/break/스티로폼3.jpeg"
                   alt="파손방지 스티로폼 이미지3"
                   class="damage-prevention-image"
                 />
@@ -816,21 +816,21 @@ defineComponent({
             <div class="packaging-pad-images">
               <div class="packaging-pad-image-container">
                 <img
-                  src="/src/assets/images/break/목재유리1.jpeg"
+                  src="/public/images/break/목재유리1.jpeg"
                   alt="목재 유리 포장PAD 이미지1"
                   class="packaging-pad-image"
                 />
               </div>
               <div class="packaging-pad-image-container">
                 <img
-                  src="/src/assets/images/break/목재유리2.jpeg"
+                  src="/public/images/break/목재유리2.jpeg"
                   alt="목재 유리 포장PAD 이미지2"
                   class="packaging-pad-image"
                 />
               </div>
               <div class="packaging-pad-image-container">
                 <img
-                  src="/src/assets/images/break/목재유리3.jpeg"
+                  src="/public/images/break/목재유리3.jpeg"
                   alt="목재 유리 포장PAD 이미지3"
                   class="packaging-pad-image"
                 />

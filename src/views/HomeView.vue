@@ -46,7 +46,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('@/assets/images/main/main-factory.jpg');
+  background-image: url('public/images/main/main-factory.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
