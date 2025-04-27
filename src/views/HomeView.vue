@@ -18,31 +18,30 @@ import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
       </div>
     </section>
 
-    <!-- info-panel만 남기고 container, content, title, card, welcome-text 블록 제거 -->
     <div class="info-panel">
-      <div class="info-item">
+      <router-link to="/facilities" class="info-item" style="text-decoration: none">
         <Tools :width="34" :height="34" color="#fff" class="info-icon" />
         <div class="info-title">설비현황</div>
         <div class="info-subtitle">Facilities</div>
-      </div>
+      </router-link>
       <div class="info-divider"></div>
-      <div class="info-item">
+      <router-link to="/production-process" class="info-item" style="text-decoration: none">
         <Settings :width="34" :height="34" color="#fff" class="info-icon" />
         <div class="info-title">생산공정</div>
         <div class="info-subtitle">Production Process</div>
-      </div>
+      </router-link>
       <div class="info-divider"></div>
-      <div class="info-item">
+      <router-link to="/support" class="info-item" style="text-decoration: none">
         <Mail :width="34" :height="34" color="#fff" class="info-icon" />
         <div class="info-title">온라인 Q&amp;A</div>
         <div class="info-subtitle">Inquiry</div>
-      </div>
+      </router-link>
       <div class="info-divider"></div>
-      <div class="info-item">
+      <router-link to="/location" class="info-item" style="text-decoration: none">
         <Pin :width="34" :height="34" color="#fff" class="info-icon" />
         <div class="info-title">오시는 길</div>
         <div class="info-subtitle">Location</div>
-      </div>
+      </router-link>
     </div>
   </main>
 </template>
@@ -146,7 +145,7 @@ import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
   fill: #fff;
 }
 .info-title {
-  font-size: 1.0rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 .info-subtitle {
