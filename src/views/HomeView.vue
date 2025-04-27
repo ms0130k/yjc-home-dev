@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
 // 필요한 컴포넌트나 라이브러리를 여기에 임포트
 </script>
 
@@ -17,13 +18,30 @@
       </div>
     </section>
 
-    <!-- 나머지 컨텐츠 -->
-    <div class="container">
-      <div class="content">
-        <h1 class="title">영진 화학!</h1>
-        <div class="card">
-          <p class="welcome-text">영진 화학에 오신 것을 환영합니다.</p>
-        </div>
+    <!-- info-panel만 남기고 container, content, title, card, welcome-text 블록 제거 -->
+    <div class="info-panel">
+      <div class="info-item">
+        <Tools :width="34" :height="34" color="#fff" class="info-icon" />
+        <div class="info-title">설비현황</div>
+        <div class="info-subtitle">Facilities</div>
+      </div>
+      <div class="info-divider"></div>
+      <div class="info-item">
+        <Settings :width="34" :height="34" color="#fff" class="info-icon" />
+        <div class="info-title">생산공정</div>
+        <div class="info-subtitle">Production Process</div>
+      </div>
+      <div class="info-divider"></div>
+      <div class="info-item">
+        <Mail :width="34" :height="34" color="#fff" class="info-icon" />
+        <div class="info-title">온라인 Q&amp;A</div>
+        <div class="info-subtitle">Inquiry</div>
+      </div>
+      <div class="info-divider"></div>
+      <div class="info-item">
+        <Pin :width="34" :height="34" color="#fff" class="info-icon" />
+        <div class="info-title">오시는 길</div>
+        <div class="info-subtitle">Location</div>
       </div>
     </div>
   </main>
@@ -102,35 +120,56 @@
   }
 }
 
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.info-panel {
+  margin-top: 56px;
+  display: flex;
+  background: #0c2d5a;
+  padding: 26px 0;
+  justify-content: center;
+  align-items: stretch;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-.content {
-  max-width: 800px;
-  margin: 0 auto;
+.info-item {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  gap: 8px;
 }
-
-.title {
-  font-size: 2.5rem;
+.info-icon {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 8px;
+  fill: #fff;
+}
+.info-title {
+  font-size: 1.0rem;
   font-weight: bold;
-  margin: 2rem 0;
-  color: #2c3e50;
 }
-
-.card {
-  background-color: white;
-  border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.info-subtitle {
+  font-size: 0.95rem;
+  color: #b0c4de;
 }
-
-.welcome-text {
-  font-size: 1.5rem;
-  line-height: 1.6;
-  margin: 1rem 0;
+.info-divider {
+  width: 1px;
+  margin: 0 32px;
+  background: repeating-linear-gradient(to bottom, #3a5a8c 0 6px, transparent 6px 12px);
+}
+@media (max-width: 900px) {
+  .info-panel {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 13px 0;
+    width: 80%;
+  }
+  .info-divider {
+    width: 100%;
+    height: 1px;
+    margin: 24px 0;
+    background: repeating-linear-gradient(to right, #3a5a8c 0 6px, transparent 6px 12px);
+  }
 }
 </style>
