@@ -1,7 +1,6 @@
 import './assets/css/main.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 import PrimeVue from 'primevue/config'
 import Aura from '@primeuix/themes/aura'
@@ -9,42 +8,7 @@ import 'primevue/resources/themes/lara-light-green/theme.css'
 import 'primevue/resources/primevue.min.css'
 import 'primeicons/primeicons.css'
 import 'primeflex/primeflex.css'
-
-const router = createRouter({
-  history: createWebHistory(),
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: () => import('./views/HomeView.vue'),
-    },
-    {
-      path: '/about',
-      name: 'About',
-      component: () => import('./views/AboutView.vue'),
-    },
-    {
-      path: '/box-specs',
-      name: 'BoxSpecs',
-      component: () => import('./views/BoxSpecsView.vue'),
-    },
-    {
-      path: '/products',
-      name: 'Products',
-      component: () => import('./views/ProductsView.vue'),
-    },
-    {
-      path: '/search',
-      name: 'Search',
-      component: () => import('./views/SearchView.vue'),
-    },
-    {
-      path: '/location',
-      name: 'Location',
-      component: () => import('./views/LocationView.vue'),
-    },
-  ],
-})
+import router from './router'
 
 const app = createApp(App)
 app.use(PrimeVue, {

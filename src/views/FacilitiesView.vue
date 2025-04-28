@@ -105,8 +105,24 @@
         </tbody>
       </table>
     </div>
+    <div class="facilities-gallery">
+      <div class="gallery-item" v-for="item in galleryItems" :key="item.label">
+        <img :src="item.img" :alt="item.label" class="gallery-img" />
+        <div class="gallery-label">{{ item.label }}</div>
+      </div>
+    </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const galleryItems = [
+  { label: '성형기', img: '/public/images/break/목재유리1.jpeg' },
+  { label: '콤프레샤', img: '/public/images/break/목재유리1.jpeg' },
+  { label: '발포기', img: '/public/images/break/목재유리1.jpeg' },
+  { label: '싸이로 (SILO)', img: '/public/images/break/목재유리1.jpeg' },
+  { label: '펠릿/가스보일러', img: '/public/images/break/목재유리1.jpeg' },
+]
+</script>
 
 <style scoped>
 .box-specs-banner {
@@ -185,6 +201,52 @@
   background: #f7fafd;
 }
 
+.facilities-gallery {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 40px auto 0 auto;
+  max-width: 900px;
+  padding-bottom: 32px;
+}
+.gallery-item {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f7fafd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  min-width: 120px;
+}
+.gallery-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  background: #eee;
+}
+.gallery-label {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #fff;
+  background: #0c4da2;
+  padding: 12px 0;
+  letter-spacing: 1px;
+}
+@media (max-width: 900px) {
+  .facilities-gallery {
+    flex-direction: column;
+    gap: 20px;
+    max-width: 98vw;
+  }
+  .gallery-item {
+    width: 100%;
+    min-width: 0;
+  }
+}
 @media (max-width: 768px) {
   .box-specs-banner {
     height: 180px;
