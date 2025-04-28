@@ -2,12 +2,11 @@
   <PageBanner
     title="설비 현황"
     description="* 자세한 사항이나 기타 설비 문의는 전화 주시면 친절히 안내 드립니다."
-    tel="031-997-0280"
   />
   <PageTwoColumn>
     <template #left>
       <div class="side-banner">
-        <div class="side-title">설비 안내</div>
+        <div class="side-title">안내 사항</div>
         <div class="side-description">
           주요 설비 현황 및 기타 문의는<br />
           아래 연락처로 문의해 주세요.

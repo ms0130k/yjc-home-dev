@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import PageBanner from '@/components/common/PageBanner.vue'
+import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 
 // Kakao 지도를 위한 변수 선언
 declare global {
@@ -73,74 +75,56 @@ const initializeMap = () => {
 </script>
 
 <template>
-  <main class="location-view">
     <!-- 페이지 배너 -->
-    <div class="location-banner">
-      <div class="banner-content">
-        <h1 class="banner-title">오시는 길</h1>
-        <p class="banner-description">영진화학을 방문하시는 방법을 안내해 드립니다.</p>
-      </div>
-    </div>
+    <PageBanner
+      title="오시는 길"
+      description="* 자세한 사항이나 기타 설비 문의는 전화 주시면 친절히 안내 드립니다."
+    />
 
-    <div class="container">
-      <!-- 회사 주소 및 연락처 섹션 -->
-      <section class="company-info-section">
-        <div class="info-card">
-          <div class="info-item">
-            <h3 class="info-title">주소</h3>
-            <p class="info-content">{{ companyLocation.address }}</p>
-          </div>
-
-          <div class="info-item">
-            <h3 class="info-title">연락처</h3>
-            <p class="info-content">{{ companyLocation.phone }}</p>
-          </div>
+  <PageTwoColumn>
+    <template #left>
+      <div class="side-banner">
+        <div class="side-title">설비 안내</div>
+        <div class="side-description">
+          주요 설비 현황 및 기타 문의는<br />
+          아래 연락처로 문의해 주세요.
         </div>
-      </section>
+        <div class="side-contact">
+          <div class="side-tel-label">TEL</div>
+          <div class="side-tel">031-997-0280</div>
+        </div>
+      </div>
+    </template>
+    <template #right>
+      <div class="container">
+        <!-- 회사 주소 및 연락처 섹션 -->
+        <section class="company-info-section">
+          <div class="info-card">
+            <div class="info-item">
+              <h3 class="info-title">주소</h3>
+              <p class="info-content">{{ companyLocation.address }}</p>
+            </div>
 
-      <!-- 지도 섹션 -->
-      <section class="map-section">
-        <h2 class="section-title">찾아오시는 길</h2>
-        <div id="company-map" class="map-container"></div>
-        <p v-if="!mapLoaded" class="map-loading">지도를 불러오는 중입니다...</p>
-      </section>
+            <div class="info-item">
+              <h3 class="info-title">연락처</h3>
+              <p class="info-content">{{ companyLocation.phone }}</p>
+            </div>
+          </div>
+        </section>
 
-    </div>
-  </main>
+        <!-- 지도 섹션 -->
+        <section class="map-section">
+          <h2 class="section-title">찾아오시는 길</h2>
+          <div id="company-map" class="map-container"></div>
+          <p v-if="!mapLoaded" class="map-loading">지도를 불러오는 중입니다...</p>
+        </section>
+
+      </div>
+    </template>
+  </PageTwoColumn>
 </template>
 
 <style scoped>
-.location-view {
-  padding-top: 80px;
-  min-height: 100vh;
-}
-
-.location-banner {
-  height: 250px;
-  background-color: #0c4da2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-.banner-content {
-  text-align: center;
-}
-
-.banner-title {
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.banner-description {
-  color: white;
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
