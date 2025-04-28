@@ -2,21 +2,9 @@
   <PageBanner
     title="설비 현황"
     description="* 자세한 사항이나 기타 설비 문의는 전화 주시면 친절히 안내 드립니다."
+    tel="031-997-0280"
   />
   <PageTwoColumn>
-    <template #left>
-      <div class="side-banner">
-        <div class="side-title">안내 사항</div>
-        <div class="side-description">
-          주요 설비 현황 및 기타 문의는<br />
-          아래 연락처로 문의해 주세요.
-        </div>
-        <div class="side-contact">
-          <div class="side-tel-label">TEL</div>
-          <div class="side-tel">031-997-0280</div>
-        </div>
-      </div>
-    </template>
     <template #right>
       <div class="facilities-container">
         <table class="facilities-table">
@@ -136,38 +124,6 @@ const galleryItems = [
 </script>
 
 <style scoped>
-.box-specs-banner {
-  height: 250px;
-  background-color: #0c4da2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-.banner-content {
-  text-align: center;
-}
-
-.banner-title {
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.banner-description {
-  color: white;
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.banner-tel {
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
-}
-
 .facilities-container {
   max-width: 1250px;
   margin: 0 auto;
@@ -256,61 +212,13 @@ const galleryItems = [
   }
 }
 @media (max-width: 768px) {
-  .box-specs-banner {
-    height: 180px;
-  }
-  .banner-title {
-    font-size: 1.5rem;
-  }
   .facilities-container {
     padding: 16px 4px 24px 4px;
-  }
-  .facilities-title {
-    font-size: 1.2rem;
-    margin-bottom: 18px;
-    padding-bottom: 6px;
   }
   .facilities-table th,
   .facilities-table td {
     padding: 6px 4px;
     font-size: 0.9rem;
   }
-}
-.side-banner {
-  background: #f7fafd;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  padding: 32px 18px 24px 18px;
-  margin-bottom: 24px;
-  text-align: center;
-}
-.side-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #0c4da2;
-  margin-bottom: 12px;
-}
-.side-description {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 18px;
-}
-.side-contact {
-  margin-top: 12px;
-  background: #fff;
-  border-radius: 6px;
-  padding: 10px 0;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
-}
-.side-tel-label {
-  font-size: 0.95rem;
-  color: #0c4da2;
-  font-weight: bold;
-}
-.side-tel {
-  font-size: 1.1rem;
-  color: #222;
-  font-weight: bold;
-  margin-top: 2px;
 }
 </style>

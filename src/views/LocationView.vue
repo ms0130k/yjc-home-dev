@@ -82,19 +82,6 @@ const initializeMap = () => {
     />
 
   <PageTwoColumn>
-    <template #left>
-      <div class="side-banner">
-        <div class="side-title">설비 안내</div>
-        <div class="side-description">
-          주요 설비 현황 및 기타 문의는<br />
-          아래 연락처로 문의해 주세요.
-        </div>
-        <div class="side-contact">
-          <div class="side-tel-label">TEL</div>
-          <div class="side-tel">031-997-0280</div>
-        </div>
-      </div>
-    </template>
     <template #right>
       <div class="container">
         <!-- 회사 주소 및 연락처 섹션 -->
