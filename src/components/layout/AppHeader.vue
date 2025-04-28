@@ -62,19 +62,15 @@ onUnmounted(() => {
         <div class="nav-item-wrapper">
           <router-link to="/about" class="nav-item">회사소개</router-link>
         </div>
-
         <div class="nav-item-wrapper">
-          <router-link to="/products" class="nav-item">제품소개</router-link>
+          <router-link to="/facilities" class="nav-item">기술자료</router-link>
         </div>
-
         <div class="nav-item-wrapper">
-          <router-link to="/technical-data" class="nav-item">기술자료</router-link>
+          <router-link to="/products" class="nav-item">제품안내</router-link>
         </div>
-
         <div class="nav-item-wrapper">
-          <router-link to="/business" class="nav-item">제품검색</router-link>
+          <router-link to="/search" class="nav-item">제품검색</router-link>
         </div>
-
         <div class="nav-item-wrapper">
           <router-link to="/support" class="nav-item">고객지원</router-link>
         </div>
@@ -83,36 +79,27 @@ onUnmounted(() => {
         <div class="mega-menu">
           <div class="mega-menu-content">
             <div class="dropdown-column">
-              <router-link to="/about/ceo" class="dropdown-item">CEO 인사말</router-link>
-              <router-link to="/about/history" class="dropdown-item">회사연혁</router-link>
-              <router-link to="/about/safety" class="dropdown-item">안전보건경영방침</router-link>
-              <router-link to="/about/quality" class="dropdown-item">품질경영방침</router-link>
-              <router-link to="/about/location" class="dropdown-item">오시는길</router-link>
-              <router-link to="/about/certificates" class="dropdown-item">특허&인증서</router-link>
+              <router-link to="/ceo" class="dropdown-item">CEO 인사말</router-link>
+              <router-link to="/about" class="dropdown-item">회사연혁</router-link>
             </div>
 
             <div class="dropdown-column">
-              <router-link to="/products/box" class="dropdown-item">박스규격</router-link>
-              <router-link to="/products/industrial" class="dropdown-item">산업용제품</router-link>
-              <router-link to="/products/electronics" class="dropdown-item">전자제품</router-link>
-              <router-link to="/products/precision" class="dropdown-item">정밀부품</router-link>
+              <router-link to="/facilities" class="dropdown-item">설비현황</router-link>
+              <router-link to="/technical-data" class="dropdown-item">생산공정</router-link>
             </div>
 
             <div class="dropdown-column">
-              <router-link to="/rnd/intro" class="dropdown-item">연구소 소개</router-link>
-              <router-link to="/rnd/equipment" class="dropdown-item">장비현황</router-link>
-              <router-link to="/rnd/development" class="dropdown-item">연구개발</router-link>
+              <router-link to="/box-specs" class="dropdown-item">박스규격</router-link>
+              <router-link to="/products" class="dropdown-item">제품안내</router-link>
             </div>
 
             <div class="dropdown-column">
-              <router-link to="/search" class="dropdown-item">제품문의</router-link>
-              <router-link to="/business/msds" class="dropdown-item">MSDS</router-link>
-              <router-link to="/business/news" class="dropdown-item">NEWS&공지</router-link>
+              <router-link to="/search" class="dropdown-item">제품검색</router-link>
             </div>
 
             <div class="dropdown-column">
-              <router-link to="/support/inquiry" class="dropdown-item">제품문의</router-link>
-              <router-link to="/support/news" class="dropdown-item">공지사항</router-link>
+              <router-link to="/support" class="dropdown-item">제품문의</router-link>
+              <router-link to="/location" class="dropdown-item">오시는길</router-link>
             </div>
           </div>
         </div>

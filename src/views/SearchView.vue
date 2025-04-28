@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted, computed, watch } from 'vue'
+import PageBanner from '@/components/common/PageBanner.vue'
+import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 import axios from 'axios'
+
 
 interface ProductItem {
   name: string
@@ -310,237 +313,232 @@ watch(
 </script>
 
 <template>
-  <main class="search-view">
-    <div class="search-banner">
-      <div class="banner-content">
-        <h1 class="banner-title">제품 검색</h1>
-        <p class="banner-description">원하시는 제품을 검색해보세요.</p>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="search-container">
-        <div class="search-filters">
-          <div class="filter-row">
-            <div class="filter-group">
-              <label for="category-select">제품 분류</label>
-              <select id="category-select" v-model="selectedCategory" class="filter-input">
-                <option value="all">전체 분류</option>
-                <option v-for="category in categories" :key="category" :value="category">
-                  {{ category }}
-                </option>
-              </select>
-            </div>
-            <div class="filter-group">
-              <label for="tolerance-select">±오차범위</label>
-              <select id="tolerance-select" v-model="tolerance" class="filter-input">
-                <option :value="0">오차범위 없음</option>
-                <option :value="10">±10</option>
-                <option :value="20">±20</option>
-                <option :value="30">±30</option>
-                <option :value="40">±40</option>
-                <option :value="50">±50</option>
-                <option :value="60">±60</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="filter-row">
-            <div class="filter-group">
-              <label for="name-input">제품명</label>
-              <input
-                id="name-input"
-                type="text"
-                v-model="searchFilters.name"
-                placeholder="제품명 검색"
-                class="filter-input"
-              />
-            </div>
-          </div>
-
-          <div class="filter-section">
-            <h3 class="filter-section-title">내경 규격</h3>
-            <div class="filter-row dimensions">
+  <PageBanner title="제품 검색" description="원하는 제품을 검색해 보세요." />
+  <PageTwoColumn>
+    <template #right>
+      <div class="container">
+        <div class="search-container">
+          <div class="search-filters">
+            <div class="filter-row">
               <div class="filter-group">
-                <label for="inner-width-input">가로</label>
-                <input
-                  id="inner-width-input"
-                  type="text"
-                  v-model="searchFilters.innerWidth"
-                  placeholder="내경 가로"
-                  class="filter-input"
-                />
+                <label for="category-select">제품 분류</label>
+                <select id="category-select" v-model="selectedCategory" class="filter-input">
+                  <option value="all">전체 분류</option>
+                  <option v-for="category in categories" :key="category" :value="category">
+                    {{ category }}
+                  </option>
+                </select>
               </div>
               <div class="filter-group">
-                <label for="inner-depth-input">세로</label>
-                <input
-                  id="inner-depth-input"
-                  type="text"
-                  v-model="searchFilters.innerDepth"
-                  placeholder="내경 세로"
-                  class="filter-input"
-                />
+                <label for="tolerance-select">±오차범위</label>
+                <select id="tolerance-select" v-model="tolerance" class="filter-input">
+                  <option :value="0">오차범위 없음</option>
+                  <option :value="10">±10</option>
+                  <option :value="20">±20</option>
+                  <option :value="30">±30</option>
+                  <option :value="40">±40</option>
+                  <option :value="50">±50</option>
+                  <option :value="60">±60</option>
+                </select>
               </div>
+            </div>
+
+            <div class="filter-row">
               <div class="filter-group">
-                <label for="inner-height-input">높이</label>
+                <label for="name-input">제품명</label>
                 <input
-                  id="inner-height-input"
+                  id="name-input"
                   type="text"
-                  v-model="searchFilters.innerHeight"
-                  placeholder="내경 높이"
+                  v-model="searchFilters.name"
+                  placeholder="제품명 검색"
                   class="filter-input"
                 />
               </div>
             </div>
-          </div>
 
-          <div class="filter-section">
-            <h3 class="filter-section-title">외경 규격</h3>
-            <div class="filter-row dimensions">
-              <div class="filter-group">
-                <label for="outer-width-input">가로</label>
-                <input
-                  id="outer-width-input"
-                  type="text"
-                  v-model="searchFilters.outerWidth"
-                  placeholder="외경 가로"
-                  class="filter-input"
-                />
-              </div>
-              <div class="filter-group">
-                <label for="outer-depth-input">세로</label>
-                <input
-                  id="outer-depth-input"
-                  type="text"
-                  v-model="searchFilters.outerDepth"
-                  placeholder="외경 세로"
-                  class="filter-input"
-                />
-              </div>
-              <div class="filter-group">
-                <label for="outer-height-input">높이</label>
-                <input
-                  id="outer-height-input"
-                  type="text"
-                  v-model="searchFilters.outerHeight"
-                  placeholder="외경 높이"
-                  class="filter-input"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="filter-section">
-            <h3 class="filter-section-title">정렬</h3>
-            <div class="sorting-options">
-              <div class="sort-controls">
-                <div class="sort-left-group">
-                  <div class="dimension-radio">
-                    <label class="radio-label">
-                      <input type="radio" v-model="sortDimension" value="inner" /> 내경
-                    </label>
-                    <label class="radio-label">
-                      <input type="radio" v-model="sortDimension" value="outer" /> 외경
-                    </label>
-                  </div>
-
-                  <div class="sort-dimensions">
-                    <div class="sort-toggle-group">
-                      <span class="sort-label">가로</span>
-                      <div class="sort-buttons">
-                        <button
-                          @click="setSortDirection('width', 'asc')"
-                          class="sort-toggle"
-                          :class="{ active: sortDirections.width === 'asc' }"
-                          title="가로 오름차순"
-                        >
-                          ▲
-                        </button>
-                        <button
-                          @click="setSortDirection('width', 'desc')"
-                          class="sort-toggle"
-                          :class="{ active: sortDirections.width === 'desc' }"
-                          title="가로 내림차순"
-                        >
-                          ▼
-                        </button>
-                      </div>
-                    </div>
-                    <div class="sort-toggle-group">
-                      <span class="sort-label">세로</span>
-                      <div class="sort-buttons">
-                        <button
-                          @click="setSortDirection('depth', 'asc')"
-                          class="sort-toggle"
-                          :class="{ active: sortDirections.depth === 'asc' }"
-                          title="세로 오름차순"
-                        >
-                          ▲
-                        </button>
-                        <button
-                          @click="setSortDirection('depth', 'desc')"
-                          class="sort-toggle"
-                          :class="{ active: sortDirections.depth === 'desc' }"
-                          title="세로 내림차순"
-                        >
-                          ▼
-                        </button>
-                      </div>
-                    </div>
-                    <div class="sort-toggle-group">
-                      <span class="sort-label">높이</span>
-                      <div class="sort-buttons">
-                        <button
-                          @click="setSortDirection('height', 'asc')"
-                          class="sort-toggle"
-                          :class="{ active: sortDirections.height === 'asc' }"
-                          title="높이 오름차순"
-                        >
-                          ▲
-                        </button>
-                        <button
-                          @click="setSortDirection('height', 'desc')"
-                          class="sort-toggle"
-                          :class="{ active: sortDirections.height === 'desc' }"
-                          title="높이 내림차순"
-                        >
-                          ▼
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+            <div class="filter-section">
+              <h3 class="filter-section-title">내경 규격</h3>
+              <div class="filter-row dimensions">
+                <div class="filter-group">
+                  <label for="inner-width-input">가로</label>
+                  <input
+                    id="inner-width-input"
+                    type="text"
+                    v-model="searchFilters.innerWidth"
+                    placeholder="내경 가로"
+                    class="filter-input"
+                  />
                 </div>
+                <div class="filter-group">
+                  <label for="inner-depth-input">세로</label>
+                  <input
+                    id="inner-depth-input"
+                    type="text"
+                    v-model="searchFilters.innerDepth"
+                    placeholder="내경 세로"
+                    class="filter-input"
+                  />
+                </div>
+                <div class="filter-group">
+                  <label for="inner-height-input">높이</label>
+                  <input
+                    id="inner-height-input"
+                    type="text"
+                    v-model="searchFilters.innerHeight"
+                    placeholder="내경 높이"
+                    class="filter-input"
+                  />
+                </div>
+              </div>
+            </div>
 
-                <div class="filter-actions">
-                  <button @click="clearFilters" class="clear-button">조건 초기화</button>
+            <div class="filter-section">
+              <h3 class="filter-section-title">외경 규격</h3>
+              <div class="filter-row dimensions">
+                <div class="filter-group">
+                  <label for="outer-width-input">가로</label>
+                  <input
+                    id="outer-width-input"
+                    type="text"
+                    v-model="searchFilters.outerWidth"
+                    placeholder="외경 가로"
+                    class="filter-input"
+                  />
+                </div>
+                <div class="filter-group">
+                  <label for="outer-depth-input">세로</label>
+                  <input
+                    id="outer-depth-input"
+                    type="text"
+                    v-model="searchFilters.outerDepth"
+                    placeholder="외경 세로"
+                    class="filter-input"
+                  />
+                </div>
+                <div class="filter-group">
+                  <label for="outer-height-input">높이</label>
+                  <input
+                    id="outer-height-input"
+                    type="text"
+                    v-model="searchFilters.outerHeight"
+                    placeholder="외경 높이"
+                    class="filter-input"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3 class="filter-section-title">정렬</h3>
+              <div class="sorting-options">
+                <div class="sort-controls">
+                  <div class="sort-left-group">
+                    <div class="dimension-radio">
+                      <label class="radio-label">
+                        <input type="radio" v-model="sortDimension" value="inner" /> 내경
+                      </label>
+                      <label class="radio-label">
+                        <input type="radio" v-model="sortDimension" value="outer" /> 외경
+                      </label>
+                    </div>
+
+                    <div class="sort-dimensions">
+                      <div class="sort-toggle-group">
+                        <span class="sort-label">가로</span>
+                        <div class="sort-buttons">
+                          <button
+                            @click="setSortDirection('width', 'asc')"
+                            class="sort-toggle"
+                            :class="{ active: sortDirections.width === 'asc' }"
+                            title="가로 오름차순"
+                          >
+                            ▲
+                          </button>
+                          <button
+                            @click="setSortDirection('width', 'desc')"
+                            class="sort-toggle"
+                            :class="{ active: sortDirections.width === 'desc' }"
+                            title="가로 내림차순"
+                          >
+                            ▼
+                          </button>
+                        </div>
+                      </div>
+                      <div class="sort-toggle-group">
+                        <span class="sort-label">세로</span>
+                        <div class="sort-buttons">
+                          <button
+                            @click="setSortDirection('depth', 'asc')"
+                            class="sort-toggle"
+                            :class="{ active: sortDirections.depth === 'asc' }"
+                            title="세로 오름차순"
+                          >
+                            ▲
+                          </button>
+                          <button
+                            @click="setSortDirection('depth', 'desc')"
+                            class="sort-toggle"
+                            :class="{ active: sortDirections.depth === 'desc' }"
+                            title="세로 내림차순"
+                          >
+                            ▼
+                          </button>
+                        </div>
+                      </div>
+                      <div class="sort-toggle-group">
+                        <span class="sort-label">높이</span>
+                        <div class="sort-buttons">
+                          <button
+                            @click="setSortDirection('height', 'asc')"
+                            class="sort-toggle"
+                            :class="{ active: sortDirections.height === 'asc' }"
+                            title="높이 오름차순"
+                          >
+                            ▲
+                          </button>
+                          <button
+                            @click="setSortDirection('height', 'desc')"
+                            class="sort-toggle"
+                            :class="{ active: sortDirections.height === 'desc' }"
+                            title="높이 내림차순"
+                          >
+                            ▼
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="filter-actions">
+                    <button @click="clearFilters" class="clear-button">조건 초기화</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="search-results">
-        <div v-if="isLoading" class="loading-message">데이터를 불러오는 중입니다...</div>
+        <div class="search-results">
+          <div v-if="isLoading" class="loading-message">데이터를 불러오는 중입니다...</div>
 
-        <div v-else-if="hasError" class="error-message">
-          데이터를 불러오는 데 문제가 발생했습니다. 다시 시도해주세요.
-        </div>
+          <div v-else-if="hasError" class="error-message">
+            데이터를 불러오는 데 문제가 발생했습니다. 다시 시도해주세요.
+          </div>
 
-        <div v-else>
-          <div class="result-summary">
-            검색 결과: <strong>{{ totalCount }}개</strong>의 제품이 검색되었습니다.
-            <span v-if="tolerance > 0" class="tolerance-info">
+          <div v-else>
+            <div class="result-summary">
+              검색 결과: <strong>{{ totalCount }}개</strong>의 제품이 검색되었습니다.
+              <span v-if="tolerance > 0" class="tolerance-info">
               (±{{ tolerance }} 오차범위 적용)
             </span>
-            <span
-              v-if="
+              <span
+                v-if="
                 sortDirections.width !== 'none' ||
                 sortDirections.depth !== 'none' ||
                 sortDirections.height !== 'none'
               "
-              class="sort-info"
-            >
+                class="sort-info"
+              >
               [{{ sortDimension === 'inner' ? '내경' : '외경' }} 기준
               <template v-if="sortDirections.width !== 'none'">
                 가로 {{ sortDirections.width === 'asc' ? '▲' : '▼' }}
@@ -555,13 +553,13 @@ watch(
               </template>
               ]
             </span>
-          </div>
+            </div>
 
-          <div v-if="filteredProducts.length === 0" class="no-results">검색 결과가 없습니다.</div>
+            <div v-if="filteredProducts.length === 0" class="no-results">검색 결과가 없습니다.</div>
 
-          <div v-else class="table-container">
-            <table class="products-table">
-              <thead>
+            <div v-else class="table-container">
+              <table class="products-table">
+                <thead>
                 <tr>
                   <th>순번</th>
                   <th>분류</th>
@@ -584,8 +582,8 @@ watch(
                   </th>
                   <th>수량</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr v-for="(product, index) in paginatedProducts" :key="index">
                   <td>{{ (currentPage - 1) * itemsPerPage + index + 1 }}</td>
                   <td>{{ product.mainCategory }}</td>
@@ -606,43 +604,44 @@ watch(
                   </td>
                   <td>{{ product.quantity }}</td>
                 </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- 페이지네이션 추가 -->
-          <div v-if="totalPages > 1" class="pagination">
-            <button
-              @click="goToPage(currentPage - 1)"
-              class="page-button"
-              :disabled="currentPage === 1"
-            >
-              이전
-            </button>
-
-            <div class="page-numbers">
+                </tbody>
+              </table>
+            </div>
+            <!-- 페이지네이션 추가 -->
+            <div v-if="totalPages > 1" class="pagination">
               <button
-                v-for="page in totalPages"
-                :key="page"
-                @click="goToPage(page)"
-                class="page-number"
-                :class="{ active: currentPage === page }"
+                @click="goToPage(currentPage - 1)"
+                class="page-button"
+                :disabled="currentPage === 1"
               >
-                {{ page }}
+                이전
+              </button>
+
+              <div class="page-numbers">
+                <button
+                  v-for="page in totalPages"
+                  :key="page"
+                  @click="goToPage(page)"
+                  class="page-number"
+                  :class="{ active: currentPage === page }"
+                >
+                  {{ page }}
+                </button>
+              </div>
+
+              <button
+                @click="goToPage(currentPage + 1)"
+                class="page-button"
+                :disabled="currentPage === totalPages"
+              >
+                다음
               </button>
             </div>
-
-            <button
-              @click="goToPage(currentPage + 1)"
-              class="page-button"
-              :disabled="currentPage === totalPages"
-            >
-              다음
-            </button>
           </div>
         </div>
       </div>
-    </div>
-  </main>
+    </template>
+  </PageTwoColumn>
 </template>
 
 <style scoped>

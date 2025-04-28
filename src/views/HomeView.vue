@@ -25,7 +25,7 @@ import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
         <div class="info-subtitle">Facilities</div>
       </router-link>
       <div class="info-divider"></div>
-      <router-link to="/production-process" class="info-item" style="text-decoration: none">
+      <router-link to="/technical-data" class="info-item" style="text-decoration: none">
         <Settings :width="34" :height="34" color="#fff" class="info-icon" />
         <div class="info-title">생산공정</div>
         <div class="info-subtitle">Production Process</div>

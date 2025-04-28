@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { defineComponent, ref } from 'vue'
+import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
+import PageBanner from '@/components/common/PageBanner.vue'
 
 const tabItems = [
   { id: 'kimchi-box', label: '김치/가공식품\n보냉박스' },
@@ -561,37 +563,31 @@ defineComponent({
 </script>
 
 <template>
-  <main class="box-specs-view">
-    <!-- 박스규격 이미지 영역 -->
-    <div class="box-specs-banner">
-      <div class="banner-content">
-        <h1 class="banner-title">제품 안내</h1>
-        <p class="banner-description">
-          * 자세한 사항이나 기타 규격 문의는 전화 주시면 친절히 안내 드립니다.
-        </p>
-        <p class="banner-tel">TEL : 031-997-0280</p>
-      </div>
-    </div>
+  <PageBanner
+    title="설비 현황"
+    description="* 자세한 사항이나 기타 설비 문의는 전화 주시면 친절히 안내 드립니다."
+  />
+  <PageTwoColumn>
+    <template #right>
+      <div class="container">
+        <!-- 박스규격 탭 메뉴 -->
+        <div class="box-specs-tabs">
+          <button
+            v-for="tab in tabItems"
+            :key="tab.id"
+            :class="['tab-button', { active: activeTab === tab.id }]"
+            @click="changeTab(tab.id)"
+          >
+            {{ tab.label }}
+          </button>
+        </div>
 
-    <div class="container">
-      <!-- 박스규격 탭 메뉴 -->
-      <div class="box-specs-tabs">
-        <button
-          v-for="tab in tabItems"
-          :key="tab.id"
-          :class="['tab-button', { active: activeTab === tab.id }]"
-          @click="changeTab(tab.id)"
-        >
-          {{ tab.label }}
-        </button>
-      </div>
-
-      <div class="box-specs-content">
-        <div v-if="activeTab === 'kimchi-box'" class="tab-content">
-          <!-- 이미지가 있는 김치박스 테이블 -->
-          <div class="specs-table-container">
-            <table class="specs-table">
-              <thead>
+        <div class="box-specs-content">
+          <div v-if="activeTab === 'kimchi-box'" class="tab-content">
+            <!-- 이미지가 있는 김치박스 테이블 -->
+            <div class="specs-table-container">
+              <table class="specs-table">
+                <thead>
                 <tr>
                   <th rowspan="2">품명</th>
                   <th rowspan="2">사진</th>
@@ -602,8 +598,8 @@ defineComponent({
                   <th>외경(mm)</th>
                   <th>내경(mm)</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr v-for="(spec, index) in kimchiBoxWithImages" :key="index">
                   <td>{{ spec.name }}</td>
                   <td><img :src="spec.image" alt="박스 이미지" class="box-image" /></td>
@@ -611,16 +607,16 @@ defineComponent({
                   <td>{{ spec.inner }}</td>
                   <td>{{ spec.quantity }}</td>
                 </tr>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
 
-        <div v-else-if="activeTab === 'mushroom-box'" class="tab-content">
-          <!-- 이미지가 있는 송이/버섯 보냉박스 테이블 -->
-          <div class="specs-table-container">
-            <table class="specs-table">
-              <thead>
+          <div v-else-if="activeTab === 'mushroom-box'" class="tab-content">
+            <!-- 이미지가 있는 송이/버섯 보냉박스 테이블 -->
+            <div class="specs-table-container">
+              <table class="specs-table">
+                <thead>
                 <tr>
                   <th>품명</th>
                   <th>사진</th>
@@ -636,8 +632,8 @@ defineComponent({
                   <th></th>
                   <th></th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr v-for="(spec, index) in mushroomBoxWithImages" :key="index">
                   <td>{{ spec.name }}</td>
                   <td><img :src="spec.image" alt="박스 이미지" class="box-image" /></td>
@@ -646,16 +642,16 @@ defineComponent({
                   <td>{{ spec.quantity }}</td>
                   <td>{{ spec.note }}</td>
                 </tr>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
 
-        <div v-else-if="activeTab === 'meat-box'" class="tab-content">
-          <!-- 축산물 보냉박스 테이블 -->
-          <div class="specs-table-container">
-            <table class="specs-table">
-              <thead>
+          <div v-else-if="activeTab === 'meat-box'" class="tab-content">
+            <!-- 축산물 보냉박스 테이블 -->
+            <div class="specs-table-container">
+              <table class="specs-table">
+                <thead>
                 <tr>
                   <th>품명</th>
                   <th>사진</th>
@@ -671,8 +667,8 @@ defineComponent({
                   <th></th>
                   <th></th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr v-for="(spec, index) in meatBoxWithImages" :key="index">
                   <td>{{ spec.name }}</td>
                   <td><img :src="spec.image" alt="박스 이미지" class="box-image" /></td>
@@ -681,16 +677,16 @@ defineComponent({
                   <td>{{ spec.quantity }}</td>
                   <td>{{ spec.note }}</td>
                 </tr>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
 
-        <div v-else-if="activeTab === 'fish-box'" class="tab-content">
-          <!-- 어상자/식품 보냉박스 테이블 -->
-          <div class="specs-table-container">
-            <table class="specs-table">
-              <thead>
+          <div v-else-if="activeTab === 'fish-box'" class="tab-content">
+            <!-- 어상자/식품 보냉박스 테이블 -->
+            <div class="specs-table-container">
+              <table class="specs-table">
+                <thead>
                 <tr>
                   <th>품명</th>
                   <th>사진</th>
@@ -704,8 +700,8 @@ defineComponent({
                   <th>내경(mm)</th>
                   <th></th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr v-for="(spec, index) in fishBoxWithImages" :key="index">
                   <td>{{ spec.name }}</td>
                   <td><img :src="spec.image" alt="박스 이미지" class="box-image" /></td>
@@ -713,16 +709,16 @@ defineComponent({
                   <td>{{ spec.inner }}</td>
                   <td>{{ spec.quantity }}</td>
                 </tr>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
 
-        <div v-else-if="activeTab === 'multipurpose-box'" class="tab-content">
-          <!-- 다용도 보냉박스 테이블 -->
-          <div class="specs-table-container">
-            <table class="specs-table">
-              <thead>
+          <div v-else-if="activeTab === 'multipurpose-box'" class="tab-content">
+            <!-- 다용도 보냉박스 테이블 -->
+            <div class="specs-table-container">
+              <table class="specs-table">
+                <thead>
                 <tr>
                   <th>품명</th>
                   <th>사진</th>
@@ -736,8 +732,8 @@ defineComponent({
                   <th>내경(mm)</th>
                   <th></th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr v-for="(spec, index) in multipurposeBoxWithImages" :key="index">
                   <td>{{ spec.name }}</td>
                   <td><img :src="spec.image" alt="박스 이미지" class="box-image" /></td>
@@ -745,151 +741,113 @@ defineComponent({
                   <td>{{ spec.inner }}</td>
                   <td>{{ spec.quantity }}</td>
                 </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div v-else-if="activeTab === 'electronics-protection'" class="tab-content">
-          <div class="electronics-protection-content">
-            <div class="electronics-images">
-              <div class="electronics-image-container">
-                <img
-                  src="/public/images/break/전자제품1.jpeg"
-                  alt="전자제품 파손방지 이미지1"
-                  class="electronics-image"
-                />
-              </div>
-              <div class="electronics-image-container">
-                <img
-                  src="/public/images/break/전자제품2.jpeg"
-                  alt="전자제품 파손방지 이미지2"
-                  class="electronics-image"
-                />
-              </div>
-            </div>
-
-            <div class="electronics-description">
-              <h3>전자제품 파손방지</h3>
-              <p>금형제작/제품생산</p>
-              <p>TV/공기청정기/청소기등</p>
+                </tbody>
+              </table>
             </div>
           </div>
-        </div>
 
-        <div v-else-if="activeTab === 'damage-prevention'" class="tab-content">
-          <div class="damage-prevention-content">
-            <div class="damage-prevention-images">
-              <div class="damage-prevention-image-container">
-                <img
-                  src="/public/images/break/스티로폼1.jpeg"
-                  alt="파손방지 스티로폼 이미지1"
-                  class="damage-prevention-image"
-                />
+          <div v-else-if="activeTab === 'electronics-protection'" class="tab-content">
+            <div class="electronics-protection-content">
+              <div class="electronics-images">
+                <div class="electronics-image-container">
+                  <img
+                    src="/public/images/break/전자제품1.jpeg"
+                    alt="전자제품 파손방지 이미지1"
+                    class="electronics-image"
+                  />
+                </div>
+                <div class="electronics-image-container">
+                  <img
+                    src="/public/images/break/전자제품2.jpeg"
+                    alt="전자제품 파손방지 이미지2"
+                    class="electronics-image"
+                  />
+                </div>
               </div>
-              <div class="damage-prevention-image-container">
-                <img
-                  src="/public/images/break/스티로폼2.jpeg"
-                  alt="파손방지 스티로폼 이미지2"
-                  class="damage-prevention-image"
-                />
-              </div>
-              <div class="damage-prevention-image-container">
-                <img
-                  src="/public/images/break/스티로폼3.jpeg"
-                  alt="파손방지 스티로폼 이미지3"
-                  class="damage-prevention-image"
-                />
-              </div>
-            </div>
 
-            <div class="damage-prevention-description">
-              <h3>각종 유리병 파손방지</h3>
-              <p>금형제작 /제품생산</p>
-              <p>캔들/ 이유식/와인/ 오일병 파손방지</p>
+              <div class="electronics-description">
+                <h3>전자제품 파손방지</h3>
+                <p>금형제작/제품생산</p>
+                <p>TV/공기청정기/청소기등</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div v-else-if="activeTab === 'packaging-pad'" class="tab-content">
-          <div class="packaging-pad-content">
-            <div class="packaging-pad-images">
-              <div class="packaging-pad-image-container">
-                <img
-                  src="/public/images/break/목재유리1.jpeg"
-                  alt="목재 유리 포장PAD 이미지1"
-                  class="packaging-pad-image"
-                />
+          <div v-else-if="activeTab === 'damage-prevention'" class="tab-content">
+            <div class="damage-prevention-content">
+              <div class="damage-prevention-images">
+                <div class="damage-prevention-image-container">
+                  <img
+                    src="/public/images/break/스티로폼1.jpeg"
+                    alt="파손방지 스티로폼 이미지1"
+                    class="damage-prevention-image"
+                  />
+                </div>
+                <div class="damage-prevention-image-container">
+                  <img
+                    src="/public/images/break/스티로폼2.jpeg"
+                    alt="파손방지 스티로폼 이미지2"
+                    class="damage-prevention-image"
+                  />
+                </div>
+                <div class="damage-prevention-image-container">
+                  <img
+                    src="/public/images/break/스티로폼3.jpeg"
+                    alt="파손방지 스티로폼 이미지3"
+                    class="damage-prevention-image"
+                  />
+                </div>
               </div>
-              <div class="packaging-pad-image-container">
-                <img
-                  src="/public/images/break/목재유리2.jpeg"
-                  alt="목재 유리 포장PAD 이미지2"
-                  class="packaging-pad-image"
-                />
-              </div>
-              <div class="packaging-pad-image-container">
-                <img
-                  src="/public/images/break/목재유리3.jpeg"
-                  alt="목재 유리 포장PAD 이미지3"
-                  class="packaging-pad-image"
-                />
+
+              <div class="damage-prevention-description">
+                <h3>각종 유리병 파손방지</h3>
+                <p>금형제작 /제품생산</p>
+                <p>캔들/ 이유식/와인/ 오일병 파손방지</p>
               </div>
             </div>
+          </div>
 
-            <div class="packaging-pad-description">
-              <h3>각종 목재 유리 포장PAD</h3>
-              <p>목재/유리/거울 등 맞춤 사이즈 제작 가능</p>
-              <p>운송 중 파손 방지를 위한 최적의 포장 솔루션</p>
-              <p>문의: 054-975-5300</p>
+          <div v-else-if="activeTab === 'packaging-pad'" class="tab-content">
+            <div class="packaging-pad-content">
+              <div class="packaging-pad-images">
+                <div class="packaging-pad-image-container">
+                  <img
+                    src="/public/images/break/목재유리1.jpeg"
+                    alt="목재 유리 포장PAD 이미지1"
+                    class="packaging-pad-image"
+                  />
+                </div>
+                <div class="packaging-pad-image-container">
+                  <img
+                    src="/public/images/break/목재유리2.jpeg"
+                    alt="목재 유리 포장PAD 이미지2"
+                    class="packaging-pad-image"
+                  />
+                </div>
+                <div class="packaging-pad-image-container">
+                  <img
+                    src="/public/images/break/목재유리3.jpeg"
+                    alt="목재 유리 포장PAD 이미지3"
+                    class="packaging-pad-image"
+                  />
+                </div>
+              </div>
+
+              <div class="packaging-pad-description">
+                <h3>각종 목재 유리 포장PAD</h3>
+                <p>목재/유리/거울 등 맞춤 사이즈 제작 가능</p>
+                <p>운송 중 파손 방지를 위한 최적의 포장 솔루션</p>
+                <p>문의: 054-975-5300</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
+    </template>
+  </PageTwoColumn>
 </template>
 
 <style scoped>
-.box-specs-view {
-  padding-top: 80px;
-  min-height: 100vh;
-  position: relative;
-  z-index: 1; /* 헤더의 z-index 1000보다 낮게 설정 */
-}
-
-.box-specs-banner {
-  height: 250px;
-  background-color: #0c4da2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-.banner-content {
-  text-align: center;
-}
-
-.banner-title {
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.banner-description {
-  color: white;
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.banner-tel {
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -1007,23 +965,11 @@ defineComponent({
   background-color: #f0f0f0;
 }
 
-/* 스티로폼 재단 페이지 스타일 */
-.cutting-table-container {
-  overflow-x: auto;
-  margin-bottom: 30px;
-}
-
 .cutting-table-container h3 {
   font-size: 20px;
   color: #333;
   margin-bottom: 15px;
   font-weight: 600;
-}
-
-.cutting-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
 }
 
 .cutting-table th,
@@ -1232,14 +1178,6 @@ defineComponent({
     padding: 10px 15px;
     min-height: 60px;
     min-width: 120px; /* 모바일에서 최소 너비 설정 */
-  }
-
-  .box-specs-banner {
-    height: 200px;
-  }
-
-  .banner-title {
-    font-size: 32px;
   }
 
   .electronics-image-container,

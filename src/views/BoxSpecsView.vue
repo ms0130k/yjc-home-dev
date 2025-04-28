@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { defineComponent, ref } from 'vue'
+import PageBanner from '@/components/common/PageBanner.vue'
+import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 
 const tabItems = [
   { id: 'ice-box-1', label: '아이스 박스 규격 1' },
@@ -250,38 +252,33 @@ defineComponent({
 </script>
 
 <template>
-  <main class="box-specs-view">
-    <!-- 박스규격 이미지 영역 -->
-    <div class="box-specs-banner">
-      <div class="banner-content">
-        <h1 class="banner-title">영진화학 스티로폼 박스 규격표</h1>
-        <p class="banner-description">
-          * 자세한 사항이나 기타 규격 문의는 전화 주시면 친절히 안내 드립니다.
-        </p>
-        <p class="banner-tel">TEL : 031-997-0280</p>
-      </div>
-    </div>
+  <PageBanner
+    title="박스 규격"
+    description="* 자세한 사항이나 기타 설비 문의는 전화 주시면 친절히 안내 드립니다."
+  />
 
-    <div class="container">
-      <!-- 박스규격 탭 메뉴 -->
-      <div class="box-specs-tabs">
-        <button
-          v-for="tab in tabItems"
-          :key="tab.id"
-          :class="['tab-button', { active: activeTab === tab.id }]"
-          @click="changeTab(tab.id)"
-        >
-          {{ tab.label }}
-        </button>
-      </div>
+  <PageTwoColumn>
+    <template #right>
+      <div class="container">
+        <!-- 박스규격 탭 메뉴 -->
+        <div class="box-specs-tabs">
+          <button
+            v-for="tab in tabItems"
+            :key="tab.id"
+            :class="['tab-button', { active: activeTab === tab.id }]"
+            @click="changeTab(tab.id)"
+          >
+            {{ tab.label }}
+          </button>
+        </div>
 
-      <!-- 박스 콘텐츠 -->
-      <div class="box-specs-content">
-        <div v-if="activeTab === 'ice-box-1'" class="tab-content">
-          <!-- 각 박스 유형 별로 테이블 렌더링 -->
-          <div v-for="(tableData, index) in boxSpecs" :key="index" class="specs-table-container">
-            <table class="specs-table">
-              <thead>
+        <!-- 박스 콘텐츠 -->
+        <div class="box-specs-content">
+          <div v-if="activeTab === 'ice-box-1'" class="tab-content">
+            <!-- 각 박스 유형 별로 테이블 렌더링 -->
+            <div v-for="(tableData, index) in boxSpecs" :key="index" class="specs-table-container">
+              <table class="specs-table">
+                <thead>
                 <tr>
                   <th rowspan="2">{{ tableData.title }}</th>
                   <th colspan="2">규격(mm)</th>
@@ -291,24 +288,24 @@ defineComponent({
                   <th>외경(mm)</th>
                   <th>내경(mm)</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr v-for="(spec, specIndex) in tableData.specs" :key="specIndex">
                   <td>{{ spec.name }}</td>
                   <td>{{ spec.outer }}</td>
                   <td>{{ spec.inner }}</td>
                   <td>{{ spec.quantity }}</td>
                 </tr>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
 
-        <div v-else-if="activeTab === 'ice-box-2'" class="tab-content">
-          <!-- 각 박스 유형 별로 테이블 렌더링 -->
-          <div v-for="(tableData, index) in boxSpecs2" :key="index" class="specs-table-container">
-            <table class="specs-table">
-              <thead>
+          <div v-else-if="activeTab === 'ice-box-2'" class="tab-content">
+            <!-- 각 박스 유형 별로 테이블 렌더링 -->
+            <div v-for="(tableData, index) in boxSpecs2" :key="index" class="specs-table-container">
+              <table class="specs-table">
+                <thead>
                 <tr>
                   <th rowspan="2">{{ tableData.title }}</th>
                   <th colspan="2">규격(mm)</th>
@@ -318,24 +315,24 @@ defineComponent({
                   <th>외경(mm)</th>
                   <th>내경(mm)</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr v-for="(spec, specIndex) in tableData.specs" :key="specIndex">
                   <td>{{ spec.name }}</td>
                   <td>{{ spec.outer }}</td>
                   <td>{{ spec.inner }}</td>
                   <td>{{ spec.quantity }}</td>
                 </tr>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
 
-        <div v-else-if="activeTab === 'ice-box-3'" class="tab-content">
-          <!-- 각 박스 유형 별로 테이블 렌더링 -->
-          <div v-for="(tableData, index) in boxSpecs3" :key="index" class="specs-table-container">
-            <table class="specs-table">
-              <thead>
+          <div v-else-if="activeTab === 'ice-box-3'" class="tab-content">
+            <!-- 각 박스 유형 별로 테이블 렌더링 -->
+            <div v-for="(tableData, index) in boxSpecs3" :key="index" class="specs-table-container">
+              <table class="specs-table">
+                <thead>
                 <tr>
                   <th rowspan="2">{{ tableData.title }}</th>
                   <th colspan="2">규격(mm)</th>
@@ -345,105 +342,69 @@ defineComponent({
                   <th>외경(mm)</th>
                   <th>내경(mm)</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr v-for="(spec, specIndex) in tableData.specs" :key="specIndex">
                   <td>{{ spec.name }}</td>
                   <td>{{ spec.outer }}</td>
                   <td>{{ spec.inner }}</td>
                   <td>{{ spec.quantity }}</td>
                 </tr>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
 
-        <div v-else-if="activeTab === 'styrofoam-cutting'" class="tab-content">
-          <!-- 각 박스 유형 별로 테이블 렌더링 -->
-          <!-- 코너/모서리 보호 테이블 -->
-          <div class="cutting-table-container">
-            <table class="cutting-table">
-              <thead>
+          <div v-else-if="activeTab === 'styrofoam-cutting'" class="tab-content">
+            <!-- 각 박스 유형 별로 테이블 렌더링 -->
+            <!-- 코너/모서리 보호 테이블 -->
+            <div class="cutting-table-container">
+              <table class="cutting-table">
+                <thead>
                 <tr>
                   <th>코너/ 모서리 보호</th>
                   <th>규격(mm)</th>
                   <th>한묶음 수량</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr v-for="(spec, index) in cornerBoxSpecs" :key="index">
                   <td>{{ spec.name }}</td>
                   <td>{{ spec.size }}</td>
                   <td>{{ spec.quantity }}</td>
                 </tr>
-              </tbody>
-            </table>
-          </div>
+                </tbody>
+              </table>
+            </div>
 
-          <!-- 맞춤 평판/품파기 재단 테이블 -->
-          <div class="cutting-table-container">
-            <table class="cutting-table">
-              <thead>
+            <!-- 맞춤 평판/품파기 재단 테이블 -->
+            <div class="cutting-table-container">
+              <table class="cutting-table">
+                <thead>
                 <tr>
                   <th colspan="2">맞춤 평판/ 패드 제작 (건축용 및 제품 보호용)</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr v-for="(spec, index) in foamPanelSpecs" :key="index">
                   <td>{{ spec.name }}</td>
                   <td>{{ spec.description }}</td>
                 </tr>
-              </tbody>
-            </table>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div v-else-if="activeTab === 'img-sample'" class="tab-content">
+            <img src="/public/images/spec/box-spec.jpeg" alt="샘플 이미지" />
           </div>
         </div>
-
-        <div v-else-if="activeTab === 'img-sample'" class="tab-content">
-          <img src="/public/images/spec/box-spec.jpeg" alt="샘플 이미지" />
-        </div>
       </div>
-    </div>
-  </main>
+    </template>
+  </PageTwoColumn>
 </template>
 
 <style scoped>
-.box-specs-view {
-  padding-top: 80px;
-  min-height: 100vh;
-}
-
-.box-specs-banner {
-  height: 250px;
-  background-color: #0c4da2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-.banner-content {
-  text-align: center;
-}
-
-.banner-title {
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.banner-description {
-  color: white;
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.banner-tel {
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
