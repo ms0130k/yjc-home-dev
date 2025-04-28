@@ -29,6 +29,6 @@ body {
 }
 
 .content-container {
-  padding-top: 100px; /* 헤더 높이만큼 여백 추가 */
+  padding-top: 90px; /* 헤더 높이만큼 여백 추가 */
 }
 </style>
