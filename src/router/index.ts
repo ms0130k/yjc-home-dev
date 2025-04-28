@@ -39,6 +39,11 @@ const router = createRouter({
       name: 'facilities',
       component: () => import('../views/FacilitiesView.vue'),
     },
+    {
+      path: '/technical-data',
+      name: 'technical-data',
+      component: () => import('../views/TechnicalDataView.vue'),
+    },
   ],
 })
 

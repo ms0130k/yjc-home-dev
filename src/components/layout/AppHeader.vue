@@ -68,7 +68,7 @@ onUnmounted(() => {
         </div>
 
         <div class="nav-item-wrapper">
-          <router-link to="/rnd" class="nav-item">기술자료</router-link>
+          <router-link to="/technical-data" class="nav-item">기술자료</router-link>
         </div>
 
         <div class="nav-item-wrapper">
