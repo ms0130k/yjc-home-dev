@@ -2,7 +2,6 @@
 interface Props {
   title: string
   description?: string
-  tel?: string
 }
 defineProps<Props>()
 </script>
@@ -12,7 +11,6 @@ defineProps<Props>()
     <div class="banner-content">
       <h1 class="banner-title">{{ title }}</h1>
       <p v-if="description" class="banner-description">{{ description }}</p>
-      <p v-if="tel" class="banner-tel">TEL : {{ tel }}</p>
     </div>
   </div>
 </template>

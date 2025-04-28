@@ -1,115 +1,132 @@
 <template>
   <PageBanner
-    title="주요 설비 현황"
+    title="설비 현황"
     description="* 자세한 사항이나 기타 설비 문의는 전화 주시면 친절히 안내 드립니다."
     tel="031-997-0280"
   />
-  <div class="facilities-container">
-    <h2 class="facilities-title">주요 설비 현황</h2>
-    <table class="facilities-table">
-      <thead>
-        <tr>
-          <th>설비명</th>
-          <th>규격</th>
-          <th>보유 수</th>
-          <th>비고</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td rowspan="5">성형기</td>
-          <td>500GF Type</td>
-          <td>4대</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>1360H Type</td>
-          <td>8대</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>1700H Type</td>
-          <td>5대</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>1900H Type</td>
-          <td>2대</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>2000H Type</td>
-          <td>2대</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td rowspan="2">콤프레샤</td>
-          <td>100HP</td>
-          <td>2대</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>75HP</td>
-          <td>3대</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td rowspan="3">발포기</td>
-          <td>1200P</td>
-          <td>1대</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>1400P</td>
-          <td>1대</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>1800P</td>
-          <td>1대</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td rowspan="3">싸이로 (SILO)</td>
-          <td>EPS SILO</td>
-          <td>3기</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>2종 원료 SILO</td>
-          <td>6기</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>EPP SILO</td>
-          <td>4기</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>가스보일러</td>
-          <td>노통연관식 9톤</td>
-          <td>1대</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>펠릿보일러</td>
-          <td>수입산보령산 3톤</td>
-          <td>1대</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="facilities-gallery">
-    <div class="gallery-item" v-for="item in galleryItems" :key="item.label">
-      <img :src="item.img" :alt="item.label" class="gallery-img" />
-      <div class="gallery-label">{{ item.label }}</div>
-    </div>
-  </div>
+  <PageTwoColumn>
+    <template #left>
+      <div class="side-banner">
+        <div class="side-title">설비 안내</div>
+        <div class="side-description">
+          주요 설비 현황 및 기타 문의는<br />
+          아래 연락처로 문의해 주세요.
+        </div>
+        <div class="side-contact">
+          <div class="side-tel-label">TEL</div>
+          <div class="side-tel">031-997-0280</div>
+        </div>
+      </div>
+    </template>
+    <template #right>
+      <div class="facilities-container">
+        <table class="facilities-table">
+          <thead>
+            <tr>
+              <th>설비명</th>
+              <th>규격</th>
+              <th>보유 수</th>
+              <th>비고</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="5">성형기</td>
+              <td>500GF Type</td>
+              <td>4대</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1360H Type</td>
+              <td>8대</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1700H Type</td>
+              <td>5대</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1900H Type</td>
+              <td>2대</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2000H Type</td>
+              <td>2대</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td rowspan="2">콤프레샤</td>
+              <td>100HP</td>
+              <td>2대</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>75HP</td>
+              <td>3대</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td rowspan="3">발포기</td>
+              <td>1200P</td>
+              <td>1대</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1400P</td>
+              <td>1대</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1800P</td>
+              <td>1대</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td rowspan="3">싸이로 (SILO)</td>
+              <td>EPS SILO</td>
+              <td>3기</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2종 원료 SILO</td>
+              <td>6기</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>EPP SILO</td>
+              <td>4기</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>가스보일러</td>
+              <td>노통연관식 9톤</td>
+              <td>1대</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>펠릿보일러</td>
+              <td>수입산보령산 3톤</td>
+              <td>1대</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="facilities-gallery">
+        <div class="gallery-item" v-for="item in galleryItems" :key="item.label">
+          <img :src="item.img" :alt="item.label" class="gallery-img" />
+          <div class="gallery-label">{{ item.label }}</div>
+        </div>
+      </div>
+    </template>
+  </PageTwoColumn>
 </template>
 
 <script setup lang="ts">
 import PageBanner from '@/components/common/PageBanner.vue'
+import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 const galleryItems = [
   { label: '성형기', img: '/public/images/break/목재유리1.jpeg' },
   { label: '콤프레샤', img: '/public/images/break/목재유리1.jpeg' },
@@ -155,7 +172,7 @@ const galleryItems = [
 .facilities-container {
   max-width: 1250px;
   margin: 0 auto;
-  padding: 32px 24px 48px 24px;
+  padding: 0 24px 48px 24px;
 }
 
 .facilities-title {
@@ -259,5 +276,42 @@ const galleryItems = [
     padding: 6px 4px;
     font-size: 0.9rem;
   }
+}
+.side-banner {
+  background: #f7fafd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 32px 18px 24px 18px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.side-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0c4da2;
+  margin-bottom: 12px;
+}
+.side-description {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 18px;
+}
+.side-contact {
+  margin-top: 12px;
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+.side-tel-label {
+  font-size: 0.95rem;
+  color: #0c4da2;
+  font-weight: bold;
+}
+.side-tel {
+  font-size: 1.1rem;
+  color: #222;
+  font-weight: bold;
+  margin-top: 2px;
 }
 </style>
