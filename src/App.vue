@@ -20,10 +20,12 @@ import AppFooter from './components/layout/AppFooter.vue'
 body {
   margin: 0;
   padding: 0;
+  background: #fff;
 }
 
 .app-container {
   min-height: 100vh;
+  background: #fff;
 }
 
 .content-container {
