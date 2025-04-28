@@ -158,11 +158,8 @@ const galleryItems = [
 }
 
 .facilities-container {
-  max-width: 900px;
+  max-width: 1250px;
   margin: 0 auto;
-  background: transparent;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   padding: 32px 24px 48px 24px;
 }
 
@@ -206,8 +203,8 @@ const galleryItems = [
   justify-content: space-between;
   gap: 16px;
   margin: 40px auto 0 auto;
-  max-width: 900px;
-  padding-bottom: 32px;
+  max-width: 1250px;
+  padding: 0 24px 32px 24px;
 }
 .gallery-item {
   flex: 1 1 0;
