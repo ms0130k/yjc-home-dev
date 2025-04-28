@@ -23,15 +23,15 @@ import PageBanner from '@/components/common/PageBanner.vue'
 import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 
 const processSteps = [
-  { label: '원재료 입고', img: '/public/images/break/목재유리1.jpeg' },
-  { label: '예비발포', img: '/public/images/break/목재유리1.jpeg' },
-  { label: '발포검사', img: '/public/images/break/목재유리1.jpeg' },
-  { label: '공정검사', img: '/public/images/break/목재유리1.jpeg' },
-  { label: '성형', img: '/public/images/break/목재유리1.jpeg' },
-  { label: '숙성 (SILO)', img: '/public/images/break/목재유리1.jpeg' },
-  { label: '건조', img: '/public/images/break/목재유리1.jpeg' },
-  { label: '검사 및 포장', img: '/public/images/break/목재유리1.jpeg' },
-  { label: '출하 검사 및 출하', img: '/public/images/break/목재유리1.jpeg' },
+  { label: '원재료 입고', img: '/images/break/목재유리1.jpeg' },
+  { label: '예비발포', img: '/images/break/목재유리1.jpeg' },
+  { label: '발포검사', img: '/images/break/목재유리1.jpeg' },
+  { label: '공정검사', img: '/images/break/목재유리1.jpeg' },
+  { label: '성형', img: '/images/break/목재유리1.jpeg' },
+  { label: '숙성 (SILO)', img: '/images/break/목재유리1.jpeg' },
+  { label: '건조', img: '/images/break/목재유리1.jpeg' },
+  { label: '검사 및 포장', img: '/images/break/목재유리1.jpeg' },
+  { label: '출하 검사 및 출하', img: '/images/break/목재유리1.jpeg' },
 ]
 
 function getArrowSymbol(idx: number): string {

@@ -48,63 +48,63 @@ const kimchiBoxWithImages: BoxSpecWithImage[] = [
     outer: '310*240*180',
     inner: '270*200*80/120',
     quantity: '24*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '망계반죽 (Y-2)',
     outer: '250*250*180',
     inner: '210*210*13',
     quantity: '24*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: 'BOX 2호 ( 김치5kg)',
     outer: '260*260*250',
     inner: '220*220*200',
     quantity: '20*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: 'BOX 2.5호 ( 김치7kg)',
     outer: '335*310*250',
     inner: '290*260*190',
     quantity: '10*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: 'BOX 3호 ( 김치10kg)',
     outer: '385*295*270',
     inner: '330*245*200',
     quantity: '12*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: 'BOX 4호 ( 김치15kg)',
     outer: '415*305*365',
     inner: '365*255*290',
     quantity: '8*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: 'BOX 5호 ( 김치20kg)',
     outer: '460*370*315',
     inner: '400*310*250',
     quantity: '10*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: 'BOX 6호 = 블루베리 10kg',
     outer: '530*410*300',
     inner: '460*340*230',
     quantity: '8*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: 'BOX 7호',
     outer: '360*300*205',
     inner: '310*250*140',
     quantity: '16*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
 ]
 
@@ -115,7 +115,7 @@ const mushroomBoxWithImages: BoxSpecWithImage[] = [
     outer: '270*205*150',
     inner: '235*170*70/110',
     quantity: '32*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '냉매받침(간지) 분리가능',
   },
   {
@@ -123,7 +123,7 @@ const mushroomBoxWithImages: BoxSpecWithImage[] = [
     outer: '310*240*180',
     inner: '270*200*80/120',
     quantity: '24*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '냉매받침(간지) 분리가능',
   },
   {
@@ -131,7 +131,7 @@ const mushroomBoxWithImages: BoxSpecWithImage[] = [
     outer: '310*240*220',
     inner: '270*200*130/170',
     quantity: '20*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '냉매받침(간지) 분리가능',
   },
   {
@@ -139,7 +139,7 @@ const mushroomBoxWithImages: BoxSpecWithImage[] = [
     outer: '310*240*255',
     inner: '270*195*160/200',
     quantity: '16*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '냉매받침(간지) 분리가능',
   },
   {
@@ -147,7 +147,7 @@ const mushroomBoxWithImages: BoxSpecWithImage[] = [
     outer: '380*250*190',
     inner: '330*200*80/120',
     quantity: '20*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '냉매받침(간지) 분리가능',
   },
   {
@@ -155,7 +155,7 @@ const mushroomBoxWithImages: BoxSpecWithImage[] = [
     outer: '440*310*145',
     inner: '400*270*110',
     quantity: '14*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '냉매받침(간지) 분리가능',
   },
   {
@@ -163,7 +163,7 @@ const mushroomBoxWithImages: BoxSpecWithImage[] = [
     outer: '440*310*200',
     inner: '400*270*110',
     quantity: '10*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '냉매받침(간지) 분리가능',
   },
   {
@@ -171,7 +171,7 @@ const mushroomBoxWithImages: BoxSpecWithImage[] = [
     outer: '430*340*200',
     inner: '380*290*120',
     quantity: '10*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '',
   },
   {
@@ -179,7 +179,7 @@ const mushroomBoxWithImages: BoxSpecWithImage[] = [
     outer: '350*350*280',
     inner: '300*300*230',
     quantity: '8*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '',
   },
 ]
@@ -191,7 +191,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     outer: '305*250*145',
     inner: '250*203*80',
     quantity: '32*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '분리간 없음',
   },
   {
@@ -199,7 +199,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     outer: '445*240*155',
     inner: '175*120*55',
     quantity: '14*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '1*3칸',
   },
   {
@@ -207,7 +207,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     outer: '430*310*145',
     inner: '175*120*55',
     quantity: '16*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '1*4칸',
   },
   {
@@ -215,7 +215,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     outer: '435*365*150',
     inner: '175*120*55',
     quantity: '10*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '1*5칸',
   },
   {
@@ -223,7 +223,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     outer: '425*300*150',
     inner: '375*245*90',
     quantity: '14*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '',
   },
   {
@@ -231,7 +231,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     outer: '430*325*160',
     inner: '375*265*75/55',
     quantity: '14*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '',
   },
   {
@@ -239,7 +239,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     outer: '465*340*140',
     inner: '420*285*90',
     quantity: '12*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '',
   },
   {
@@ -247,7 +247,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     outer: '520*410*175',
     inner: '450*330*100',
     quantity: '6*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '',
   },
   {
@@ -255,7 +255,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     outer: '565*445*190',
     inner: '495*370*110',
     quantity: '6*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '',
   },
   {
@@ -263,7 +263,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     outer: '375*285*140',
     inner: '340*245*75',
     quantity: '16*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '',
   },
   {
@@ -271,7 +271,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     outer: '380*290*140',
     inner: '340*245*65',
     quantity: '16*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
     note: '',
   },
 ]
@@ -283,49 +283,49 @@ const fishBoxWithImages: BoxSpecWithImage[] = [
     outer: '542*350*150',
     inner: '490*295*100',
     quantity: '12*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '어상자 10kg',
     outer: '550*350*210',
     inner: '495*300*100/150',
     quantity: '6*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '어상자 15kg',
     outer: '555*370*280',
     inner: '495*310*225',
     quantity: '8*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '어상자 18kg',
     outer: '555*370*330',
     inner: '505*320*200/65',
     quantity: '4*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '어상자 20kg',
     outer: '620*440*335',
     inner: '550*370*255',
     quantity: '3*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '대하 1kg',
     outer: '305*205*95',
     inner: '280*180*65',
     quantity: '40*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '대하 2kg',
     outer: '340*240*130',
     inner: '305*205*95',
     quantity: '28*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
 ]
 
@@ -336,63 +336,63 @@ const multipurposeBoxWithImages: BoxSpecWithImage[] = [
     outer: '380*310*260',
     inner: '330*260*170',
     quantity: '8*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '다용도-2',
     outer: '375*305*250',
     inner: '330*260*200',
     quantity: '8*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '다용도-3',
     outer: '400*305*300',
     inner: '345*245*230',
     quantity: '8*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '다용도-4',
     outer: '430*320*275',
     inner: '380*275*210',
     quantity: '8*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '다용도-5',
     outer: '245*245*180',
     inner: '210*210*130',
     quantity: '8*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '다용도-6',
     outer: '370*310*230',
     inner: '320*265*170',
     quantity: '14*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '다용도-7',
     outer: '410*320*300',
     inner: '360*265*210',
     quantity: '8*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '계장원',
     outer: '340*270*210',
     inner: '300*230*150',
     quantity: '20*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
   {
     name: '미인',
     outer: '305*245*200',
     inner: '265*205*140',
     quantity: '20*',
-    image: '/public/images/box/box-sample.png',
+    image: '/images/box/box-sample.png',
   },
 ]
 
@@ -751,14 +751,14 @@ defineComponent({
               <div class="electronics-images">
                 <div class="electronics-image-container">
                   <img
-                    src="/public/images/break/전자제품1.jpeg"
+                    src="/images/break/전자제품1.jpeg"
                     alt="전자제품 파손방지 이미지1"
                     class="electronics-image"
                   />
                 </div>
                 <div class="electronics-image-container">
                   <img
-                    src="/public/images/break/전자제품2.jpeg"
+                    src="/images/break/전자제품2.jpeg"
                     alt="전자제품 파손방지 이미지2"
                     class="electronics-image"
                   />
@@ -778,21 +778,21 @@ defineComponent({
               <div class="damage-prevention-images">
                 <div class="damage-prevention-image-container">
                   <img
-                    src="/public/images/break/스티로폼1.jpeg"
+                    src="/images/break/스티로폼1.jpeg"
                     alt="파손방지 스티로폼 이미지1"
                     class="damage-prevention-image"
                   />
                 </div>
                 <div class="damage-prevention-image-container">
                   <img
-                    src="/public/images/break/스티로폼2.jpeg"
+                    src="/images/break/스티로폼2.jpeg"
                     alt="파손방지 스티로폼 이미지2"
                     class="damage-prevention-image"
                   />
                 </div>
                 <div class="damage-prevention-image-container">
                   <img
-                    src="/public/images/break/스티로폼3.jpeg"
+                    src="/images/break/스티로폼3.jpeg"
                     alt="파손방지 스티로폼 이미지3"
                     class="damage-prevention-image"
                   />
@@ -812,21 +812,21 @@ defineComponent({
               <div class="packaging-pad-images">
                 <div class="packaging-pad-image-container">
                   <img
-                    src="/public/images/break/목재유리1.jpeg"
+                    src="/images/break/목재유리1.jpeg"
                     alt="목재 유리 포장PAD 이미지1"
                     class="packaging-pad-image"
                   />
                 </div>
                 <div class="packaging-pad-image-container">
                   <img
-                    src="/public/images/break/목재유리2.jpeg"
+                    src="/images/break/목재유리2.jpeg"
                     alt="목재 유리 포장PAD 이미지2"
                     class="packaging-pad-image"
                   />
                 </div>
                 <div class="packaging-pad-image-container">
                   <img
-                    src="/public/images/break/목재유리3.jpeg"
+                    src="/images/break/목재유리3.jpeg"
                     alt="목재 유리 포장PAD 이미지3"
                     class="packaging-pad-image"
                   />

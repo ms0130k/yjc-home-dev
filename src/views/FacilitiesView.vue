@@ -114,11 +114,11 @@
 import PageBanner from '@/components/common/PageBanner.vue'
 import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 const galleryItems = [
-  { label: '성형기', img: '/public/images/break/목재유리1.jpeg' },
-  { label: '콤프레샤', img: '/public/images/break/목재유리1.jpeg' },
-  { label: '발포기', img: '/public/images/break/목재유리1.jpeg' },
-  { label: '싸이로 (SILO)', img: '/public/images/break/목재유리1.jpeg' },
-  { label: '펠릿/가스보일러', img: '/public/images/break/목재유리1.jpeg' },
+  { label: '성형기', img: '/images/break/목재유리1.jpeg' },
+  { label: '콤프레샤', img: '/images/break/목재유리1.jpeg' },
+  { label: '발포기', img: '/images/break/목재유리1.jpeg' },
+  { label: '싸이로 (SILO)', img: '/images/break/목재유리1.jpeg' },
+  { label: '펠릿/가스보일러', img: '/images/break/목재유리1.jpeg' },
 ]
 </script>
 

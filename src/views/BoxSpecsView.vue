@@ -396,7 +396,7 @@ defineComponent({
           </div>
 
           <div v-else-if="activeTab === 'img-sample'" class="tab-content">
-            <img src="/public/images/spec/box-spec.jpeg" alt="샘플 이미지" />
+            <img src="/images/spec/box-spec.jpeg" alt="샘플 이미지" />
           </div>
         </div>
       </div>
