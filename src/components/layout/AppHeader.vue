@@ -316,7 +316,7 @@ onUnmounted(() => {
 .header-content {
   max-width: 1920px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
   height: 100%;
@@ -329,9 +329,8 @@ onUnmounted(() => {
   align-items: center;
   text-decoration: none;
   color: inherit;
-  margin-left: 1.5rem;
-  position: absolute;
-  left: 0;
+  margin-right: auto;
+  z-index: 1;
 }
 
 .logo img {
