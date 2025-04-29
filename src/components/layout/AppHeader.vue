@@ -42,12 +42,37 @@ const scrollToTop = () => {
   })
 }
 
+// nav-menu hover 이벤트 처리
+const handleNavMenuMouseEnter = () => {
+  const header = document.querySelector('.header')
+  if (header) {
+    header.classList.add('nav-hover')
+  }
+}
+
+const handleNavMenuMouseLeave = () => {
+  const header = document.querySelector('.header')
+  if (header) {
+    header.classList.remove('nav-hover')
+  }
+}
+
 onMounted(() => {
   window.addEventListener('scroll', checkScrollPosition)
+  const navMenu = document.querySelector('.nav-menu')
+  if (navMenu) {
+    navMenu.addEventListener('mouseenter', handleNavMenuMouseEnter)
+    navMenu.addEventListener('mouseleave', handleNavMenuMouseLeave)
+  }
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', checkScrollPosition)
+  const navMenu = document.querySelector('.nav-menu')
+  if (navMenu) {
+    navMenu.removeEventListener('mouseenter', handleNavMenuMouseEnter)
+    navMenu.removeEventListener('mouseleave', handleNavMenuMouseLeave)
+  }
 })
 </script>
 
@@ -59,48 +84,43 @@ onUnmounted(() => {
       </router-link>
 
       <nav class="nav-menu">
+        <!-- 메가 메뉴 배경 (맨 위로 이동) -->
+        <div class="mega-menu">
+          <div class="mega-menu-content"></div>
+        </div>
+
         <div class="nav-item-wrapper">
           <router-link to="/about" class="nav-item">회사소개</router-link>
+          <div class="dropdown-column">
+            <router-link to="/ceo" class="dropdown-item">CEO 인사말</router-link>
+            <router-link to="/about" class="dropdown-item">회사연혁</router-link>
+          </div>
         </div>
         <div class="nav-item-wrapper">
           <router-link to="/facilities" class="nav-item">기술자료</router-link>
+          <div class="dropdown-column">
+            <router-link to="/facilities" class="dropdown-item">설비현황</router-link>
+            <router-link to="/technical-data" class="dropdown-item">생산공정</router-link>
+          </div>
         </div>
         <div class="nav-item-wrapper">
           <router-link to="/products" class="nav-item">제품안내</router-link>
+          <div class="dropdown-column">
+            <router-link to="/box-specs" class="dropdown-item">박스규격</router-link>
+            <router-link to="/products" class="dropdown-item">제품안내</router-link>
+          </div>
         </div>
         <div class="nav-item-wrapper">
           <router-link to="/search" class="nav-item">제품검색</router-link>
+          <div class="dropdown-column">
+            <router-link to="/search" class="dropdown-item">제품검색</router-link>
+          </div>
         </div>
         <div class="nav-item-wrapper">
           <router-link to="/support" class="nav-item">고객지원</router-link>
-        </div>
-
-        <!-- 메가 메뉴 -->
-        <div class="mega-menu">
-          <div class="mega-menu-content">
-            <div class="dropdown-column">
-              <router-link to="/ceo" class="dropdown-item">CEO 인사말</router-link>
-              <router-link to="/about" class="dropdown-item">회사연혁</router-link>
-            </div>
-
-            <div class="dropdown-column">
-              <router-link to="/facilities" class="dropdown-item">설비현황</router-link>
-              <router-link to="/technical-data" class="dropdown-item">생산공정</router-link>
-            </div>
-
-            <div class="dropdown-column">
-              <router-link to="/box-specs" class="dropdown-item">박스규격</router-link>
-              <router-link to="/products" class="dropdown-item">제품안내</router-link>
-            </div>
-
-            <div class="dropdown-column">
-              <router-link to="/search" class="dropdown-item">제품검색</router-link>
-            </div>
-
-            <div class="dropdown-column">
-              <router-link to="/support" class="dropdown-item">제품문의</router-link>
-              <router-link to="/location" class="dropdown-item">오시는길</router-link>
-            </div>
+          <div class="dropdown-column">
+            <router-link to="/support" class="dropdown-item">제품문의</router-link>
+            <router-link to="/location" class="dropdown-item">오시는길</router-link>
           </div>
         </div>
       </nav>
@@ -284,6 +304,13 @@ onUnmounted(() => {
   z-index: 100;
   height: 90px;
   width: 100%;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.header.nav-hover {
+  border-color: #eaeaea;
 }
 
 .header-content {
@@ -324,10 +351,11 @@ onUnmounted(() => {
   justify-content: center;
   gap: 8rem;
   margin: 0 auto;
+  position: relative;
 }
 
 .nav-item-wrapper {
-  position: static;
+  position: relative;
   height: 70px;
   display: flex;
   align-items: center;
@@ -346,53 +374,64 @@ onUnmounted(() => {
 
 .nav-item:hover {
   color: #1a237e;
-  background-color: transparent;
 }
 
 /* 메가 메뉴 스타일 */
 .mega-menu {
   position: fixed;
-  top: 70px;
+  top: 90px;
   left: 0;
-  width: 100vw;
+  width: 100%;
+  height: 200px;
   background-color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  z-index: 1000;
-  transform: translateY(-10px);
+  z-index: 99;
+  transform: translateY(-5px);
+  box-sizing: border-box;
 }
 
+/* nav-menu에 호버했을 때 메가메뉴 표시 */
 .nav-menu:hover .mega-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-.mega-menu-content {
-  max-width: 1920px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(5, 180px);
-  justify-content: center;
-  padding: 2rem 0;
-  gap: 2rem;
-}
-
+/* dropdown-column 스타일 수정 */
 .dropdown-column {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 99;
+  background-color: transparent;
+  box-sizing: border-box;
 }
 
-.dropdown-column h3 {
-  display: none;
+/* nav-menu에 호버했을 때 모든 dropdown-column 표시 */
+.nav-menu:hover .dropdown-column {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* nav-item-wrapper에 호버했을 때의 스타일은 제거하고 대신 active 스타일 추가 */
+.nav-item-wrapper:hover .nav-item {
+  color: #1a237e;
 }
 
 .dropdown-item {
   display: block;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
   color: #333;
   text-decoration: none;
   font-size: 1rem;
@@ -403,22 +442,11 @@ onUnmounted(() => {
 
 .dropdown-item:hover {
   color: #1a237e;
-  background-color: transparent;
 }
 
-@media (max-width: 1200px) {
-  .nav-menu {
-    gap: 3rem;
-  }
-
-  .mega-menu-content {
-    grid-template-columns: repeat(5, 150px);
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .mega-menu {
+@media (max-width: 968px) {
+  .mega-menu,
+  .dropdown-column {
     display: none;
   }
 }
