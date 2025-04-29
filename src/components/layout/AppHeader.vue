@@ -377,21 +377,12 @@ onUnmounted(() => {
   text-align: center;
   position: relative;
   box-sizing: border-box;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
 }
 
-.nav-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: transparent;
-  transition: background-color 0.3s ease;
-}
-
-.nav-item:hover::after {
-  background-color: #eaeaea;
+.nav-item:hover {
+  border-color: #0c4da2;
 }
 
 /* 메가 메뉴 스타일 */
