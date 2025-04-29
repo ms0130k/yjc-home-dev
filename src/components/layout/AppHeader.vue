@@ -352,13 +352,17 @@ onUnmounted(() => {
   gap: 8rem;
   margin: 0 auto;
   position: relative;
+  height: 100%;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .nav-item-wrapper {
   position: relative;
-  height: 70px;
+  height: 100%;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .nav-item {
@@ -366,14 +370,28 @@ onUnmounted(() => {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  padding: 0.5rem 0;
-  transition: color 0.3s;
+  height: 100%;
+  display: flex;
+  align-items: center;
   white-space: nowrap;
   text-align: center;
+  position: relative;
+  box-sizing: border-box;
 }
 
-.nav-item:hover {
-  color: #1a237e;
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.nav-item:hover::after {
+  background-color: #eaeaea;
 }
 
 /* 메가 메뉴 스타일 */
