@@ -854,37 +854,39 @@ defineComponent({
 </template>
 
 <style scoped>
+/* 공통 레이아웃 */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
+/* 탭 메뉴 */
 .box-specs-tabs {
   display: flex;
   border-bottom: 1px solid #ddd;
   margin-bottom: 30px;
-  overflow-x: auto; /* 모바일에서 가로 스크롤 가능하도록 */
-  -webkit-overflow-scrolling: touch; /* iOS에서 부드러운 스크롤을 위해 */
-  white-space: nowrap; /* 탭이 한 줄에 표시되도록 */
-  padding-bottom: 5px; /* 스크롤바 공간 확보 */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  padding-bottom: 5px;
 }
 
 .tab-button {
-  padding: 15px 25px;
-  background: none;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  position: relative;
-  outline: none;
-  color: #555;
-  white-space: pre-line;
-  text-align: center;
-  min-height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 70px;
+  padding: 15px 25px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  color: #555;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  white-space: pre-line;
+  text-align: center;
 }
 
 .tab-button.active {
@@ -918,12 +920,15 @@ defineComponent({
   color: #444;
 }
 
-.specs-table-container {
+/* 테이블 공통 */
+.specs-table-container,
+.cutting-table-container {
   overflow-x: auto;
   margin-bottom: 30px;
 }
 
-.specs-table {
+.specs-table,
+.cutting-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
@@ -931,50 +936,36 @@ defineComponent({
 }
 
 .specs-table th,
-.specs-table td {
-  border: 1px solid #ddd;
-  padding: 4px 4px;
-  text-align: center;
-}
-
-.specs-table th {
-  background-color: #f0f4f8;
-  font-weight: bold;
-  color: #333;
-}
-
-.specs-table tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-.specs-table tr:hover {
-  background-color: #f0f0f0;
-}
-
-.cutting-table-container h3 {
-  font-size: 20px;
-  color: #333;
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
+.specs-table td,
 .cutting-table th,
 .cutting-table td {
   border: 1px solid #ddd;
-  padding: 12px 15px;
   text-align: center;
+  vertical-align: middle;
 }
 
+.specs-table th,
 .cutting-table th {
   background-color: #f0f4f8;
   font-weight: bold;
   color: #333;
 }
 
+.specs-table td,
+.cutting-table td {
+  padding: 8px 12px;
+}
+
+.cutting-table td {
+  padding: 12px 15px;
+}
+
+.specs-table tr:nth-child(even),
 .cutting-table tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
+.specs-table tr:hover,
 .cutting-table tr:hover {
   background-color: #f0f0f0;
 }
@@ -985,128 +976,9 @@ defineComponent({
   object-fit: contain;
 }
 
-.specs-table th,
-.specs-table td {
-  border: 1px solid #ddd;
-  padding: 8px 12px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-/* 전자제품 파손방지 스타일 */
-.electronics-protection-content {
-  padding: 20px 0;
-}
-
-.electronics-images {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin: 30px 0;
-}
-
-.electronics-image-container {
-  width: 450px;
-  height: 450px;
-  overflow: hidden;
-}
-
-.electronics-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.electronics-description {
-  text-align: center;
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.electronics-description h3 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.electronics-description p {
-  font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 8px;
-}
-
-/* 파손방지 스티로폼 스타일 */
-.damage-prevention-content {
-  padding: 20px 0;
-}
-
-.damage-prevention-images {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 30px 0;
-  flex-wrap: wrap;
-}
-
-.damage-prevention-image-container {
-  width: 350px;
-  height: 350px;
-  overflow: hidden;
-}
-
-.damage-prevention-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.damage-prevention-description {
-  text-align: center;
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.damage-prevention-description h3 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.damage-prevention-description p {
-  font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 8px;
-}
-
-/* 목재 유리 포장PAD 스타일 */
-.packaging-pad-content {
-  padding: 20px 0;
-}
-
-.packaging-pad-images {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin: 30px 0;
-  flex-wrap: wrap;
-}
-
-.packaging-pad-image-container {
-  width: 350px;
-  height: 350px;
-  overflow: hidden;
-}
-
-.packaging-pad-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
+/* 설명 박스 공통 */
+.electronics-description,
+.damage-prevention-description,
 .packaging-pad-description {
   text-align: center;
   max-width: 400px;
@@ -1115,19 +987,50 @@ defineComponent({
   border-radius: 10px;
 }
 
+.electronics-description h3,
+.damage-prevention-description h3,
 .packaging-pad-description h3 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
+.electronics-description p,
+.damage-prevention-description p,
 .packaging-pad-description p {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 8px;
 }
 
-/* 모바일 반응형 스타일 추가 */
+/* 이미지 레이아웃 공통 */
+.electronics-images,
+.damage-prevention-images,
+.packaging-pad-images {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.electronics-image-container,
+.damage-prevention-image-container,
+.packaging-pad-image-container {
+  width: 350px;
+  height: 350px;
+  overflow: hidden;
+}
+
+.electronics-image,
+.damage-prevention-image,
+.packaging-pad-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 반응형 */
 @media (max-width: 968px) {
   .box-specs-tabs {
     padding-bottom: 10px;
@@ -1136,7 +1039,7 @@ defineComponent({
   .tab-button {
     padding: 10px 15px;
     min-height: 60px;
-    min-width: 120px; /* 모바일에서 최소 너비 설정 */
+    min-width: 120px;
   }
 
   .electronics-image-container,
@@ -1153,7 +1056,6 @@ defineComponent({
     gap: 20px;
   }
 
-  /* 이미지 컬럼 숨기기 (클래스 기반) */
   .hide-on-mobile {
     display: none !important;
   }
