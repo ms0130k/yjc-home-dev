@@ -618,6 +618,12 @@ onUnmounted(() => {
   border: none;
 }
 
+@media (min-width: 769px) {
+  .kakao-floating-button {
+    display: none;
+  }
+}
+
 .kakao-floating-button:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);

@@ -24,6 +24,30 @@ withDefaults(defineProps<Props>(), {
             <div class="side-tel-label">TEL</div>
             <div class="side-tel">031-997-0280</div>
           </div>
+          <a
+            class="side-kakao-contact"
+            href="https://pf.kakao.com/_DVzmxj"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="카카오톡 문의하기"
+          >
+            <span class="kakao-icon">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 36 36"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="18" cy="18" r="18" fill="#ffe812" />
+                <path
+                  d="M11.25 18c0-3.315 3.36-6 7.5-6s7.5 2.685 7.5 6-3.36 6-7.5 6c-.555 0-1.095-.045-1.62-.135l-3.255 1.2c-.285.105-.57-.165-.48-.45l.705-2.04C12.015 21.54 11.25 19.83 11.25 18Z"
+                  fill="#191600"
+                />
+              </svg>
+            </span>
+            <span class="kakao-label">KAKAO 문의하기</span>
+          </a>
         </div>
       </slot>
     </aside>
@@ -86,6 +110,44 @@ withDefaults(defineProps<Props>(), {
   color: #222;
   font-weight: bold;
   margin-top: 2px;
+}
+.side-kakao-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  background: #ffe812;
+  border-radius: 14px;
+  font-weight: bold;
+  color: #191600;
+  text-decoration: none;
+  font-size: 1.25rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+  border: none;
+  width: 100%;
+  min-height: 54px;
+  padding: 0 15px 0 0;
+}
+.side-kakao-contact:hover {
+  background: #ffeb3b;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+.kakao-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.kakao-icon svg {
+  width: 65px;
+  height: 65px;
+}
+.kakao-label {
+  font-size: 1.15rem;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 @media (max-width: 900px) {
   .two-column-layout {
