@@ -7,6 +7,12 @@ const isMobileMenuOpen = ref(false)
 const showScrollTop = ref(false)
 const isMoreOptionsOpen = ref(false)
 
+// 모바일 메뉴 아코디언 상태
+const openAccordion = ref<string | null>(null)
+
+// 모바일 메뉴 캐러셀 상태
+const activeMenu = ref<'main' | 'about' | 'facilities' | 'products' | 'search' | 'support'>('main')
+
 const navigateTo = (path: string) => {
   router.push(path)
   isMobileMenuOpen.value = false // 페이지 이동 시 모바일 메뉴 닫기
@@ -55,6 +61,17 @@ const handleNavMenuMouseLeave = () => {
   if (header) {
     header.classList.remove('nav-hover')
   }
+}
+
+function openSubMenu(menu: typeof activeMenu.value) {
+  activeMenu.value = menu
+}
+function backToMainMenu() {
+  activeMenu.value = 'main'
+}
+
+function toggleAccordion(menu: string) {
+  openAccordion.value = openAccordion.value === menu ? null : menu
 }
 
 onMounted(() => {
@@ -142,7 +159,16 @@ onUnmounted(() => {
       <!-- 모바일 메뉴 드로어 -->
       <nav class="mobile-menu" :class="{ open: isMobileMenuOpen }">
         <div class="mobile-menu-header">
-          <button class="close-button" @click="toggleMobileMenu" aria-label="메뉴 닫기">
+          <button
+            class="close-button"
+            @click="
+              () => {
+                toggleMobileMenu()
+                openAccordion.value = null
+              }
+            "
+            aria-label="메뉴 닫기"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
               <path
                 d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59 7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12 5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
@@ -150,24 +176,37 @@ onUnmounted(() => {
             </svg>
           </button>
         </div>
-        <ul class="mobile-menu-items">
-          <li class="mobile-menu-item">
-            <a href="/about" @click.prevent="navigateTo('/about')">회사소개</a>
+        <ul class="mobile-menu-main">
+          <li>
+            <button @click="toggleAccordion('about')">회사소개</button>
+            <ul v-if="openAccordion === 'about'" class="submenu">
+              <li><a @click.prevent="navigateTo('/ceo')">CEO 인사말</a></li>
+              <li><a @click.prevent="navigateTo('/about')">회사연혁</a></li>
+            </ul>
           </li>
-          <li class="mobile-menu-item">
-            <a href="/box-specs" @click.prevent="navigateTo('/box-specs')">박스규격</a>
+          <li>
+            <button @click="toggleAccordion('facilities')">기술자료</button>
+            <ul v-if="openAccordion === 'facilities'" class="submenu">
+              <li><a @click.prevent="navigateTo('/facilities')">설비현황</a></li>
+              <li><a @click.prevent="navigateTo('/technical-data')">생산공정</a></li>
+            </ul>
           </li>
-          <li class="mobile-menu-item">
-            <a href="/products" @click.prevent="navigateTo('/products')">제품안내</a>
+          <li>
+            <button @click="toggleAccordion('products')">제품안내</button>
+            <ul v-if="openAccordion === 'products'" class="submenu">
+              <li><a @click.prevent="navigateTo('/box-specs')">박스규격</a></li>
+              <li><a @click.prevent="navigateTo('/products')">제품안내</a></li>
+            </ul>
           </li>
-          <li class="mobile-menu-item">
-            <a href="/search" @click.prevent="navigateTo('/search')">제품검색</a>
+          <li>
+            <a @click.prevent="navigateTo('/search')">제품검색</a>
           </li>
-          <li class="mobile-menu-item">
-            <a href="/support" @click.prevent="navigateTo('/support')">제품문의</a>
-          </li>
-          <li class="mobile-menu-item">
-            <a href="/location" @click.prevent="navigateTo('/location')">오시는길</a>
+          <li>
+            <button @click="toggleAccordion('support')">고객지원</button>
+            <ul v-if="openAccordion === 'support'" class="submenu">
+              <li><a @click.prevent="navigateTo('/support')">제품문의</a></li>
+              <li><a @click.prevent="navigateTo('/location')">오시는길</a></li>
+            </ul>
           </li>
         </ul>
       </nav>
@@ -871,6 +910,116 @@ onUnmounted(() => {
   .scroll-top-button svg {
     width: 20px;
     height: 20px;
+  }
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.slide-fade-enter-from {
+  opacity: 0;
+  transform: translateX(40px);
+}
+.slide-fade-leave-to {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+.mobile-menu-carousel {
+  padding: 0 0 24px 0;
+}
+.mobile-menu-main,
+.mobile-menu-sub ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mobile-menu-main .mobile-menu-item,
+.mobile-menu-sub .mobile-menu-item {
+  padding: 0;
+  border-bottom: 1px solid #eee;
+}
+.mobile-menu-main .mobile-menu-item button,
+.mobile-menu-sub .mobile-menu-item a {
+  display: block;
+  width: 100%;
+  padding: 18px 20px;
+  color: #333;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  text-align: left;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.mobile-menu-main .mobile-menu-item button:hover,
+.mobile-menu-sub .mobile-menu-item a:hover {
+  background: #f5f5f5;
+}
+.back-button {
+  display: block;
+  width: 100%;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  color: #0c4da2;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+.mobile-menu-main {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mobile-menu-main > li {
+  border-bottom: 1px solid #eee;
+}
+.mobile-menu-main > li > button,
+.mobile-menu-main > li > a {
+  display: block;
+  width: 100%;
+  padding: 18px 20px;
+  color: #222;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  text-align: left;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.mobile-menu-main > li > button:hover,
+.mobile-menu-main > li > a:hover {
+  background: #f5f5f5;
+}
+.submenu {
+  background: #f9f9f9;
+  padding-left: 12px;
+  border-left: 2px solid #e0e0e0;
+  animation: dropdown 0.2s;
+}
+.submenu li a {
+  display: block;
+  padding: 12px 20px;
+  font-size: 1rem;
+  color: #222;
+  transition: background 0.2s;
+}
+.submenu li a:hover {
+  background: #f0f0f0;
+}
+@keyframes dropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
