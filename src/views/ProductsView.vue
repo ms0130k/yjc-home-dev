@@ -937,7 +937,6 @@ defineComponent({
   text-align: center;
 }
 
-
 .specs-table th {
   background-color: #f0f4f8;
   font-weight: bold;
@@ -992,33 +991,6 @@ defineComponent({
   padding: 8px 12px;
   text-align: center;
   vertical-align: middle;
-}
-
-.specs-table th:nth-child(1),
-.specs-table td:nth-child(1) {
-  width: 20%;
-}
-
-.specs-table th:nth-child(2),
-.specs-table td:nth-child(2) {
-  width: 15%;
-}
-
-.specs-table th:nth-child(3),
-.specs-table td:nth-child(3),
-.specs-table th:nth-child(4),
-.specs-table td:nth-child(4) {
-  width: 20%;
-}
-
-.specs-table th:nth-child(5),
-.specs-table td:nth-child(5) {
-  width: 15%;
-}
-
-.specs-table th:nth-child(6),
-.specs-table td:nth-child(6) {
-  width: 15%;
 }
 
 /* 전자제품 파손방지 스타일 */
