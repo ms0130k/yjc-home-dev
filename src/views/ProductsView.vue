@@ -588,25 +588,27 @@ defineComponent({
             <div class="specs-table-container">
               <table class="specs-table">
                 <thead>
-                <tr>
-                  <th rowspan="2">품명</th>
-                  <th rowspan="2">사진</th>
-                  <th colspan="2">규격</th>
-                  <th rowspan="2">한묶음 수량</th>
-                </tr>
-                <tr>
-                  <th>외경(mm)</th>
-                  <th>내경(mm)</th>
-                </tr>
+                  <tr>
+                    <th rowspan="2">품명</th>
+                    <th rowspan="2" class="hide-on-mobile">사진</th>
+                    <th colspan="2">규격</th>
+                    <th rowspan="2">한묶음 수량</th>
+                  </tr>
+                  <tr>
+                    <th>외경(mm)</th>
+                    <th>내경(mm)</th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(spec, index) in kimchiBoxWithImages" :key="index">
-                  <td>{{ spec.name }}</td>
-                  <td><img :src="spec.image" alt="박스 이미지" class="box-image" /></td>
-                  <td>{{ spec.outer }}</td>
-                  <td>{{ spec.inner }}</td>
-                  <td>{{ spec.quantity }}</td>
-                </tr>
+                  <tr v-for="(spec, index) in kimchiBoxWithImages" :key="index">
+                    <td>{{ spec.name }}</td>
+                    <td class="hide-on-mobile">
+                      <img :src="spec.image" alt="박스 이미지" class="box-image" />
+                    </td>
+                    <td>{{ spec.outer }}</td>
+                    <td>{{ spec.inner }}</td>
+                    <td>{{ spec.quantity }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -617,31 +619,29 @@ defineComponent({
             <div class="specs-table-container">
               <table class="specs-table">
                 <thead>
-                <tr>
-                  <th>품명</th>
-                  <th>사진</th>
-                  <th colspan="2">규격</th>
-                  <th>한묶음 수량</th>
-                  <th>비고</th>
-                </tr>
-                <tr>
-                  <th></th>
-                  <th></th>
-                  <th>외경(mm)</th>
-                  <th>내경(mm)</th>
-                  <th></th>
-                  <th></th>
-                </tr>
+                  <tr>
+                    <th rowspan="2">품명</th>
+                    <th rowspan="2" class="hide-on-mobile">사진</th>
+                    <th colspan="2">규격</th>
+                    <th rowspan="2">한묶음 수량</th>
+                    <th rowspan="2">비고</th>
+                  </tr>
+                  <tr>
+                    <th>외경(mm)</th>
+                    <th>내경(mm)</th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(spec, index) in mushroomBoxWithImages" :key="index">
-                  <td>{{ spec.name }}</td>
-                  <td><img :src="spec.image" alt="박스 이미지" class="box-image" /></td>
-                  <td>{{ spec.outer }}</td>
-                  <td>{{ spec.inner }}</td>
-                  <td>{{ spec.quantity }}</td>
-                  <td>{{ spec.note }}</td>
-                </tr>
+                  <tr v-for="(spec, index) in mushroomBoxWithImages" :key="index">
+                    <td>{{ spec.name }}</td>
+                    <td class="hide-on-mobile">
+                      <img :src="spec.image" alt="박스 이미지" class="box-image" />
+                    </td>
+                    <td>{{ spec.outer }}</td>
+                    <td>{{ spec.inner }}</td>
+                    <td>{{ spec.quantity }}</td>
+                    <td>{{ spec.note }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -652,31 +652,30 @@ defineComponent({
             <div class="specs-table-container">
               <table class="specs-table">
                 <thead>
-                <tr>
-                  <th>품명</th>
-                  <th>사진</th>
-                  <th colspan="2">규격</th>
-                  <th>한묶음 수량</th>
-                  <th>비고</th>
-                </tr>
-                <tr>
-                  <th></th>
-                  <th></th>
-                  <th>외경(mm)</th>
-                  <th>내경(mm)</th>
-                  <th></th>
-                  <th></th>
-                </tr>
+                  <tr>
+                    <th rowspan="2">품명</th>
+                    <th rowspan="2" class="hide-on-mobile">사진</th>
+                    <th colspan="2">규격</th>
+                    <th rowspan="2">한묶음 수량</th>
+                    <th rowspan="2">비고</th>
+                  </tr>
+                  <tr>
+                    <th class="hide-on-mobile"></th>
+                    <th>외경(mm)</th>
+                    <th>내경(mm)</th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(spec, index) in meatBoxWithImages" :key="index">
-                  <td>{{ spec.name }}</td>
-                  <td><img :src="spec.image" alt="박스 이미지" class="box-image" /></td>
-                  <td>{{ spec.outer }}</td>
-                  <td>{{ spec.inner }}</td>
-                  <td>{{ spec.quantity }}</td>
-                  <td>{{ spec.note }}</td>
-                </tr>
+                  <tr v-for="(spec, index) in meatBoxWithImages" :key="index">
+                    <td>{{ spec.name }}</td>
+                    <td class="hide-on-mobile">
+                      <img :src="spec.image" alt="박스 이미지" class="box-image" />
+                    </td>
+                    <td>{{ spec.outer }}</td>
+                    <td>{{ spec.inner }}</td>
+                    <td>{{ spec.quantity }}</td>
+                    <td>{{ spec.note }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -687,28 +686,27 @@ defineComponent({
             <div class="specs-table-container">
               <table class="specs-table">
                 <thead>
-                <tr>
-                  <th>품명</th>
-                  <th>사진</th>
-                  <th colspan="2">규격</th>
-                  <th>한묶음 수량</th>
-                </tr>
-                <tr>
-                  <th></th>
-                  <th></th>
-                  <th>외경(mm)</th>
-                  <th>내경(mm)</th>
-                  <th></th>
-                </tr>
+                  <tr>
+                    <th rowspan="2">품명</th>
+                    <th rowspan="2" class="hide-on-mobile">사진</th>
+                    <th colspan="2">규격</th>
+                    <th rowspan="2">한묶음 수량</th>
+                  </tr>
+                  <tr>
+                    <th>외경(mm)</th>
+                    <th>내경(mm)</th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(spec, index) in fishBoxWithImages" :key="index">
-                  <td>{{ spec.name }}</td>
-                  <td><img :src="spec.image" alt="박스 이미지" class="box-image" /></td>
-                  <td>{{ spec.outer }}</td>
-                  <td>{{ spec.inner }}</td>
-                  <td>{{ spec.quantity }}</td>
-                </tr>
+                  <tr v-for="(spec, index) in fishBoxWithImages" :key="index">
+                    <td>{{ spec.name }}</td>
+                    <td class="hide-on-mobile">
+                      <img :src="spec.image" alt="박스 이미지" class="box-image" />
+                    </td>
+                    <td>{{ spec.outer }}</td>
+                    <td>{{ spec.inner }}</td>
+                    <td>{{ spec.quantity }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -719,28 +717,27 @@ defineComponent({
             <div class="specs-table-container">
               <table class="specs-table">
                 <thead>
-                <tr>
-                  <th>품명</th>
-                  <th>사진</th>
-                  <th colspan="2">규격</th>
-                  <th>한묶음 수량</th>
-                </tr>
-                <tr>
-                  <th></th>
-                  <th></th>
-                  <th>외경(mm)</th>
-                  <th>내경(mm)</th>
-                  <th></th>
-                </tr>
+                  <tr>
+                    <th rowspan="2">품명</th>
+                    <th rowspan="2" class="hide-on-mobile">사진</th>
+                    <th colspan="2">규격</th>
+                    <th rowspan="2">한묶음 수량</th>
+                  </tr>
+                  <tr>
+                    <th>외경(mm)</th>
+                    <th>내경(mm)</th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(spec, index) in multipurposeBoxWithImages" :key="index">
-                  <td>{{ spec.name }}</td>
-                  <td><img :src="spec.image" alt="박스 이미지" class="box-image" /></td>
-                  <td>{{ spec.outer }}</td>
-                  <td>{{ spec.inner }}</td>
-                  <td>{{ spec.quantity }}</td>
-                </tr>
+                  <tr v-for="(spec, index) in multipurposeBoxWithImages" :key="index">
+                    <td>{{ spec.name }}</td>
+                    <td class="hide-on-mobile">
+                      <img :src="spec.image" alt="박스 이미지" class="box-image" />
+                    </td>
+                    <td>{{ spec.outer }}</td>
+                    <td>{{ spec.inner }}</td>
+                    <td>{{ spec.quantity }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -1192,6 +1189,11 @@ defineComponent({
   .packaging-pad-images {
     flex-direction: column;
     gap: 20px;
+  }
+
+  /* 이미지 컬럼 숨기기 (클래스 기반) */
+  .hide-on-mobile {
+    display: none !important;
   }
 }
 </style>
