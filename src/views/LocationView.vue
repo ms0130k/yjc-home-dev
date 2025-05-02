@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue'
 import PageBanner from '@/components/common/PageBanner.vue'
 import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
+import InfoTable from '@/components/common/info-table.vue'
 
 // Kakao 지도를 위한 변수 선언
 declare global {
@@ -23,10 +24,18 @@ const companyLocation = {
   name: '영진화학',
   address: '경기도 김포시 대곶면 대곶로 202번길 215 (송마리 245-1)',
   phone: '031-997-0280',
+  fax: '031-997-0281',
   email: 'yjin6038@hanmail.net',
   lat: 37.640739, // 김포시 대곶면 송마리 근처 위도 좌표
   lng: 126.578385, // 김포시 대곶면 송마리 근처 경도 좌표
 }
+
+// InfoTable에 전달할 데이터
+const infoRows = [
+  { label: '주소', value: companyLocation.address },
+  { label: '전화', value: companyLocation.phone },
+  { label: '팩스', value: companyLocation.fax },
+]
 
 const mapLoaded = ref(false)
 
@@ -56,7 +65,7 @@ const initializeMap = () => {
     center: new kakao.maps.LatLng(companyLocation.lat, companyLocation.lng),
     level: 3,
   }
-  const map = new kakao.maps.Map(container, options);
+  const map = new kakao.maps.Map(container, options)
 
   // 마커 추가
   const markerPosition = new kakao.maps.LatLng(companyLocation.lat, companyLocation.lng)
@@ -75,37 +84,26 @@ const initializeMap = () => {
 </script>
 
 <template>
-    <!-- 페이지 배너 -->
-    <PageBanner
-      title="오시는 길"
-      description="* 자세한 사항이나 기타 설비 문의는 전화 주시면 친절히 안내 드립니다."
-    />
+  <!-- 페이지 배너 -->
+  <PageBanner
+    title="오시는 길"
+    description="* 자세한 사항이나 기타 설비 문의는 전화 주시면 친절히 안내 드립니다."
+  />
 
   <PageTwoColumn>
     <template #right>
       <div class="container">
-        <!-- 회사 주소 및 연락처 섹션 -->
-        <section class="company-info-section">
-          <div class="info-card">
-            <div class="info-item">
-              <h3 class="info-title">주소</h3>
-              <p class="info-content">{{ companyLocation.address }}</p>
-            </div>
-
-            <div class="info-item">
-              <h3 class="info-title">연락처</h3>
-              <p class="info-content">{{ companyLocation.phone }}</p>
-            </div>
-          </div>
-        </section>
-
         <!-- 지도 섹션 -->
         <section class="map-section">
-          <h2 class="section-title">찾아오시는 길</h2>
           <div id="company-map" class="map-container"></div>
           <p v-if="!mapLoaded" class="map-loading">지도를 불러오는 중입니다...</p>
         </section>
 
+        <!-- 회사 주소 및 연락처 섹션 -->
+        <!-- 회사 정보 테이블 섹션 -->
+        <section>
+          <InfoTable :rows="infoRows" />
+        </section>
       </div>
     </template>
   </PageTwoColumn>
@@ -116,44 +114,6 @@ const initializeMap = () => {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-.section-title {
-  font-size: 28px;
-  color: #333;
-  margin-bottom: 20px;
-  font-weight: bold;
-  text-align: center;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 3px;
-  background-color: #0c4da2;
-}
-
-/* 회사 정보 섹션 */
-.company-info-section {
-  margin-bottom: 40px;
-}
-
-.info-card {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  margin-bottom: 30px;
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .info-item {
@@ -200,7 +160,7 @@ const initializeMap = () => {
   height: 500px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e4ea;
 }
 
 .map-loading {
