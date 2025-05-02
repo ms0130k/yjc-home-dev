@@ -126,7 +126,7 @@ import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
   padding: 26px 0;
   justify-content: center;
   align-items: stretch;
-  width: 80%;
+  max-width: 1450px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -154,7 +154,6 @@ import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
 }
 .info-divider {
   width: 1px;
-  margin: 0 32px;
   background: repeating-linear-gradient(to bottom, #3a5a8c 0 6px, transparent 6px 12px);
 }
 @media (max-width: 900px) {
@@ -167,7 +166,7 @@ import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
   .info-divider {
     width: 100%;
     height: 1px;
-    margin: 24px 0;
+    margin: 10px 0;
     background: repeating-linear-gradient(to right, #3a5a8c 0 6px, transparent 6px 12px);
   }
 }
