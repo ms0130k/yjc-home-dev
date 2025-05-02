@@ -44,6 +44,11 @@ const router = createRouter({
       name: 'technical-data',
       component: () => import('../views/TechnicalDataView.vue'),
     },
+    {
+      path: '/ceo',
+      name: 'ceo',
+      component: () => import('../views/CeoView.vue'),
+    },
   ],
 })
 

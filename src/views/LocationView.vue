@@ -116,40 +116,6 @@ const initializeMap = () => {
   padding: 0 20px;
 }
 
-.info-item {
-  flex: 1;
-  min-width: 250px;
-}
-
-.info-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #0c4da2;
-  margin-bottom: 10px;
-}
-
-.info-content {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #444;
-}
-
-.copy-button {
-  margin-top: 10px;
-  padding: 6px 12px;
-  background-color: #0c4da2;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.2s;
-}
-
-.copy-button:hover {
-  background-color: #0a3f85;
-}
-
 /* 지도 섹션 */
 .map-section {
   margin-bottom: 50px;
@@ -171,67 +137,7 @@ const initializeMap = () => {
   border-radius: 8px;
 }
 
-/* 교통편 안내 섹션 */
-.transportation-section {
-  margin-bottom: 60px;
-}
-
-.transportation-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.transport-card {
-  flex: 1;
-  min-width: 300px;
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 25px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-}
-
-.transport-title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #f0f0f0;
-}
-
-.transport-content {
-  color: #444;
-  line-height: 1.7;
-}
-
-.transport-content p {
-  margin-bottom: 12px;
-}
-
-.transport-content strong {
-  color: #0c4da2;
-}
-
 @media (max-width: 768px) {
-  .info-card {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .info-item {
-    min-width: 100%;
-  }
-
-  .transportation-cards {
-    flex-direction: column;
-  }
-
-  .transport-card {
-    min-width: 100%;
-  }
-
   .map-container {
     height: 350px;
   }

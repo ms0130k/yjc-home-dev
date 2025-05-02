@@ -176,7 +176,7 @@ onUnmounted(() => {
 
   <!-- 카카오톡 플로팅 배너 추가 -->
   <a
-    href="https://open.kakao.com/o/sy5Lanaf"
+    href="https://pf.kakao.com/_DVzmxj"
     target="_blank"
     rel="noopener noreferrer"
     class="kakao-floating-button"
