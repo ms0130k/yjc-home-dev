@@ -592,7 +592,7 @@ defineComponent({
                     <th rowspan="2">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
-                    <th rowspan="2">한묶음 수량</th>
+                    <th rowspan="2">한묶음<br />수량</th>
                   </tr>
                   <tr>
                     <th>외경(mm)</th>
@@ -607,7 +607,9 @@ defineComponent({
                     </td>
                     <td>{{ spec.outer }}</td>
                     <td>{{ spec.inner }}</td>
-                    <td>{{ spec.quantity }}</td>
+                    <td>
+                      {{ spec.quantity }}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -623,7 +625,7 @@ defineComponent({
                     <th rowspan="2">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
-                    <th rowspan="2">한묶음 수량</th>
+                    <th rowspan="2">한묶음<br />수량</th>
                     <th rowspan="2">비고</th>
                   </tr>
                   <tr>
@@ -639,7 +641,9 @@ defineComponent({
                     </td>
                     <td>{{ spec.outer }}</td>
                     <td>{{ spec.inner }}</td>
-                    <td>{{ spec.quantity }}</td>
+                    <td>
+                      {{ spec.quantity }}
+                    </td>
                     <td>{{ spec.note }}</td>
                   </tr>
                 </tbody>
@@ -656,11 +660,10 @@ defineComponent({
                     <th rowspan="2">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
-                    <th rowspan="2">한묶음 수량</th>
+                    <th rowspan="2">한묶음<br />수량</th>
                     <th rowspan="2">비고</th>
                   </tr>
                   <tr>
-                    <th class="hide-on-mobile"></th>
                     <th>외경(mm)</th>
                     <th>내경(mm)</th>
                   </tr>
@@ -673,7 +676,9 @@ defineComponent({
                     </td>
                     <td>{{ spec.outer }}</td>
                     <td>{{ spec.inner }}</td>
-                    <td>{{ spec.quantity }}</td>
+                    <td>
+                      {{ spec.quantity }}
+                    </td>
                     <td>{{ spec.note }}</td>
                   </tr>
                 </tbody>
@@ -690,7 +695,7 @@ defineComponent({
                     <th rowspan="2">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
-                    <th rowspan="2">한묶음 수량</th>
+                    <th rowspan="2">한묶음<br />수량</th>
                   </tr>
                   <tr>
                     <th>외경(mm)</th>
@@ -705,7 +710,9 @@ defineComponent({
                     </td>
                     <td>{{ spec.outer }}</td>
                     <td>{{ spec.inner }}</td>
-                    <td>{{ spec.quantity }}</td>
+                    <td>
+                      {{ spec.quantity }}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -721,7 +728,7 @@ defineComponent({
                     <th rowspan="2">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
-                    <th rowspan="2">한묶음 수량</th>
+                    <th rowspan="2">한묶음<br />수량</th>
                   </tr>
                   <tr>
                     <th>외경(mm)</th>
@@ -736,7 +743,9 @@ defineComponent({
                     </td>
                     <td>{{ spec.outer }}</td>
                     <td>{{ spec.inner }}</td>
-                    <td>{{ spec.quantity }}</td>
+                    <td>
+                      {{ spec.quantity }}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -924,29 +933,10 @@ defineComponent({
 .specs-table th,
 .specs-table td {
   border: 1px solid #ddd;
-  padding: 8px 12px;
+  padding: 4px 4px;
   text-align: center;
 }
 
-.specs-table th:nth-child(1),
-.specs-table td:nth-child(1) {
-  width: 25%;
-}
-
-.specs-table th:nth-child(2),
-.specs-table td:nth-child(2) {
-  width: 25%;
-}
-
-.specs-table th:nth-child(3),
-.specs-table td:nth-child(3) {
-  width: 25%;
-}
-
-.specs-table th:nth-child(4),
-.specs-table td:nth-child(4) {
-  width: 15%;
-}
 
 .specs-table th {
   background-color: #f0f4f8;
