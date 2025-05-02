@@ -24,6 +24,10 @@ withDefaults(defineProps<Props>(), {
             <div class="side-tel-label">TEL</div>
             <div class="side-tel">031-997-0280</div>
           </div>
+          <div class="side-contact">
+            <div class="side-tel-label">FAX</div>
+            <div class="side-tel">031-997-0280</div>
+          </div>
           <a
             class="side-kakao-contact"
             href="https://pf.kakao.com/_DVzmxj"

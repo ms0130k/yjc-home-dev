@@ -589,10 +589,10 @@ defineComponent({
               <table class="specs-table">
                 <thead>
                   <tr>
-                    <th rowspan="2">품명</th>
+                    <th rowspan="2"class="product-name-width">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
-                    <th rowspan="2">한묶음<br />수량</th>
+                    <th rowspan="2" class="quantity-width">한묶음<br />수량</th>
                   </tr>
                   <tr>
                     <th>외경(mm)</th>
@@ -622,11 +622,11 @@ defineComponent({
               <table class="specs-table">
                 <thead>
                   <tr>
-                    <th rowspan="2">품명</th>
+                    <th rowspan="2"class="product-name-width">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
-                    <th rowspan="2">한묶음<br />수량</th>
-                    <th rowspan="2">비고</th>
+                    <th rowspan="2" class="quantity-width">한묶음<br />수량</th>
+                    <th rowspan="2" class="hide-on-mobile">비고</th>
                   </tr>
                   <tr>
                     <th>외경(mm)</th>
@@ -644,7 +644,7 @@ defineComponent({
                     <td>
                       {{ spec.quantity }}
                     </td>
-                    <td>{{ spec.note }}</td>
+                    <td class="hide-on-mobile">{{ spec.note }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -657,11 +657,11 @@ defineComponent({
               <table class="specs-table">
                 <thead>
                   <tr>
-                    <th rowspan="2">품명</th>
+                    <th rowspan="2"class="product-name-width">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
-                    <th rowspan="2">한묶음<br />수량</th>
-                    <th rowspan="2">비고</th>
+                    <th rowspan="2" class="quantity-width">한묶음<br />수량</th>
+                    <th rowspan="2" class="hide-on-mobile">비고</th>
                   </tr>
                   <tr>
                     <th>외경(mm)</th>
@@ -679,7 +679,7 @@ defineComponent({
                     <td>
                       {{ spec.quantity }}
                     </td>
-                    <td>{{ spec.note }}</td>
+                    <td class="hide-on-mobile">{{ spec.note }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -692,10 +692,10 @@ defineComponent({
               <table class="specs-table">
                 <thead>
                   <tr>
-                    <th rowspan="2">품명</th>
+                    <th rowspan="2"class="product-name-width">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
-                    <th rowspan="2">한묶음<br />수량</th>
+                    <th rowspan="2" class="quantity-width">한묶음<br />수량</th>
                   </tr>
                   <tr>
                     <th>외경(mm)</th>
@@ -725,10 +725,10 @@ defineComponent({
               <table class="specs-table">
                 <thead>
                   <tr>
-                    <th rowspan="2">품명</th>
+                    <th rowspan="2"class="product-name-width">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
-                    <th rowspan="2">한묶음<br />수량</th>
+                    <th rowspan="2" class="quantity-width">한묶음<br />수량</th>
                   </tr>
                   <tr>
                     <th>외경(mm)</th>
@@ -1029,6 +1029,9 @@ defineComponent({
   height: 100%;
   object-fit: cover;
 }
+.quantity-width {
+  width: 11% !important;
+}
 
 /* 반응형 */
 @media (max-width: 968px) {
@@ -1058,6 +1061,12 @@ defineComponent({
 
   .hide-on-mobile {
     display: none !important;
+  }
+  .quantity-width {
+    width: 11% !important;
+  }
+  .product-name-width {
+    width: 24% !important;
   }
 }
 </style>
