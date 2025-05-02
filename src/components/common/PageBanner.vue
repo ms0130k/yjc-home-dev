@@ -17,8 +17,12 @@ defineProps<Props>()
 
 <style scoped>
 .page-banner {
-  height: 250px;
-  background-image: url("/images/banner/page-banner.jpg");
+  height: 200px;
+  max-width: 1920px;
+  margin: 0 auto;
+  background-image: url('/images/banner/page-banner.jpg');
+  background-position: center top;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
