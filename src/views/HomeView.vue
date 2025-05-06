@@ -123,10 +123,10 @@ import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
   margin-top: 56px;
   display: flex;
   background: #0c2d5a;
-  padding: 26px 0;
+  padding: 10px 0;
   justify-content: center;
   align-items: stretch;
-  max-width: 1450px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -139,9 +139,9 @@ import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
   gap: 8px;
 }
 .info-icon {
-  width: 34px;
-  height: 34px;
-  margin-bottom: 8px;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 6px;
   fill: #fff;
 }
 .info-title {
