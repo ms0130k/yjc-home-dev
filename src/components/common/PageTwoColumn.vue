@@ -157,6 +157,7 @@ withDefaults(defineProps<Props>(), {
   .two-column-layout {
     flex-direction: column;
     gap: 24px;
+    margin: 0 auto 24px auto;
   }
   .left,
   .right {
@@ -165,6 +166,10 @@ withDefaults(defineProps<Props>(), {
   }
   .left {
     display: none;
+  }
+  .right {
+    margin: 0 auto;
+    width: 100%;
   }
 }
 </style>
