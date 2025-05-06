@@ -1,7 +1,6 @@
 <template>
   <PageBanner
     title="설비 현황"
-    description="* 자세한 사항이나 기타 설비 문의는 전화 주시면 친절히 안내 드립니다."
   />
   <PageTwoColumn>
     <template #right>

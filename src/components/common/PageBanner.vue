@@ -9,7 +9,7 @@ defineProps<Props>()
 <template>
   <div class="page-banner">
     <div class="banner-content">
-      <h1 class="banner-title">{{ title }}</h1>
+      <h1 class="banner-title" :class="{ 'no-margin': !description }">{{ title }}</h1>
       <p v-if="description" class="banner-description">{{ description }}</p>
     </div>
   </div>
@@ -48,6 +48,9 @@ defineProps<Props>()
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 15px;
+}
+.no-margin {
+  margin-bottom: 0;
 }
 .banner-description {
   color: white;
