@@ -1,4 +1,4 @@
-name: Build and Deploy to https://ms0130k.github.io/
+name: Build and Deploy to https://ms0130k.github.io
 
 on:
   push:
