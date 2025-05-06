@@ -20,27 +20,43 @@ import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
 
     <div class="info-panel">
       <router-link to="/facilities" class="info-item" style="text-decoration: none">
-        <Tools :width="34" :height="34" color="#fff" class="info-icon" />
-        <div class="info-title">설비현황</div>
-        <div class="info-subtitle">Facilities</div>
+        <div class="info-content">
+          <Tools :width="34" :height="34" color="#fff" class="info-icon" />
+          <div class="info-text">
+            <div class="info-title">설비현황</div>
+            <div class="info-subtitle">Facilities</div>
+          </div>
+        </div>
       </router-link>
       <div class="info-divider"></div>
       <router-link to="/technical-data" class="info-item" style="text-decoration: none">
-        <Settings :width="34" :height="34" color="#fff" class="info-icon" />
-        <div class="info-title">생산공정</div>
-        <div class="info-subtitle">Production Process</div>
+        <div class="info-content">
+          <Settings :width="34" :height="34" color="#fff" class="info-icon" />
+          <div class="info-text">
+            <div class="info-title">생산공정</div>
+            <div class="info-subtitle">Production Process</div>
+          </div>
+        </div>
       </router-link>
       <div class="info-divider"></div>
       <router-link to="/support" class="info-item" style="text-decoration: none">
-        <Mail :width="34" :height="34" color="#fff" class="info-icon" />
-        <div class="info-title">온라인 Q&amp;A</div>
-        <div class="info-subtitle">Inquiry</div>
+        <div class="info-content">
+          <Mail :width="34" :height="34" color="#fff" class="info-icon" />
+          <div class="info-text">
+            <div class="info-title">온라인 Q&amp;A</div>
+            <div class="info-subtitle">Inquiry</div>
+          </div>
+        </div>
       </router-link>
       <div class="info-divider"></div>
       <router-link to="/location" class="info-item" style="text-decoration: none">
-        <Pin :width="34" :height="34" color="#fff" class="info-icon" />
-        <div class="info-title">오시는 길</div>
-        <div class="info-subtitle">Location</div>
+        <div class="info-content">
+          <Pin :width="34" :height="34" color="#fff" class="info-icon" />
+          <div class="info-text">
+            <div class="info-title">오시는 길</div>
+            <div class="info-subtitle">Location</div>
+          </div>
+        </div>
       </router-link>
     </div>
   </main>
@@ -133,16 +149,26 @@ import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
 .info-item {
   flex: 1 1 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   color: #fff;
   gap: 8px;
+}
+.info-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .info-icon {
   width: 28px;
   height: 28px;
-  margin-bottom: 6px;
+  margin-bottom: 0;
   fill: #fff;
+}
+.info-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 14px;
 }
 .info-title {
   font-size: 1rem;
