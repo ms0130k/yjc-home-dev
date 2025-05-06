@@ -5,6 +5,7 @@ import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 import InfoTable from '@/components/common/info-table.vue'
 
 // Kakao 지도를 위한 변수 선언
+declare const kakao: any
 declare global {
   interface Window {
     kakao: {

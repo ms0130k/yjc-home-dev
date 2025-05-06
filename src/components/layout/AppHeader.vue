@@ -164,7 +164,7 @@ onUnmounted(() => {
             @click="
               () => {
                 toggleMobileMenu()
-                openAccordion.value = null
+                openAccordion = null
               }
             "
             aria-label="메뉴 닫기"
