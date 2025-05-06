@@ -4,20 +4,27 @@
     <PageTwoColumn>
       <template #right>
         <div class="process-flow">
-          <div v-for="(row, rowIdx) in rows" :key="rowIdx" class="process-row">
-            <template v-for="(step, colIdx) in row" :key="step.label">
-              <div class="process-step">
-                <img :src="step.img" :alt="step.label" class="process-img" />
-                <div class="process-label">{{ step.label }}</div>
-              </div>
-              <!-- 화살표: 마지막 이미지 뒤에는 표시하지 않음 -->
-              <template v-if="colIdx < row.length - 1">
-                <div class="arrow" :class="getArrowClass(rowIdx)">
-                  {{ getArrowSymbol(rowIdx) }}
+          <template v-for="(row, rowIdx) in rows" :key="rowIdx">
+            <div class="process-row">
+              <template v-for="(step, colIdx) in row" :key="step.label">
+                <div class="process-step">
+                  <img :src="step.img" :alt="step.label" class="process-img" />
+                  <div class="process-label">{{ step.label }}</div>
                 </div>
+                <!-- 화살표: 마지막 이미지 뒤에는 표시하지 않음 -->
+                <template v-if="colIdx < row.length - 1">
+                  <div class="arrow" :class="getArrowClass(rowIdx)">
+                    {{ getArrowSymbol(rowIdx) }}
+                  </div>
+                </template>
               </template>
-            </template>
-          </div>
+            </div>
+            <div v-if="rowIdx < rows.length - 1" class="process-row">
+              <div class="arrow" :class="getArrowClass(rowIdx)">
+                {{ getArrowSymbol(rowIdx) }}
+              </div>
+            </div>
+          </template>
         </div>
       </template>
     </PageTwoColumn>
