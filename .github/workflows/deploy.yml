@@ -28,6 +28,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
-          external_repository: ms0130k/ms0130k.github.io
+          external_repository: ms0130k/ms0130k.github.com
           publish_dir: ./dist
           publish_branch: gh-pages
