@@ -1,0 +1,151 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import axios from 'axios'
+import PageBanner from '@/components/common/PageBanner.vue'
+import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
+
+interface InquiryForm {
+  name: string
+  contact: string
+  title: string
+  content: string
+}
+
+const form = ref<InquiryForm>({
+  name: '',
+  contact: '',
+  title: '',
+  content: '',
+})
+
+const isSubmitting = ref(false)
+const submitSuccess = ref(false)
+const submitError = ref('')
+
+async function submitForm() {
+  isSubmitting.value = true
+  submitSuccess.value = false
+  submitError.value = ''
+  try {
+    // 실제 API 엔드포인트로 변경 필요
+    await axios.post('/api/support', form.value)
+    submitSuccess.value = true
+    form.value = { name: '', contact: '', title: '', content: '' }
+  } catch (err: any) {
+    submitError.value = err?.response?.data?.message || '등록에 실패했습니다.'
+  } finally {
+    isSubmitting.value = false
+  }
+}
+</script>
+
+<template>
+  <PageBanner title="문의하기" description="궁금한 점이 있으시면 언제든 문의해 주세요." />
+  <PageTwoColumn>
+    <template #right>
+      <div class="support-form-container">
+        <form class="support-form" @submit.prevent="submitForm">
+          <div class="form-group">
+            <label for="title">제목</label>
+            <input id="title" v-model="form.title" type="text" required class="form-input" />
+          </div>
+          <div class="form-group">
+            <label for="content">내용</label>
+            <textarea id="content" v-model="form.content" required class="form-textarea" rows="6" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">이름</label>
+              <input id="name" v-model="form.name" type="text" required class="form-input" />
+            </div>
+            <div class="form-group">
+              <label for="contact">연락처</label>
+              <input id="contact" v-model="form.contact" type="text" required class="form-input" />
+            </div>
+          </div>
+          <button type="submit" class="submit-btn" :disabled="isSubmitting">
+            {{ isSubmitting ? '등록 중...' : '문의 등록' }}
+          </button>
+          <div v-if="submitSuccess" class="submit-success">문의가 정상적으로 등록되었습니다.</div>
+          <div v-if="submitError" class="submit-error">{{ submitError }}</div>
+        </form>
+      </div>
+    </template>
+  </PageTwoColumn>
+</template>
+
+<style scoped>
+.support-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #f7fafd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 32px 24px 24px 24px;
+}
+.support-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+.form-row .form-group {
+  flex: 1 1 0;
+}
+.form-input,
+.form-textarea {
+  border: 1px solid #e0e6ef;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  background: #fff;
+  transition: border 0.2s;
+}
+.form-input:focus,
+.form-textarea:focus {
+  border: 1.5px solid #0c4da2;
+  outline: none;
+}
+.submit-btn {
+  background: #0c4da2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.submit-btn:disabled {
+  background: #b0c4de;
+  cursor: not-allowed;
+}
+.submit-success {
+  color: #2e7d32;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.submit-error {
+  color: #d32f2f;
+  margin-top: 10px;
+  font-weight: bold;
+}
+@media (max-width: 600px) {
+  .support-form-container {
+    padding: 16px 4px 12px 4px;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+</style>
