@@ -5,38 +5,50 @@ import PageBanner from '@/components/common/PageBanner.vue'
 import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 
 interface InquiryForm {
-  name: string
-  contact: string
   title: string
   content: string
+  email: string
+  contact: string
 }
 
 const form = ref<InquiryForm>({
-  name: '',
-  contact: '',
   title: '',
   content: '',
+  email: '',
+  contact: '',
 })
 
 const isSubmitting = ref(false)
 const submitSuccess = ref(false)
 const submitError = ref('')
 
-async function submitForm() {
+async function registerPost() {
   isSubmitting.value = true
   submitSuccess.value = false
   submitError.value = ''
+  const url = `https://firestore.googleapis.com/v1/projects/yjc-admin/databases/(default)/documents/inquiries`
+
+  const payload = {
+    fields: {
+      title: { stringValue: form.value.title },
+      content: { stringValue: form.value.content },
+      email: { stringValue: form.value.email },
+      contact: { stringValue: form.value.contact },
+    },
+  }
+
   try {
-    // 실제 API 엔드포인트로 변경 필요
-    await axios.post('/api/support', form.value)
+    const res = await axios.post(url, payload);
+    console.log("등록 성공", res.data);
     submitSuccess.value = true
-    form.value = { name: '', contact: '', title: '', content: '' }
-  } catch (err: any) {
+    form.value = { title: '', content: '', email: '', contact: '' }
+  } catch (err) {
     submitError.value = err?.response?.data?.message || '등록에 실패했습니다.'
   } finally {
     isSubmitting.value = false
   }
 }
+
 </script>
 
 <template>
@@ -44,7 +56,7 @@ async function submitForm() {
   <PageTwoColumn>
     <template #right>
       <div class="support-form-container">
-        <form class="support-form" @submit.prevent="submitForm">
+        <form class="support-form" @submit.prevent="registerPost">
           <div class="form-group">
             <label for="title">제목</label>
             <input id="title" v-model="form.title" type="text" required class="form-input" />
@@ -55,8 +67,8 @@ async function submitForm() {
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="name">이름</label>
-              <input id="name" v-model="form.name" type="text" required class="form-input" />
+              <label for="name">이메일</label>
+              <input id="name" v-model="form.email" type="text" required class="form-input" />
             </div>
             <div class="form-group">
               <label for="contact">연락처</label>
