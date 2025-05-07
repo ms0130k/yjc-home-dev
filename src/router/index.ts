@@ -46,8 +46,13 @@ const router = createRouter({
     },
     {
       path: '/support',
-      name: 'support',
-      component: () => import('../views/SupportView.vue'),
+      name: 'support-list',
+      component: () => import('../views/SupportListView.vue'),
+    },
+    {
+      path: '/support/new',
+      name: 'support-write',
+      component: () => import('../views/SupportWriteView.vue'),
     },
     {
       path: '/ceo',

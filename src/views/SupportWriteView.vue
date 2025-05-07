@@ -38,8 +38,8 @@ async function registerPost() {
   }
 
   try {
-    const res = await axios.post(url, payload);
-    console.log("등록 성공", res.data);
+    const res = await axios.post(url, payload)
+    console.log('등록 성공', res.data)
     submitSuccess.value = true
     form.value = { title: '', content: '', email: '', contact: '' }
   } catch (err) {
@@ -48,7 +48,6 @@ async function registerPost() {
     isSubmitting.value = false
   }
 }
-
 </script>
 
 <template>
