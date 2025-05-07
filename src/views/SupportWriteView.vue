@@ -46,7 +46,8 @@ async function registerPost() {
     form.value = { title: '', content: '', email: '', contact: '' }
     router.push('/support')
   } catch (err) {
-    submitError.value = err?.response?.data?.message || '등록에 실패했습니다.'
+    const error = err as any
+    submitError.value = error?.response?.data?.message || '등록에 실패했습니다.'
   } finally {
     isSubmitting.value = false
   }
