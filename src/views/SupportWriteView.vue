@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import axios from 'axios'
+import { useRouter } from 'vue-router'
 import PageBanner from '@/components/common/PageBanner.vue'
 import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 
@@ -21,6 +22,7 @@ const form = ref<InquiryForm>({
 const isSubmitting = ref(false)
 const submitSuccess = ref(false)
 const submitError = ref('')
+const router = useRouter()
 
 async function registerPost() {
   isSubmitting.value = true
@@ -42,6 +44,7 @@ async function registerPost() {
     console.log('등록 성공', res.data)
     submitSuccess.value = true
     form.value = { title: '', content: '', email: '', contact: '' }
+    router.push('/support')
   } catch (err) {
     submitError.value = err?.response?.data?.message || '등록에 실패했습니다.'
   } finally {

@@ -24,6 +24,26 @@ function goToWrite() {
   router.push('/support/new')
 }
 
+function maskEmail(email: string): string {
+  if (!email) return ''
+  const [id, domain] = email.split('@')
+  if (!id || !domain) return email
+  const visible = id.slice(0, 2)
+  const masked = '*'.repeat(Math.max(0, id.length - 2))
+  return `${visible}${masked}@${domain}`
+}
+
+function maskContact(contact: string): string {
+  if (!contact) return ''
+  // 010-1234-5678 또는 01012345678 형태 지원
+  const digits = contact.replace(/\D/g, '')
+  if (digits.length < 7) return contact
+  return digits.replace(
+    /(\d{3})(\d{2,4})(\d{4})/,
+    (_: string, a: string, b: string, c: string) => `${a}-${'*'.repeat(b.length)}-${c}`,
+  )
+}
+
 async function fetchInquiries() {
   isLoading.value = true
   hasError.value = ''
@@ -73,8 +93,8 @@ onMounted(fetchInquiries)
           <tbody>
             <tr v-for="item in inquiries" :key="item.id">
               <td>{{ item.title }}</td>
-              <td>{{ item.email }}</td>
-              <td>{{ item.contact }}</td>
+              <td>{{ maskEmail(item.email) }}</td>
+              <td>{{ maskContact(item.contact) }}</td>
               <td>{{ dayjs(item.createTime).format('YYYY-MM-DD') }}</td>
             </tr>
           </tbody>
