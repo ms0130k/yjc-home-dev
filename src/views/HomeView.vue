@@ -158,6 +158,7 @@ import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 85px;
 }
 .info-icon {
   width: 28px;
@@ -185,9 +186,15 @@ import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
 @media (max-width: 900px) {
   .info-panel {
     flex-direction: column;
-    align-items: stretch;
+    align-items: start;
     padding: 13px 0;
     width: 80%;
+  }
+  .info-item {
+    padding-left: 30%;
+  }
+  .info-content {
+    height: auto;
   }
   .info-divider {
     width: 100%;
