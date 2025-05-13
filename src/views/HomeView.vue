@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
+import { Tools, Settings, MessageText, MapPin } from '@iconoir/vue'
 // 필요한 컴포넌트나 라이브러리를 여기에 임포트
 </script>
 
@@ -41,7 +41,7 @@ import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
       <div class="info-divider"></div>
       <router-link to="/support" class="info-item" style="text-decoration: none">
         <div class="info-content">
-          <Mail :width="34" :height="34" color="#fff" class="info-icon" />
+          <MessageText :width="34" :height="34" color="#fff" class="info-icon" />
           <div class="info-text">
             <div class="info-title">온라인 Q&amp;A</div>
             <div class="info-subtitle">Inquiry</div>
@@ -51,7 +51,7 @@ import { Tools, Settings, Mail, Pin } from '@iconoir/vue'
       <div class="info-divider"></div>
       <router-link to="/location" class="info-item" style="text-decoration: none">
         <div class="info-content">
-          <Pin :width="34" :height="34" color="#fff" class="info-icon" />
+          <MapPin :width="34" :height="34" color="#fff" class="info-icon" />
           <div class="info-text">
             <div class="info-title">오시는 길</div>
             <div class="info-subtitle">Location</div>

@@ -4,27 +4,51 @@
     <PageTwoColumn>
       <template #right>
         <div class="process-flow">
-          <template v-for="(row, rowIdx) in rows" :key="rowIdx">
-            <div class="process-row">
-              <template v-for="(step, colIdx) in row" :key="step.label">
-                <div class="process-step">
-                  <img :src="step.img" :alt="step.label" class="process-img" />
-                  <div class="process-label">{{ step.label }}</div>
-                </div>
-                <!-- 화살표: 마지막 이미지 뒤에는 표시하지 않음 -->
-                <template v-if="colIdx < row.length - 1">
-                  <div class="arrow" :class="getArrowClass(rowIdx)">
-                    {{ getArrowSymbol(rowIdx) }}
-                  </div>
+          <div class="process-row">
+            <template v-for="(row, rowIdx) in rows[0]" :key="rowIdx">
+              <div class="process-step">
+                <img :src="row.img" :alt="row.label" class="process-img" />
+                <div class="process-label">{{ row.label }}</div>
+                <template v-if="rowIdx === 2">
+                  <ArrowDown :width="29" :height="29" color="#1a237e" />
                 </template>
-              </template>
-            </div>
-            <div v-if="rowIdx < rows.length - 1" class="process-row">
-              <div class="arrow" :class="getArrowClass(rowIdx)">
-                {{ getArrowSymbol(rowIdx) }}
               </div>
-            </div>
-          </template>
+              <template v-if="rowIdx < rows[0].length - 1">
+                <div class="process-arrow">
+                  <ArrowRight :width="29" :height="29" color="#1a237e" />
+                </div>
+              </template>
+            </template>
+          </div>
+          <div class="process-row">
+            <template v-for="(row, rowIdx) in rows[1]" :key="rowIdx">
+              <div class="process-step">
+                <img :src="row.img" :alt="row.label" class="process-img" />
+                <div class="process-label">{{ row.label }}</div>
+                <template v-if="rowIdx === 0">
+                  <ArrowDown :width="29" :height="29" color="#1a237e" />
+                </template>
+              </div>
+              <template v-if="rowIdx < rows[1].length - 1">
+                <div class="process-arrow">
+                  <ArrowLeft :width="29" :height="29" color="#1a237e" />
+                </div>
+              </template>
+            </template>
+          </div>
+          <div class="process-row">
+            <template v-for="(row, rowIdx) in rows[2]" :key="rowIdx">
+              <div class="process-step">
+                <img :src="row.img" :alt="row.label" class="process-img" />
+                <div class="process-label">{{ row.label }}</div>
+              </div>
+              <template v-if="rowIdx < rows[2].length - 1">
+                <div class="process-arrow">
+                  <ArrowRight :width="29" :height="29" color="#1a237e" />
+                </div>
+              </template>
+            </template>
+          </div>
         </div>
       </template>
     </PageTwoColumn>
@@ -32,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ArrowLeft, ArrowRight, ArrowDown } from '@iconoir/vue'
 import PageBanner from '@/components/common/PageBanner.vue'
 import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 
@@ -51,10 +75,6 @@ const processSteps = [
 
 // 3x3 그리드로 데이터 분할
 const rows = [processSteps.slice(0, 3), processSteps.slice(3, 6), processSteps.slice(6, 9)]
-
-// 화살표 방향 결정 함수
-const getArrowSymbol = (rowIdx: number) => (rowIdx % 2 === 0 ? '→' : '←')
-const getArrowClass = (rowIdx: number) => (rowIdx % 2 === 0 ? 'arrow-right' : 'arrow-left')
 </script>
 
 <style scoped>
@@ -65,14 +85,14 @@ const getArrowClass = (rowIdx: number) => (rowIdx % 2 === 0 ? 'arrow-right' : 'a
 .process-flow {
   display: flex;
   flex-direction: column;
-  gap: 40px;
   align-items: center;
   padding: 20px;
+  gap: 17px;
 }
 
 .process-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 16px;
   width: 100%;
@@ -93,24 +113,17 @@ const getArrowClass = (rowIdx: number) => (rowIdx % 2 === 0 ? 'arrow-right' : 'a
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.process-arrow {
+  height: 200px;
+  display: flex;
+  align-items: center;
+}
+
 .process-label {
   font-size: 1rem;
   font-weight: 500;
   color: #333;
   text-align: center;
-}
-
-.arrow {
-  font-size: 2.5rem;
-  color: #0c4da2;
-  font-weight: bold;
-  margin: 0 8px;
-  display: flex;
-  align-items: center;
-}
-
-.arrow-left {
-  transform: scaleX(-1);
 }
 
 /* 반응형 스타일 */
@@ -120,15 +133,14 @@ const getArrowClass = (rowIdx: number) => (rowIdx % 2 === 0 ? 'arrow-right' : 'a
     height: 150px;
   }
 
-  .arrow {
-    font-size: 2rem;
-    margin: 0 4px;
+  .process-arrow {
+    height: 150px;
   }
 }
 
 @media (max-width: 900px) {
   .process-flow {
-    gap: 20px;
+    gap: 10px;
   }
 
   .process-img {
@@ -136,8 +148,8 @@ const getArrowClass = (rowIdx: number) => (rowIdx % 2 === 0 ? 'arrow-right' : 'a
     height: 120px;
   }
 
-  .arrow {
-    font-size: 1.5rem;
+  .process-arrow {
+    height: 120px;
   }
 
   .process-label {
@@ -151,9 +163,8 @@ const getArrowClass = (rowIdx: number) => (rowIdx % 2 === 0 ? 'arrow-right' : 'a
     height: 100px;
   }
 
-  .arrow {
-    font-size: 1.2rem;
-    margin: 0 2px;
+  .process-arrow {
+    height: 100px;
   }
 }
 </style>
