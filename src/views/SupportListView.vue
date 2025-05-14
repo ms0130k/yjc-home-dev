@@ -171,6 +171,26 @@ onMounted(fetchInquiries)
   text-align: center;
   padding: 40px 0;
 }
+.col-title,
+.col-email,
+.col-contact,
+.col-date {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.col-title {
+  max-width: 220px;
+}
+.col-email {
+  max-width: 160px;
+}
+.col-contact {
+  max-width: 120px;
+}
+.col-date {
+  max-width: 100px;
+}
 @media (max-width: 600px) {
   .col-email,
   .col-contact {
