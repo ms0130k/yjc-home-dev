@@ -156,7 +156,7 @@ async function registerPost() {
 }
 @media (max-width: 600px) {
   .support-form-container {
-    padding: 16px 4px 12px 4px;
+    padding: 16px 16px 12px 16px;
   }
   .form-row {
     flex-direction: column;

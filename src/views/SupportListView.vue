@@ -76,7 +76,6 @@ onMounted(fetchInquiries)
     <template #right>
       <div class="support-list-container">
         <div class="support-list-header">
-          <h2>문의글 목록</h2>
           <button class="write-btn" @click="goToWrite">문의 등록</button>
         </div>
         <div v-if="isLoading" class="loading">불러오는 중...</div>
@@ -84,18 +83,18 @@ onMounted(fetchInquiries)
         <table v-else-if="inquiries.length" class="inquiry-table">
           <thead>
             <tr>
-              <th>제목</th>
-              <th>이메일</th>
-              <th>연락처</th>
-              <th>작성일</th>
+              <th class="col-title">제목</th>
+              <th class="col-email">이메일</th>
+              <th class="col-contact">연락처</th>
+              <th class="col-date">작성일</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="item in inquiries" :key="item.id">
-              <td>{{ item.title }}</td>
-              <td>{{ maskEmail(item.email) }}</td>
-              <td>{{ maskContact(item.contact) }}</td>
-              <td>{{ dayjs(item.createTime).format('YYYY-MM-DD') }}</td>
+              <td class="col-title">{{ item.title }}</td>
+              <td class="col-email">{{ maskEmail(item.email) }}</td>
+              <td class="col-contact">{{ maskContact(item.contact) }}</td>
+              <td class="col-date">{{ dayjs(item.createTime).format('YYYY-MM-DD') }}</td>
             </tr>
           </tbody>
         </table>
@@ -116,7 +115,7 @@ onMounted(fetchInquiries)
 }
 .support-list-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin-bottom: 18px;
 }
@@ -165,5 +164,17 @@ onMounted(fetchInquiries)
   color: #888;
   text-align: center;
   padding: 40px 0;
+}
+@media (max-width: 600px) {
+  .col-email,
+  .col-contact {
+    display: none;
+  }
+  .col-title {
+    max-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 </style>
