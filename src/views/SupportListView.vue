@@ -59,7 +59,9 @@ async function fetchInquiries() {
       contact: doc.fields?.contact?.stringValue ?? '',
       email: doc.fields?.email?.stringValue ?? '',
       createTime: doc.createTime,
-    }))
+    })).sort(
+      (a: Inquiry, b: Inquiry) => new Date(b.createTime).getTime() - new Date(a.createTime).getTime(),
+    )
   } catch (err: any) {
     hasError.value = err?.response?.data?.message || '목록을 불러오지 못했습니다.'
   } finally {
