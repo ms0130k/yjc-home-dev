@@ -154,6 +154,9 @@ async function registerPost() {
   margin-top: 10px;
   font-weight: bold;
 }
+.support-form label {
+  margin-left: 4px;
+}
 @media (max-width: 600px) {
   .support-form-container {
     padding: 16px 16px 12px 16px;
