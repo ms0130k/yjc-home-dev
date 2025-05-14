@@ -81,6 +81,12 @@ onMounted(fetchInquiries)
         <div v-if="isLoading" class="loading">불러오는 중...</div>
         <div v-else-if="hasError" class="error">{{ hasError }}</div>
         <table v-else-if="inquiries.length" class="inquiry-table">
+          <colgroup>
+            <col style="width: 45%" />
+            <col style="width: 25%" />
+            <col style="width: 15%" />
+            <col style="width: 15%" />
+          </colgroup>
           <thead>
             <tr>
               <th class="col-title">제목</th>
@@ -106,7 +112,7 @@ onMounted(fetchInquiries)
 
 <style scoped>
 .support-list-container {
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
   background: #f7fafd;
   border-radius: 8px;
