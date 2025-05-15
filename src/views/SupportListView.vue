@@ -84,14 +84,16 @@ onMounted(fetchInquiries)
         <div v-else-if="hasError" class="error">{{ hasError }}</div>
         <table v-else-if="inquiries.length" class="inquiry-table">
           <colgroup>
-            <col style="width: 45%" />
-            <col style="width: 25%" />
             <col style="width: 15%" />
+            <col style="width: 30%" />
+            <col style="width: 20%" />
+            <col style="width: 20%" />
             <col style="width: 15%" />
           </colgroup>
           <thead>
             <tr>
               <th class="col-title">제목</th>
+              <th class="col-content">내용</th>
               <th class="col-email">이메일</th>
               <th class="col-contact">연락처</th>
               <th class="col-date">작성일</th>
@@ -100,6 +102,7 @@ onMounted(fetchInquiries)
           <tbody>
             <tr v-for="item in inquiries" :key="item.id">
               <td class="col-title">{{ item.title }}</td>
+              <td class="col-content">{{ item.content }}</td>
               <td class="col-email">{{ maskEmail(item.email) }}</td>
               <td class="col-contact">{{ maskContact(item.contact) }}</td>
               <td class="col-date">{{ dayjs(item.createTime).format('YYYY-MM-DD') }}</td>
@@ -194,8 +197,8 @@ onMounted(fetchInquiries)
   max-width: 100px;
 }
 @media (max-width: 600px) {
-  .col-email,
-  .col-contact {
+  .col-content,
+  .col-email {
     display: none;
   }
   .col-title {
@@ -203,6 +206,31 @@ onMounted(fetchInquiries)
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+@media (max-width: 968px) {
+  .sort-left-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .sort-dimensions {
+    flex-wrap: wrap;
+  }
+
+  .dimension-values,
+  .dimension-header {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .tolerance-info,
+  .sort-info {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+  .product-category {
+    display: none;
   }
 }
 </style>
