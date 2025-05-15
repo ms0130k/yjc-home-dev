@@ -4,7 +4,6 @@ import PageBanner from '@/components/common/PageBanner.vue'
 import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 import axios from 'axios'
 
-
 interface ProductItem {
   name: string
   outer: string
@@ -529,30 +528,32 @@ watch(
             <div class="result-summary">
               검색 결과: <strong>{{ totalCount }}개</strong>의 제품이 검색되었습니다.
               <span v-if="tolerance > 0" class="tolerance-info">
-              (±{{ tolerance }} 오차범위 적용)
-            </span>
+                (±{{ tolerance }} 오차범위 적용)
+              </span>
               <span
                 v-if="
-                sortDirections.width !== 'none' ||
-                sortDirections.depth !== 'none' ||
-                sortDirections.height !== 'none'
-              "
+                  sortDirections.width !== 'none' ||
+                  sortDirections.depth !== 'none' ||
+                  sortDirections.height !== 'none'
+                "
                 class="sort-info"
               >
-              [{{ sortDimension === 'inner' ? '내경' : '외경' }} 기준
-              <template v-if="sortDirections.width !== 'none'">
-                가로 {{ sortDirections.width === 'asc' ? '▲' : '▼' }}
-              </template>
-              <template v-if="sortDirections.depth !== 'none'">
-                {{ sortDirections.width !== 'none' ? ',' : '' }} 세로
-                {{ sortDirections.depth === 'asc' ? '▲' : '▼' }}
-              </template>
-              <template v-if="sortDirections.height !== 'none'">
-                {{ sortDirections.width !== 'none' || sortDirections.depth !== 'none' ? ',' : '' }}
-                높이 {{ sortDirections.height === 'asc' ? '▲' : '▼' }}
-              </template>
-              ]
-            </span>
+                [{{ sortDimension === 'inner' ? '내경' : '외경' }} 기준
+                <template v-if="sortDirections.width !== 'none'">
+                  가로 {{ sortDirections.width === 'asc' ? '▲' : '▼' }}
+                </template>
+                <template v-if="sortDirections.depth !== 'none'">
+                  {{ sortDirections.width !== 'none' ? ',' : '' }} 세로
+                  {{ sortDirections.depth === 'asc' ? '▲' : '▼' }}
+                </template>
+                <template v-if="sortDirections.height !== 'none'">
+                  {{
+                    sortDirections.width !== 'none' || sortDirections.depth !== 'none' ? ',' : ''
+                  }}
+                  높이 {{ sortDirections.height === 'asc' ? '▲' : '▼' }}
+                </template>
+                ]
+              </span>
             </div>
 
             <div v-if="filteredProducts.length === 0" class="no-results">검색 결과가 없습니다.</div>
@@ -560,50 +561,50 @@ watch(
             <div v-else class="table-container">
               <table class="products-table">
                 <thead>
-                <tr>
-                  <th>순번</th>
-                  <th>분류</th>
-                  <th>제품명</th>
-                  <th>
-                    내경
-                    <div class="dimension-header">
-                      <span>가로</span>
-                      <span>세로</span>
-                      <span>높이</span>
-                    </div>
-                  </th>
-                  <th>
-                    외경
-                    <div class="dimension-header">
-                      <span>가로</span>
-                      <span>세로</span>
-                      <span>높이</span>
-                    </div>
-                  </th>
-                  <th>수량</th>
-                </tr>
+                  <tr>
+                    <th>순번</th>
+                    <th class="product-category">분류</th>
+                    <th>제품명</th>
+                    <th>
+                      내경
+                      <div class="dimension-header">
+                        <span>가로</span>
+                        <span>세로</span>
+                        <span>높이</span>
+                      </div>
+                    </th>
+                    <th>
+                      외경
+                      <div class="dimension-header">
+                        <span>가로</span>
+                        <span>세로</span>
+                        <span>높이</span>
+                      </div>
+                    </th>
+                    <th>수량</th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(product, index) in paginatedProducts" :key="index">
-                  <td>{{ (currentPage - 1) * itemsPerPage + index + 1 }}</td>
-                  <td>{{ product.mainCategory }}</td>
-                  <td>{{ product.name }}</td>
-                  <td class="dimensions-cell">
-                    <div class="dimension-values">
-                      <span>{{ product.innerWidth || '-' }}</span>
-                      <span>{{ product.innerDepth || '-' }}</span>
-                      <span>{{ product.innerHeight || '-' }}</span>
-                    </div>
-                  </td>
-                  <td class="dimensions-cell">
-                    <div class="dimension-values">
-                      <span>{{ product.outerWidth || '-' }}</span>
-                      <span>{{ product.outerDepth || '-' }}</span>
-                      <span>{{ product.outerHeight || '-' }}</span>
-                    </div>
-                  </td>
-                  <td>{{ product.quantity }}</td>
-                </tr>
+                  <tr v-for="(product, index) in paginatedProducts" :key="index">
+                    <td>{{ (currentPage - 1) * itemsPerPage + index + 1 }}</td>
+                    <td class="product-category">{{ product.mainCategory }}</td>
+                    <td>{{ product.name }}</td>
+                    <td class="dimensions-cell">
+                      <div class="dimension-values">
+                        <span>{{ product.innerWidth || '-' }}</span>
+                        <span>{{ product.innerDepth || '-' }}</span>
+                        <span>{{ product.innerHeight || '-' }}</span>
+                      </div>
+                    </td>
+                    <td class="dimensions-cell">
+                      <div class="dimension-values">
+                        <span>{{ product.outerWidth || '-' }}</span>
+                        <span>{{ product.outerDepth || '-' }}</span>
+                        <span>{{ product.outerHeight || '-' }}</span>
+                      </div>
+                    </td>
+                    <td>{{ product.quantity }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -645,39 +646,6 @@ watch(
 </template>
 
 <style scoped>
-.search-view {
-  padding-top: 80px;
-  min-height: 100vh;
-  position: relative;
-  z-index: 1; /* 헤더의 z-index 1000보다 낮게 설정 */
-}
-
-.search-banner {
-  height: 200px;
-  background-color: #0c4da2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-.banner-content {
-  text-align: center;
-}
-
-.banner-title {
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.banner-description {
-  color: white;
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -1012,39 +980,7 @@ watch(
   cursor: not-allowed;
 }
 
-/* 엑셀 내보내기 버튼 스타일 */
-.export-button {
-  float: right;
-  background-color: #217346; /* Excel 색상 */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 6px 12px;
-  font-size: 14px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: background-color 0.2s;
-}
-
-.export-button:hover {
-  background-color: #185c36;
-}
-
-.export-icon {
-  font-size: 16px;
-}
-
 @media (max-width: 968px) {
-  .search-banner {
-    height: 180px;
-  }
-
-  .banner-title {
-    font-size: 32px;
-  }
-
   .sort-left-group {
     flex-direction: column;
     align-items: flex-start;
@@ -1060,23 +996,13 @@ watch(
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .export-button {
-    float: none;
-    margin-top: 10px;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .result-summary {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   .tolerance-info,
   .sort-info {
     margin-left: 0;
     margin-top: 5px;
+  }
+  .product-category {
+    display: none;
   }
 }
 </style>

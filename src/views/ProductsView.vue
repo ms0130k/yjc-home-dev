@@ -589,7 +589,7 @@ defineComponent({
               <table class="specs-table">
                 <thead>
                   <tr>
-                    <th rowspan="2"class="product-name-width">품명</th>
+                    <th rowspan="2" class="product-name-width">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
                     <th rowspan="2" class="quantity-width">한묶음<br />수량</th>
@@ -622,7 +622,7 @@ defineComponent({
               <table class="specs-table">
                 <thead>
                   <tr>
-                    <th rowspan="2"class="product-name-width">품명</th>
+                    <th rowspan="2" class="product-name-width">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
                     <th rowspan="2" class="quantity-width">한묶음<br />수량</th>
@@ -657,7 +657,7 @@ defineComponent({
               <table class="specs-table">
                 <thead>
                   <tr>
-                    <th rowspan="2"class="product-name-width">품명</th>
+                    <th rowspan="2" class="product-name-width">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
                     <th rowspan="2" class="quantity-width">한묶음<br />수량</th>
@@ -692,7 +692,7 @@ defineComponent({
               <table class="specs-table">
                 <thead>
                   <tr>
-                    <th rowspan="2"class="product-name-width">품명</th>
+                    <th rowspan="2" class="product-name-width">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
                     <th rowspan="2" class="quantity-width">한묶음<br />수량</th>
@@ -725,7 +725,7 @@ defineComponent({
               <table class="specs-table">
                 <thead>
                   <tr>
-                    <th rowspan="2"class="product-name-width">품명</th>
+                    <th rowspan="2" class="product-name-width">품명</th>
                     <th rowspan="2" class="hide-on-mobile">사진</th>
                     <th colspan="2">규격</th>
                     <th rowspan="2" class="quantity-width">한묶음<br />수량</th>
@@ -864,6 +864,7 @@ defineComponent({
 /* 탭 메뉴 */
 .box-specs-tabs {
   display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid #ddd;
   margin-bottom: 30px;
   overflow-x: auto;
@@ -877,7 +878,7 @@ defineComponent({
   align-items: center;
   justify-content: center;
   min-height: 70px;
-  padding: 15px 25px;
+  padding: 15px 15px;
   font-size: 16px;
   background: none;
   border: none;
@@ -890,7 +891,7 @@ defineComponent({
 }
 
 .tab-button.active {
-  color: #2e7d32;
+  color: #1a237e;
   font-weight: bold;
 }
 
@@ -901,7 +902,7 @@ defineComponent({
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: #2e7d32;
+  background-color: #1a237e;
 }
 
 .box-specs-content {
@@ -1040,9 +1041,10 @@ defineComponent({
   }
 
   .tab-button {
-    padding: 10px 15px;
+    padding: 8px 2px;
     min-height: 60px;
-    min-width: 120px;
+    min-width: 100px;
+    font-size: 15px;
   }
 
   .electronics-image-container,
