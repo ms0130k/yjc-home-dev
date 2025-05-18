@@ -2,6 +2,7 @@
 import { defineComponent, ref } from 'vue'
 import PageBanner from '@/components/common/PageBanner.vue'
 import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
+import TabMenu from '@/components/common/TabMenu.vue'
 
 const tabItems = [
   { id: 'ice-box-1', label: '아이스 박스 규격 1' },
@@ -11,10 +12,6 @@ const tabItems = [
   { id: 'img-sample', label: '이미지 샘플' },
 ]
 const activeTab = ref(tabItems[0].id)
-
-const changeTab = (tabId: string) => {
-  activeTab.value = tabId
-}
 
 // 테이블 데이터를 객체 형태로 구조화
 interface BoxSpec {
@@ -252,25 +249,13 @@ defineComponent({
 </script>
 
 <template>
-  <PageBanner
-    title="제품 규격"
-    description=""
-  />
+  <PageBanner title="제품 규격" description="" />
 
   <PageTwoColumn>
     <template #right>
       <div class="container">
         <!-- 박스규격 탭 메뉴 -->
-        <div class="box-specs-tabs">
-          <button
-            v-for="tab in tabItems"
-            :key="tab.id"
-            :class="['tab-button', { active: activeTab === tab.id }]"
-            @click="changeTab(tab.id)"
-          >
-            {{ tab.label }}
-          </button>
-        </div>
+        <TabMenu v-model="activeTab" :items="tabItems" />
 
         <!-- 박스 콘텐츠 -->
         <div class="box-specs-content">
@@ -279,23 +264,23 @@ defineComponent({
             <div v-for="(tableData, index) in boxSpecs" :key="index" class="specs-table-container">
               <table class="specs-table">
                 <thead>
-                <tr>
-                  <th rowspan="2">{{ tableData.title }}</th>
-                  <th colspan="2">규격(mm)</th>
-                  <th rowspan="2">한묶음 수량</th>
-                </tr>
-                <tr>
-                  <th>외경(mm)</th>
-                  <th>내경(mm)</th>
-                </tr>
+                  <tr>
+                    <th rowspan="2">{{ tableData.title }}</th>
+                    <th colspan="2">규격(mm)</th>
+                    <th rowspan="2">한묶음 수량</th>
+                  </tr>
+                  <tr>
+                    <th>외경(mm)</th>
+                    <th>내경(mm)</th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(spec, specIndex) in tableData.specs" :key="specIndex">
-                  <td>{{ spec.name }}</td>
-                  <td>{{ spec.outer }}</td>
-                  <td>{{ spec.inner }}</td>
-                  <td>{{ spec.quantity }}</td>
-                </tr>
+                  <tr v-for="(spec, specIndex) in tableData.specs" :key="specIndex">
+                    <td>{{ spec.name }}</td>
+                    <td>{{ spec.outer }}</td>
+                    <td>{{ spec.inner }}</td>
+                    <td>{{ spec.quantity }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -306,23 +291,23 @@ defineComponent({
             <div v-for="(tableData, index) in boxSpecs2" :key="index" class="specs-table-container">
               <table class="specs-table">
                 <thead>
-                <tr>
-                  <th rowspan="2">{{ tableData.title }}</th>
-                  <th colspan="2">규격(mm)</th>
-                  <th rowspan="2">한묶음 수량</th>
-                </tr>
-                <tr>
-                  <th>외경(mm)</th>
-                  <th>내경(mm)</th>
-                </tr>
+                  <tr>
+                    <th rowspan="2">{{ tableData.title }}</th>
+                    <th colspan="2">규격(mm)</th>
+                    <th rowspan="2">한묶음 수량</th>
+                  </tr>
+                  <tr>
+                    <th>외경(mm)</th>
+                    <th>내경(mm)</th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(spec, specIndex) in tableData.specs" :key="specIndex">
-                  <td>{{ spec.name }}</td>
-                  <td>{{ spec.outer }}</td>
-                  <td>{{ spec.inner }}</td>
-                  <td>{{ spec.quantity }}</td>
-                </tr>
+                  <tr v-for="(spec, specIndex) in tableData.specs" :key="specIndex">
+                    <td>{{ spec.name }}</td>
+                    <td>{{ spec.outer }}</td>
+                    <td>{{ spec.inner }}</td>
+                    <td>{{ spec.quantity }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -333,23 +318,23 @@ defineComponent({
             <div v-for="(tableData, index) in boxSpecs3" :key="index" class="specs-table-container">
               <table class="specs-table">
                 <thead>
-                <tr>
-                  <th rowspan="2">{{ tableData.title }}</th>
-                  <th colspan="2">규격(mm)</th>
-                  <th rowspan="2">한묶음 수량</th>
-                </tr>
-                <tr>
-                  <th>외경(mm)</th>
-                  <th>내경(mm)</th>
-                </tr>
+                  <tr>
+                    <th rowspan="2">{{ tableData.title }}</th>
+                    <th colspan="2">규격(mm)</th>
+                    <th rowspan="2">한묶음 수량</th>
+                  </tr>
+                  <tr>
+                    <th>외경(mm)</th>
+                    <th>내경(mm)</th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(spec, specIndex) in tableData.specs" :key="specIndex">
-                  <td>{{ spec.name }}</td>
-                  <td>{{ spec.outer }}</td>
-                  <td>{{ spec.inner }}</td>
-                  <td>{{ spec.quantity }}</td>
-                </tr>
+                  <tr v-for="(spec, specIndex) in tableData.specs" :key="specIndex">
+                    <td>{{ spec.name }}</td>
+                    <td>{{ spec.outer }}</td>
+                    <td>{{ spec.inner }}</td>
+                    <td>{{ spec.quantity }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -361,18 +346,18 @@ defineComponent({
             <div class="cutting-table-container">
               <table class="cutting-table">
                 <thead>
-                <tr>
-                  <th>코너/ 모서리 보호</th>
-                  <th>규격(mm)</th>
-                  <th>한묶음 수량</th>
-                </tr>
+                  <tr>
+                    <th>코너/ 모서리 보호</th>
+                    <th>규격(mm)</th>
+                    <th>한묶음 수량</th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(spec, index) in cornerBoxSpecs" :key="index">
-                  <td>{{ spec.name }}</td>
-                  <td>{{ spec.size }}</td>
-                  <td>{{ spec.quantity }}</td>
-                </tr>
+                  <tr v-for="(spec, index) in cornerBoxSpecs" :key="index">
+                    <td>{{ spec.name }}</td>
+                    <td>{{ spec.size }}</td>
+                    <td>{{ spec.quantity }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -381,15 +366,15 @@ defineComponent({
             <div class="cutting-table-container">
               <table class="cutting-table">
                 <thead>
-                <tr>
-                  <th colspan="2">맞춤 평판/ 패드 제작 (건축용 및 제품 보호용)</th>
-                </tr>
+                  <tr>
+                    <th colspan="2">맞춤 평판/ 패드 제작 (건축용 및 제품 보호용)</th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr v-for="(spec, index) in foamPanelSpecs" :key="index">
-                  <td>{{ spec.name }}</td>
-                  <td>{{ spec.description }}</td>
-                </tr>
+                  <tr v-for="(spec, index) in foamPanelSpecs" :key="index">
+                    <td>{{ spec.name }}</td>
+                    <td>{{ spec.description }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
