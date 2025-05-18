@@ -5,16 +5,14 @@ import PageBanner from '@/components/common/PageBanner.vue'
 
 const ceoInfo = {
   name: '박명환',
-  title: '대표',
-  image: '/images/ceo.jpg', // 실제 이미지 경로에 맞게 수정 필요
+  title: '대표 이사',
+  image: '/images/ceo/ceo4.jpg',
 }
 
-const greetingSubtitle = '(주)영진화학 홈페이지를 찾아주셔서 진심으로 감사드립니다.'
-const greetingContent = `
-30년의 노하우로 다양한 스티로폼 포장재 및 제품 제작이 가능합니다. 다양한 택배용 스티로폼 박스 및 완충제용 박스/ 패드 보유하고 있으며, 원하시는 사이즈의 완충제 생산이 가능합니다.
-저희 영진화학은 1991년 8월 설립된 이후 제품개발 및 최신 자동화 설비로 품질 향상에 최선을 다하고 있습니다.
-더불어 친환경에 부응코자 생산에서부터 스티로폼 재활용까지 품질 및 친환경 제일주의를 추구하는 기업으로 항상 정진하고 있습니다.
-고객 여러분의 소중한 관심을 최대한 존중하여 신뢰가 더욱 깊은 기업으로, 최고의 만족을 드리기 위하여 끊임없이 노력하는 기업이 될 것을 약속드립니다. 그동안 쌓아온 기술과 신용을 바탕으로 고객여러분께 보답코자 하오니 변함없는 성원을 부탁드립니다.
+const greetingSubtitle = '더 좋은 스티로폼!\n친환경기업 영진이 만듭니다!'
+const greetingContent = `저희 회사는 1991년 8월 설립된 이후 제품개발 및 최신 자동화 설비로 품질 향상에 최선을 다하고 있습니다.
+\n더불어 친환경에 부응하고자 생산에서부터 스티로폼 재활용까지 품질 및 친환경 제일주의를 추구하는 기업으로 항상 정진하고 있습니다. 고객 여러분의 소중한 관심을 최대한 존중하여 신뢰가 더욱 깊은 기업으로 최고의 만족을 드리기 위하여 끊임없이 노력하는 기업이 될 것을 약속 드립니다.
+\n그동안 쌓아온 기술과 신용을 바탕으로 고객 여러분께 보답하고자 하오니 변함없는 성원을 부탁드립니다. 감사합니다.
 `
 
 const companyRows = [
@@ -32,24 +30,22 @@ const companyRows = [
 </script>
 
 <template>
-  <PageBanner
-    title="CEO 인사말"
-  />
+  <PageBanner title="CEO 인사말" />
   <PageTwoColumn>
     <template #right>
       <div class="ceo-page">
         <div class="ceo-content">
           <div class="ceo-profile">
             <img :src="ceoInfo.image" alt="대표님 사진" class="ceo-image" />
-            <div class="ceo-name">{{ ceoInfo.title }} {{ ceoInfo.name }}</div>
           </div>
           <div class="greeting-section">
             <h2 class="greeting-subtitle">{{ greetingSubtitle }}</h2>
             <div class="greeting-body">
               <span v-for="(line, idx) in greetingContent.split('\n')" :key="idx">
-                {{ line }}<br v-if="line" />
+                {{ line }}<br/>
               </span>
             </div>
+            <h3 class="ceo-rank">{{ ceoInfo.title }} <span class="ceo-name">{{ ceoInfo.name }}</span></h3>
           </div>
         </div>
         <div class="company-table-section">
@@ -66,47 +62,25 @@ const companyRows = [
   margin: 0 auto;
   padding: 40px 20px 60px 20px;
 }
-.ceo-header {
-  text-align: center;
-  margin-bottom: 32px;
-}
-.greeting-title {
-  font-size: 2.2rem;
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #222;
-}
-.greeting-underline {
-  width: 60px;
-  height: 3px;
-  background: #0c4da2;
-  margin: 0 auto;
-}
 .ceo-content {
   display: flex;
-  gap: 40px;
+  gap: 30px;
   align-items: flex-start;
   margin-bottom: 40px;
 }
 .ceo-profile {
-  flex: 0 0 220px;
+  flex: 1;
   text-align: center;
 }
 .ceo-image {
-  width: 200px;
-  height: 260px;
+  width: 100%;
   object-fit: cover;
   border-radius: 8px;
   border: 1px solid #e0e4ea;
   margin-bottom: 12px;
 }
-.ceo-name {
-  font-size: 1.1rem;
-  color: #444;
-  margin-top: 4px;
-}
 .greeting-section {
-  flex: 1;
+  flex: 1.1;
 }
 .greeting-subtitle {
   font-size: 1.15rem;
@@ -122,6 +96,18 @@ const companyRows = [
 }
 .company-table-section {
   margin-top: 40px;
+}
+.ceo-rank {
+  font-size: 1.1rem;
+  color: #444;
+  margin-top: 12px;
+  text-align: right;
+}
+.ceo-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1em;
+  margin-left: 12px;
 }
 @media (max-width: 900px) {
   .ceo-content {
