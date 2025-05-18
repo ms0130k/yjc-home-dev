@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Tools, Settings, MessageText, MapPin } from '@iconoir/vue'
+import { RulerArrows, FrameTool, MessageText, MapPin } from '@iconoir/vue'
 // 필요한 컴포넌트나 라이브러리를 여기에 임포트
 </script>
 
@@ -20,22 +20,22 @@ import { Tools, Settings, MessageText, MapPin } from '@iconoir/vue'
     </section>
 
     <div class="info-panel">
-      <router-link to="/facilities" class="info-item" style="text-decoration: none">
+      <router-link to="/box-specs" class="info-item" style="text-decoration: none">
         <div class="info-content">
-          <Tools :width="34" :height="34" color="#fff" class="info-icon" />
+          <RulerArrows :width="34" :height="34" color="#fff" class="info-icon" />
           <div class="info-text">
-            <div class="info-title">설비현황</div>
-            <div class="info-subtitle">Facilities</div>
+            <div class="info-title">제품규격</div>
+            <div class="info-subtitle">Product Specifications</div>
           </div>
         </div>
       </router-link>
       <div class="info-divider"></div>
       <router-link to="/technical-data" class="info-item" style="text-decoration: none">
         <div class="info-content">
-          <Settings :width="34" :height="34" color="#fff" class="info-icon" />
+          <FrameTool :width="34" :height="34" color="#fff" class="info-icon" />
           <div class="info-text">
-            <div class="info-title">생산공정</div>
-            <div class="info-subtitle">Production Process</div>
+            <div class="info-title">금형제작</div>
+            <div class="info-subtitle">Mold Making</div>
           </div>
         </div>
       </router-link>
