@@ -5,10 +5,10 @@ import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 import TabMenu from '@/components/common/TabMenu.vue'
 
 const tabItems = [
-  { id: 'ice-box-1', label: '아이스 박스 규격 1' },
-  { id: 'ice-box-2', label: '아이스 박스 규격 2' },
-  { id: 'ice-box-3', label: '아이스 박스 규격 3' },
-  { id: 'styrofoam-cutting', label: '스티로폼 재단' },
+  { id: 'ice-box-1', label: '아이스 박스\n규격 1' },
+  { id: 'ice-box-2', label: '아이스 박스\n규격 2' },
+  { id: 'ice-box-3', label: '아이스 박스\n규격 3' },
+  { id: 'styrofoam-cutting', label: '스티로폼\n재단' },
   { id: 'img-sample', label: '이미지 샘플' },
 ]
 const activeTab = ref(tabItems[0].id)
