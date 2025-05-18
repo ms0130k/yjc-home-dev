@@ -12,8 +12,9 @@ import { Tools, Settings, MessageText, MapPin } from '@iconoir/vue'
       </div>
       <div class="banner-wrapper">
         <div class="banner-content">
-          <h1 class="banner-title">오늘의 신뢰할수 있는 기술이</h1>
-          <p class="banner-subtitle">친환경 제품을 위한 내일의 기회를 만듭니다.</p>
+          <h1 class="banner-title">신뢰를 최고의 가치로 생각하는 기업</h1>
+          <p class="banner-subtitle">택배용 박스/각종 스티로폼 포장재 제작</p>
+          <p class="banner-subtitle">스티로폼 금형 제작</p>
         </div>
       </div>
     </section>

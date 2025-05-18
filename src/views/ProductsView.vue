@@ -4,11 +4,11 @@ import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 import PageBanner from '@/components/common/PageBanner.vue'
 
 const tabItems = [
-  { id: 'kimchi-box', label: '김치/가공식품\n보냉박스' },
-  { id: 'mushroom-box', label: '송이/식품\n보냉박스' },
-  { id: 'meat-box', label: '축산물\n보냉박스' },
-  { id: 'fish-box', label: '어상자/식품\n보냉박스' },
-  { id: 'multipurpose-box', label: '다용도\n보냉박스' },
+  { id: 'kimchi-box', label: '김치/가공식품\n박스' },
+  { id: 'mushroom-box', label: '송이/식품\n박스' },
+  { id: 'meat-box', label: '축산물\n박스' },
+  { id: 'fish-box', label: '어상자/식품\n박스' },
+  { id: 'multipurpose-box', label: '다용도\n박스' },
   { id: 'electronics-protection', label: '전자제품\n파손방지' },
   { id: 'damage-prevention', label: '파손방지\n스티로폼' },
   { id: 'packaging-pad', label: '각종 목재 유리\n포장PAD' },
@@ -46,14 +46,14 @@ const kimchiBoxWithImages: BoxSpecWithImage[] = [
   {
     name: 'BOX 1호 = 송이1kg (김치 3kg)',
     outer: '310*240*180',
-    inner: '270*200*80/120',
+    inner: '270*200*120',
     quantity: '24*',
     image: '/images/box/box-sample.png',
   },
   {
-    name: '망계반죽 (Y-2)',
+    name: '멍게반쪽 (Y-2)',
     outer: '250*250*180',
-    inner: '210*210*13',
+    inner: '210*210*130',
     quantity: '24*',
     image: '/images/box/box-sample.png',
   },
@@ -108,12 +108,12 @@ const kimchiBoxWithImages: BoxSpecWithImage[] = [
   },
 ]
 
-// 송이/버섯 보냉박스 이미지 데이터
+// 송이/버섯 박스 이미지 데이터
 const mushroomBoxWithImages: BoxSpecWithImage[] = [
   {
     name: '송이 0.5kg',
     outer: '270*205*150',
-    inner: '235*170*70/110',
+    inner: '235*170*110',
     quantity: '32*',
     image: '/images/box/box-sample.png',
     note: '냉매받침(간지) 분리가능',
@@ -121,7 +121,7 @@ const mushroomBoxWithImages: BoxSpecWithImage[] = [
   {
     name: '송이1kg =BOX1호',
     outer: '310*240*180',
-    inner: '270*200*80/120',
+    inner: '270*200*120',
     quantity: '24*',
     image: '/images/box/box-sample.png',
     note: '냉매받침(간지) 분리가능',
@@ -129,7 +129,7 @@ const mushroomBoxWithImages: BoxSpecWithImage[] = [
   {
     name: '송이 2kg',
     outer: '310*240*220',
-    inner: '270*200*130/170',
+    inner: '270*200*170',
     quantity: '20*',
     image: '/images/box/box-sample.png',
     note: '냉매받침(간지) 분리가능',
@@ -137,7 +137,7 @@ const mushroomBoxWithImages: BoxSpecWithImage[] = [
   {
     name: '송이 3kg',
     outer: '310*240*255',
-    inner: '270*195*160/200',
+    inner: '270*195*200',
     quantity: '16*',
     image: '/images/box/box-sample.png',
     note: '냉매받침(간지) 분리가능',
@@ -145,7 +145,7 @@ const mushroomBoxWithImages: BoxSpecWithImage[] = [
   {
     name: '양송이2kg',
     outer: '380*250*190',
-    inner: '330*200*80/120',
+    inner: '330*200*120',
     quantity: '20*',
     image: '/images/box/box-sample.png',
     note: '냉매받침(간지) 분리가능',
@@ -184,7 +184,7 @@ const mushroomBoxWithImages: BoxSpecWithImage[] = [
   },
 ]
 
-// 축산물 보냉박스 이미지 데이터
+// 축산물 박스 이미지 데이터
 const meatBoxWithImages: BoxSpecWithImage[] = [
   {
     name: '갈비2kg',
@@ -222,7 +222,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     name: '등바구니 2kg (소)',
     outer: '425*300*150',
     inner: '375*245*90',
-    quantity: '14*',
+    quantity: '10*',
     image: '/images/box/box-sample.png',
     note: '',
   },
@@ -230,7 +230,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     name: '등바구니 2kg (대)',
     outer: '430*325*160',
     inner: '375*265*75/55',
-    quantity: '14*',
+    quantity: '10*',
     image: '/images/box/box-sample.png',
     note: '',
   },
@@ -238,7 +238,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     name: '등바구니 3kg',
     outer: '465*340*140',
     inner: '420*285*90',
-    quantity: '12*',
+    quantity: '10*',
     image: '/images/box/box-sample.png',
     note: '',
   },
@@ -246,7 +246,7 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     name: '등바구니 4kg',
     outer: '520*410*175',
     inner: '450*330*100',
-    quantity: '6*',
+    quantity: '5*',
     image: '/images/box/box-sample.png',
     note: '',
   },
@@ -254,29 +254,29 @@ const meatBoxWithImages: BoxSpecWithImage[] = [
     name: '등바구니 5kg',
     outer: '565*445*190',
     inner: '495*370*110',
-    quantity: '6*',
+    quantity: '5*',
     image: '/images/box/box-sample.png',
     note: '',
   },
   {
-    name: '삼보3kg (소)',
+    name: 'T-5 (소)',
     outer: '375*285*140',
     inner: '340*245*75',
-    quantity: '16*',
+    quantity: '12*',
     image: '/images/box/box-sample.png',
     note: '',
   },
   {
-    name: '삼보3kg (대)',
+    name: 'T-5-1 (대)',
     outer: '380*290*140',
     inner: '340*245*65',
-    quantity: '16*',
+    quantity: '12*',
     image: '/images/box/box-sample.png',
     note: '',
   },
 ]
 
-// 어상자/식품 보냉박스 이미지 데이터
+// 어상자/식품 박스 이미지 데이터
 const fishBoxWithImages: BoxSpecWithImage[] = [
   {
     name: '어상자 5kg',
@@ -288,8 +288,8 @@ const fishBoxWithImages: BoxSpecWithImage[] = [
   {
     name: '어상자 10kg',
     outer: '550*350*210',
-    inner: '495*300*100/150',
-    quantity: '6*',
+    inner: '495*300*150',
+    quantity: '10*',
     image: '/images/box/box-sample.png',
   },
   {
@@ -302,8 +302,8 @@ const fishBoxWithImages: BoxSpecWithImage[] = [
   {
     name: '어상자 18kg',
     outer: '555*370*330',
-    inner: '505*320*200/65',
-    quantity: '4*',
+    inner: '505*320*265',
+    quantity: '6*',
     image: '/images/box/box-sample.png',
   },
   {
@@ -324,18 +324,18 @@ const fishBoxWithImages: BoxSpecWithImage[] = [
     name: '대하 2kg',
     outer: '340*240*130',
     inner: '305*205*95',
-    quantity: '28*',
+    quantity: '32*',
     image: '/images/box/box-sample.png',
   },
 ]
 
-// 다용도 보냉박스 이미지 데이터
+// 다용도 박스 이미지 데이터
 const multipurposeBoxWithImages: BoxSpecWithImage[] = [
   {
     name: '다용도-1',
     outer: '380*310*260',
     inner: '330*260*170',
-    quantity: '8*',
+    quantity: '12*',
     image: '/images/box/box-sample.png',
   },
   {
@@ -356,32 +356,32 @@ const multipurposeBoxWithImages: BoxSpecWithImage[] = [
     name: '다용도-4',
     outer: '430*320*275',
     inner: '380*275*210',
-    quantity: '8*',
+    quantity: '10*',
     image: '/images/box/box-sample.png',
   },
   {
     name: '다용도-5',
     outer: '245*245*180',
     inner: '210*210*130',
-    quantity: '8*',
+    quantity: '10*',
     image: '/images/box/box-sample.png',
   },
   {
     name: '다용도-6',
     outer: '370*310*230',
     inner: '320*265*170',
-    quantity: '14*',
+    quantity: '12*',
     image: '/images/box/box-sample.png',
   },
   {
     name: '다용도-7',
     outer: '410*320*300',
     inner: '360*265*210',
-    quantity: '8*',
+    quantity: '10*',
     image: '/images/box/box-sample.png',
   },
   {
-    name: '계장원',
+    name: '게장원',
     outer: '340*270*210',
     inner: '300*230*150',
     quantity: '20*',
@@ -617,7 +617,7 @@ defineComponent({
           </div>
 
           <div v-else-if="activeTab === 'mushroom-box'" class="tab-content">
-            <!-- 이미지가 있는 송이/버섯 보냉박스 테이블 -->
+            <!-- 이미지가 있는 송이/버섯 박스 테이블 -->
             <div class="specs-table-container">
               <table class="specs-table">
                 <thead>
@@ -652,7 +652,7 @@ defineComponent({
           </div>
 
           <div v-else-if="activeTab === 'meat-box'" class="tab-content">
-            <!-- 축산물 보냉박스 테이블 -->
+            <!-- 축산물 박스 테이블 -->
             <div class="specs-table-container">
               <table class="specs-table">
                 <thead>
@@ -687,7 +687,7 @@ defineComponent({
           </div>
 
           <div v-else-if="activeTab === 'fish-box'" class="tab-content">
-            <!-- 어상자/식품 보냉박스 테이블 -->
+            <!-- 어상자/식품 박스 테이블 -->
             <div class="specs-table-container">
               <table class="specs-table">
                 <thead>
@@ -720,7 +720,7 @@ defineComponent({
           </div>
 
           <div v-else-if="activeTab === 'multipurpose-box'" class="tab-content">
-            <!-- 다용도 보냉박스 테이블 -->
+            <!-- 다용도 박스 테이블 -->
             <div class="specs-table-container">
               <table class="specs-table">
                 <thead>
@@ -843,7 +843,7 @@ defineComponent({
                 <h3>각종 목재 유리 포장PAD</h3>
                 <p>목재/유리/거울 등 맞춤 사이즈 제작 가능</p>
                 <p>운송 중 파손 방지를 위한 최적의 포장 솔루션</p>
-                <p>문의: 054-975-5300</p>
+                <p>문의: 031-997-0280</p>
               </div>
             </div>
           </div>

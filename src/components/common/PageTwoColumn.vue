@@ -17,7 +17,7 @@ withDefaults(defineProps<Props>(), {
         <div class="side-banner">
           <div class="side-title">안내 사항</div>
           <div class="side-description">
-            주요 설비 현황 및 기타 문의는<br />
+            금형 제작 및 제품 구매, 기타 문의는<br />
             아래 연락처로 문의해 주세요.
           </div>
           <div class="side-contact">

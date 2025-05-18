@@ -19,13 +19,13 @@ const greetingContent = `
 
 const companyRows = [
   { label: '회사명', value: '주식회사 영진화학' },
-  { label: '설립일', value: '1995년 06월 01일' },
-  { label: '주요생산품', value: 'EPP / EPS / 하나팩 성형품' },
+  { label: '설립일', value: '1991년 08월 13일' },
+  { label: '주요생산품', value: 'EPS 스티로폼 / 스티로폼 금형 프레임' },
   { label: '대표자', value: '박명환' },
   { label: '소재지', value: '경기도 김포시 대곶면 대곶로 202번길 215 (송마리 245-1)' },
   { label: '전화번호', value: '031-997-0280' },
   { label: '팩스번호', value: '031-997-0281' },
-  { label: '대지', value: '4,600평' },
+  { label: '대지', value: '3,000평' },
   { label: '공장규모', value: '건물(연면적) 2,000평' },
   { label: '형태', value: '자가' },
 ]

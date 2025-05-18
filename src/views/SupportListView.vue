@@ -73,7 +73,7 @@ onMounted(fetchInquiries)
 </script>
 
 <template>
-  <PageBanner title="문의글 목록" description="등록된 문의글을 확인할 수 있습니다." />
+  <PageBanner title="견적 문의" description="" />
   <PageTwoColumn>
     <template #right>
       <div class="support-list-container">
