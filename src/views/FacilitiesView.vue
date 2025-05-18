@@ -101,8 +101,7 @@
       </div>
       <div class="facilities-gallery">
         <div class="gallery-item" v-for="item in galleryItems" :key="item.label">
-          <img :src="item.img" :alt="item.label" class="gallery-img" />
-          <div class="gallery-label">{{ item.label }}</div>
+          <ImageGalleryCard :label="item.label" :images="item.images"/>
         </div>
       </div>
     </template>
@@ -112,12 +111,14 @@
 <script setup lang="ts">
 import PageBanner from '@/components/common/PageBanner.vue'
 import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
+import ImageGalleryCard from '@/components/common/ImageGalleryCard.vue'
 const galleryItems = [
-  { label: '성형기', img: '/images/break/목재유리1.jpeg' },
-  { label: '콤프레샤', img: '/images/break/목재유리1.jpeg' },
-  { label: '발포기', img: '/images/break/목재유리1.jpeg' },
-  { label: '싸이로 (SILO)', img: '/images/break/목재유리1.jpeg' },
-  { label: '펠릿/가스보일러', img: '/images/break/목재유리1.jpeg' },
+  { label: '성형기', images: ['/images/facilities/성형기1.png', '/images/facilities/성형기2.jpg', '/images/facilities/성형기3.jpg'] },
+  { label: '평판기', images: ['/images/facilities/평판기.jpg'] },
+  { label: '콤프레샤', images: ['/images/facilities/콤프레샤.jpg'] },
+  { label: '싸이로', images: ['/images/facilities/싸이로.jpg'] },
+  { label: '가스보일러', images: ['/images/facilities/가스보일러.jpg'] },
+  { label: '감용기', images: ['/images/facilities/감용기.jpg'] },
 ]
 </script>
 
