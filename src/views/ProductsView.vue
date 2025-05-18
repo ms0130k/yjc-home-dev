@@ -2,6 +2,7 @@
 import { defineComponent, ref } from 'vue'
 import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 import PageBanner from '@/components/common/PageBanner.vue'
+import TabMenu from '@/components/common/TabMenu.vue'
 
 const tabItems = [
   { id: 'kimchi-box', label: '김치/가공식품\n박스' },
@@ -14,10 +15,6 @@ const tabItems = [
   { id: 'packaging-pad', label: '각종 목재 유리\n포장PAD' },
 ]
 const activeTab = ref(tabItems[0].id)
-
-const changeTab = (tabId: string) => {
-  activeTab.value = tabId
-}
 
 // 테이블 데이터를 객체 형태로 구조화
 interface BoxSpec {
@@ -571,16 +568,7 @@ defineComponent({
     <template #right>
       <div class="container">
         <!-- 박스규격 탭 메뉴 -->
-        <div class="box-specs-tabs">
-          <button
-            v-for="tab in tabItems"
-            :key="tab.id"
-            :class="['tab-button', { active: activeTab === tab.id }]"
-            @click="changeTab(tab.id)"
-          >
-            {{ tab.label }}
-          </button>
-        </div>
+        <TabMenu v-model="activeTab" :items="tabItems" />
 
         <div class="box-specs-content">
           <div v-if="activeTab === 'kimchi-box'" class="tab-content">
@@ -1030,6 +1018,7 @@ defineComponent({
   height: 100%;
   object-fit: cover;
 }
+
 .quantity-width {
   width: 11% !important;
 }
