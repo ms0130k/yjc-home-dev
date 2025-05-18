@@ -429,7 +429,7 @@ defineComponent({
 }
 
 .tab-button.active {
-  color: #2e7d32;
+  color: #1a237e;
   font-weight: bold;
 }
 
@@ -440,7 +440,7 @@ defineComponent({
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: #2e7d32;
+  background-color: #1a237e;
 }
 
 .box-specs-content {
