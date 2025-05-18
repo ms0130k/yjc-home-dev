@@ -396,38 +396,6 @@ defineComponent({
   padding: 0 20px;
 }
 
-.box-specs-tabs {
-  display: flex;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 30px;
-}
-
-.tab-button {
-  padding: 15px 25px;
-  background: none;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  position: relative;
-  outline: none;
-  color: #555;
-}
-
-.tab-button.active {
-  color: #1a237e;
-  font-weight: bold;
-}
-
-.tab-button.active::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: #1a237e;
-}
-
 .box-specs-content {
   min-height: 400px;
 }
