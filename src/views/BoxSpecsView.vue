@@ -3,6 +3,7 @@ import { defineComponent, ref } from 'vue'
 import PageBanner from '@/components/common/PageBanner.vue'
 import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 import TabMenu from '@/components/common/TabMenu.vue'
+import ImagePopup from '@/components/common/ImagePopup.vue'
 
 const tabItems = [
   { id: 'ice-box-1', label: '아이스 박스\n규격 1' },
@@ -381,10 +382,10 @@ defineComponent({
           </div>
 
           <div v-else-if="activeTab === 'img-sample'" class="tab-content">
-            <img src="/images/spec/box/box-spec-1.jpeg" alt="샘플 이미지" class="spec-image" />
-            <img src="/images/spec/box/box-spec-2.jpeg" alt="샘플 이미지" class="spec-image" />
-            <img src="/images/spec/box/box-spec-3.jpeg" alt="샘플 이미지" class="spec-image" />
-            <img src="/images/spec/box/box-spec-4.jpeg" alt="샘플 이미지" class="spec-image" />
+            <ImagePopup src="/images/spec/box/box-spec-1.jpeg" alt="샘플 이미지 1" />
+            <ImagePopup src="/images/spec/box/box-spec-2.jpeg" alt="샘플 이미지 2" />
+            <ImagePopup src="/images/spec/box/box-spec-3.jpeg" alt="샘플 이미지 3" />
+            <ImagePopup src="/images/spec/box/box-spec-4.jpeg" alt="샘플 이미지 4" />
           </div>
         </div>
       </div>
