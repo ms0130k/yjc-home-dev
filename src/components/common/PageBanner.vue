@@ -3,14 +3,16 @@ interface Props {
   title: string
   description?: string
 }
-defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  description: '* 자세한 사항이나 기타 설비 문의는 전화 주시면 친절히 안내 드립니다.',
+})
 </script>
 
 <template>
   <div class="page-banner">
     <div class="banner-content">
-      <h1 class="banner-title" :class="{ 'no-margin': !description }">{{ title }}</h1>
-      <p v-if="description" class="banner-description">{{ description }}</p>
+      <h1 class="banner-title" :class="{ 'no-margin': !props.description }">{{ props.title }}</h1>
+      <p v-if="props.description" class="banner-description">{{ props.description }}</p>
     </div>
   </div>
 </template>

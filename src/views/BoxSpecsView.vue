@@ -253,8 +253,8 @@ defineComponent({
 
 <template>
   <PageBanner
-    title="박스 규격"
-    description="* 자세한 사항이나 기타 설비 문의는 전화 주시면 친절히 안내 드립니다."
+    title="제품 규격"
+    description=""
   />
 
   <PageTwoColumn>

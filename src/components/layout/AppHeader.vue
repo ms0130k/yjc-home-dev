@@ -121,9 +121,9 @@ onUnmounted(() => {
           </div>
         </div>
         <div class="nav-item-wrapper">
-          <router-link to="/products" class="nav-item">제품안내</router-link>
+          <router-link to="/box-specs" class="nav-item">제품안내</router-link>
           <div class="dropdown-column">
-            <router-link to="/box-specs" class="dropdown-item">박스규격</router-link>
+            <router-link to="/box-specs" class="dropdown-item">제품규격</router-link>
             <router-link to="/products" class="dropdown-item">제품안내</router-link>
           </div>
         </div>
@@ -194,7 +194,7 @@ onUnmounted(() => {
           <li>
             <button @click="toggleAccordion('products')">제품안내</button>
             <ul v-if="openAccordion === 'products'" class="submenu">
-              <li><a @click.prevent="navigateTo('/box-specs')">박스규격</a></li>
+              <li><a @click.prevent="navigateTo('/box-specs')">제품규격</a></li>
               <li><a @click.prevent="navigateTo('/products')">제품안내</a></li>
             </ul>
           </li>
