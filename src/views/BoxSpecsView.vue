@@ -9,7 +9,7 @@ const tabItems = [
   { id: 'ice-box-2', label: '아이스 박스\n규격 2' },
   { id: 'ice-box-3', label: '아이스 박스\n규격 3' },
   { id: 'styrofoam-cutting', label: '스티로폼\n재단' },
-  { id: 'img-sample', label: '이미지 샘플' },
+  { id: 'img-sample', label: '표 이미지' },
 ]
 const activeTab = ref(tabItems[0].id)
 
@@ -381,7 +381,10 @@ defineComponent({
           </div>
 
           <div v-else-if="activeTab === 'img-sample'" class="tab-content">
-            <img src="/images/spec/box-spec.jpeg" alt="샘플 이미지" />
+            <img src="/images/spec/box/box-spec-1.jpeg" alt="샘플 이미지" class="spec-image" />
+            <img src="/images/spec/box/box-spec-2.jpeg" alt="샘플 이미지" class="spec-image" />
+            <img src="/images/spec/box/box-spec-3.jpeg" alt="샘플 이미지" class="spec-image" />
+            <img src="/images/spec/box/box-spec-4.jpeg" alt="샘플 이미지" class="spec-image" />
           </div>
         </div>
       </div>
@@ -503,5 +506,48 @@ defineComponent({
 
 .cutting-table tr:hover {
   background-color: #f0f0f0;
+}
+
+.spec-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 반응형 */
+@media (max-width: 968px) {
+  .box-specs-tabs {
+    padding-bottom: 10px;
+  }
+
+  .tab-button {
+    padding: 8px 2px;
+    min-height: 60px;
+    min-width: 100px;
+    font-size: 15px;
+  }
+
+  .electronics-image-container,
+  .damage-prevention-image-container,
+  .packaging-pad-image-container {
+    width: 100%;
+    height: 300px;
+  }
+
+  .electronics-images,
+  .damage-prevention-images,
+  .packaging-pad-images {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hide-on-mobile {
+    display: none !important;
+  }
+  .quantity-width {
+    width: 11% !important;
+  }
+  .product-name-width {
+    width: 24% !important;
+  }
 }
 </style>
