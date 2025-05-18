@@ -312,7 +312,7 @@ watch(
 </script>
 
 <template>
-  <PageBanner title="제품 검색" description="원하는 제품을 검색해 보세요." />
+  <PageBanner title="제품 사이즈" description="원하는 제품을 검색해 보세요." />
   <PageTwoColumn>
     <template #right>
       <div class="container">

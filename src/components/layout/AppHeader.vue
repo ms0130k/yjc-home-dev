@@ -128,9 +128,9 @@ onUnmounted(() => {
           </div>
         </div>
         <div class="nav-item-wrapper">
-          <router-link to="/search" class="nav-item">제품검색</router-link>
+          <router-link to="/search" class="nav-item">제품사이즈</router-link>
           <div class="dropdown-column">
-            <router-link to="/search" class="dropdown-item">제품검색</router-link>
+            <router-link to="/search" class="dropdown-item">제품사이즈</router-link>
           </div>
         </div>
         <div class="nav-item-wrapper">
@@ -199,7 +199,7 @@ onUnmounted(() => {
             </ul>
           </li>
           <li>
-            <a @click.prevent="navigateTo('/search')">제품검색</a>
+            <a @click.prevent="navigateTo('/search')">제품사이즈</a>
           </li>
           <li>
             <button @click="toggleAccordion('support')">고객지원</button>
