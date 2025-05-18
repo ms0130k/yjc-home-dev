@@ -101,11 +101,6 @@ onUnmounted(() => {
       </router-link>
 
       <nav class="nav-menu">
-        <!-- 메가 메뉴 배경 (맨 위로 이동) -->
-        <div class="mega-menu">
-          <div class="mega-menu-content"></div>
-        </div>
-
         <div class="nav-item-wrapper">
           <router-link to="/about" class="nav-item">회사소개</router-link>
           <div class="dropdown-column">
@@ -400,39 +395,8 @@ onUnmounted(() => {
   text-align: center;
   position: relative;
   box-sizing: border-box;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
 }
 
-.nav-item:hover {
-  border-color: #0c4da2;
-}
-
-/* 메가 메뉴 스타일 */
-.mega-menu {
-  position: fixed;
-  top: 90px;
-  left: 0;
-  width: 100%;
-  height: 200px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 99;
-  transform: translateY(-5px);
-  box-sizing: border-box;
-}
-
-/* nav-menu에 호버했을 때 메가메뉴 표시 */
-.nav-menu:hover .mega-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* dropdown-column 스타일 수정 */
 .dropdown-column {
   position: absolute;
   top: 90px;
@@ -444,19 +408,15 @@ onUnmounted(() => {
   padding: 1.5rem;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
   z-index: 99;
-  background-color: transparent;
-  box-sizing: border-box;
+  background-color: white;
 }
 
-/* nav-menu에 호버했을 때 모든 dropdown-column 표시 */
-.nav-menu:hover .dropdown-column {
+.nav-item-wrapper:hover .dropdown-column {
   opacity: 1;
   visibility: visible;
 }
 
-/* nav-item-wrapper에 호버했을 때의 스타일은 제거하고 대신 active 스타일 추가 */
 .nav-item-wrapper:hover .nav-item {
   color: #1a237e;
 }
@@ -477,7 +437,6 @@ onUnmounted(() => {
 }
 
 @media (max-width: 968px) {
-  .mega-menu,
   .dropdown-column {
     display: none;
   }
