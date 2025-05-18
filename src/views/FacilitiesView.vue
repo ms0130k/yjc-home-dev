@@ -1,7 +1,5 @@
 <template>
-  <PageBanner
-    title="설비 현황"
-  />
+  <PageBanner title="설비 현황" />
   <PageTwoColumn>
     <template #right>
       <div class="facilities-container">
@@ -18,83 +16,85 @@
             <tr>
               <td rowspan="5">성형기</td>
               <td>500GF Type</td>
-              <td>4대</td>
-              <td></td>
+              <td>2대</td>
+              <td>소형 스티로폼 성형</td>
             </tr>
             <tr>
               <td>1360H Type</td>
-              <td>8대</td>
-              <td></td>
+              <td>7대</td>
+              <td>스티로폼 성형</td>
             </tr>
             <tr>
               <td>1700H Type</td>
-              <td>5대</td>
-              <td></td>
+              <td>8대</td>
+              <td>저발포 성형</td>
             </tr>
             <tr>
               <td>1900H Type</td>
               <td>2대</td>
-              <td></td>
+              <td>양식용 부자 성형기</td>
             </tr>
             <tr>
               <td>2000H Type</td>
               <td>2대</td>
-              <td></td>
+              <td>스티로폼 성형</td>
+            </tr>
+            <tr>
+              <td>평판기</td>
+              <td>3X6</td>
+              <td>1대</td>
+              <td>건축용 단열재 및 포장용패드</td>
             </tr>
             <tr>
               <td rowspan="2">콤프레샤</td>
               <td>100HP</td>
-              <td>2대</td>
-              <td></td>
+              <td>3대</td>
+              <td>AIR 생산</td>
             </tr>
             <tr>
               <td>75HP</td>
-              <td>3대</td>
-              <td></td>
+              <td>2대</td>
+              <td>AIR 생산</td>
             </tr>
             <tr>
-              <td rowspan="3">발포기</td>
-              <td>1200P</td>
+              <td rowspan="2">발포기</td>
+              <td>2800P</td>
               <td>1대</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>1400P</td>
-              <td>1대</td>
-              <td></td>
+              <td rowspan="2">예비발포/ 10톤 (일일생산량)</td>
             </tr>
             <tr>
               <td>1800P</td>
               <td>1대</td>
-              <td></td>
             </tr>
             <tr>
-              <td rowspan="3">싸이로 (SILO)</td>
+              <td>싸이로 (SILO)</td>
               <td>EPS SILO</td>
-              <td>3기</td>
-              <td></td>
+              <td>38기</td>
+              <td>원료 발포 숙성용</td>
             </tr>
             <tr>
-              <td>2종 원료 SILO</td>
-              <td>6기</td>
+              <td>자동건조설비</td>
+              <td>150평</td>
               <td></td>
+              <td>제품 자동화 건조</td>
             </tr>
             <tr>
-              <td>EPP SILO</td>
-              <td>4기</td>
+              <td>냉각설비</td>
+              <td>강제순환식</td>
               <td></td>
+              <td>냉각수냉각</td>
+            </tr>
+            <tr>
+              <td>감용기(잉코트)</td>
+              <td></td>
+              <td>1대</td>
+              <td>폐스티로폼 재활용 기계</td>
             </tr>
             <tr>
               <td>가스보일러</td>
-              <td>노통연관식 9톤</td>
+              <td>LPG 가스보일러 10톤</td>
               <td>1대</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>펠릿보일러</td>
-              <td>수입산보령산 3톤</td>
-              <td>1대</td>
-              <td></td>
+              <td>스팀생산</td>
             </tr>
           </tbody>
         </table>
