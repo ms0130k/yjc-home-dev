@@ -64,7 +64,6 @@ function nextImage() {
 .gallery-img {
   width: 100%;
   height: 140px;
-  object-fit: cover;
   background: #eee;
   cursor: pointer;
 }

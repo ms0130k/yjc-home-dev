@@ -101,7 +101,7 @@
       </div>
       <div class="facilities-gallery">
         <div class="gallery-item" v-for="item in galleryItems" :key="item.label">
-          <ImageGalleryCard :label="item.label" :images="item.images"/>
+          <ImageGalleryCard :label="item.label" :images="item.images" />
         </div>
       </div>
     </template>
@@ -113,7 +113,14 @@ import PageBanner from '@/components/common/PageBanner.vue'
 import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 import ImageGalleryCard from '@/components/common/ImageGalleryCard.vue'
 const galleryItems = [
-  { label: '성형기', images: ['/images/facilities/성형기1.png', '/images/facilities/성형기2.jpg', '/images/facilities/성형기3.jpg'] },
+  {
+    label: '성형기',
+    images: [
+      '/images/facilities/성형기1.png',
+      '/images/facilities/성형기2.jpg',
+      '/images/facilities/성형기3.jpg',
+    ],
+  },
   { label: '평판기', images: ['/images/facilities/평판기.jpg'] },
   { label: '콤프레샤', images: ['/images/facilities/콤프레샤.jpg'] },
   { label: '싸이로', images: ['/images/facilities/싸이로.jpg'] },
@@ -175,12 +182,12 @@ const galleryItems = [
 
 @media (max-width: 900px) {
   .facilities-gallery {
-    gap: 20px;
     max-width: 98vw;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
   .gallery-item {
-    width: 100%;
-    min-width: 0;
+    max-width: 50px;
   }
 }
 @media (max-width: 768px) {
