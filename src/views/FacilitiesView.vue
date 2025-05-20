@@ -175,7 +175,6 @@ const galleryItems = [
 
 @media (max-width: 900px) {
   .facilities-gallery {
-    flex-direction: column;
     gap: 20px;
     max-width: 98vw;
   }
