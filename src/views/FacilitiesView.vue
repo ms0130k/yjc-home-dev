@@ -129,17 +129,6 @@ const galleryItems = [
   padding: 0 24px 48px 24px;
 }
 
-.facilities-title {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 32px;
-  color: #222;
-  border-bottom: 2px solid #e0e6ef;
-  padding-bottom: 12px;
-  letter-spacing: 1px;
-}
-
 .facilities-table {
   width: 100%;
   border-collapse: collapse;
@@ -183,22 +172,7 @@ const galleryItems = [
   overflow: hidden;
   min-width: 120px;
 }
-.gallery-img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  background: #eee;
-}
-.gallery-label {
-  width: 100%;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: #fff;
-  background: #0c4da2;
-  padding: 12px 0;
-  letter-spacing: 1px;
-}
+
 @media (max-width: 900px) {
   .facilities-gallery {
     flex-direction: column;
