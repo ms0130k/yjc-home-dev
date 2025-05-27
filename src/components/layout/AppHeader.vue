@@ -97,6 +97,7 @@ onUnmounted(() => {
   <header class="header">
     <div class="header-content">
       <router-link to="/" class="logo">
+        <img src="/images/logo/yjc-logo-img.png" alt="영진화학">
         <span class="logo-text">영진화학</span>
       </router-link>
 
