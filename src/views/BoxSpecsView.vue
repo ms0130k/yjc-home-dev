@@ -10,7 +10,7 @@ const tabItems = [
   { id: 'ice-box-2', label: '아이스 박스\n규격 2' },
   { id: 'ice-box-3', label: '아이스 박스\n규격 3' },
   { id: 'styrofoam-cutting', label: '스티로폼\n재단' },
-  { id: 'img-sample', label: '표 이미지' },
+  { id: 'img-sample', label: '규격\n이미지' },
 ]
 const activeTab = ref(tabItems[0].id)
 // 테이블 데이터를 객체 형태로 구조화
