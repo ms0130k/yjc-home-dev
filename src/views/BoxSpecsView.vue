@@ -13,21 +13,20 @@ const tabItems = [
   { id: 'img-sample', label: '표 이미지' },
 ]
 const activeTab = ref(tabItems[0].id)
-
 // 테이블 데이터를 객체 형태로 구조화
+
 interface BoxSpec {
   name: string
   outer: string
   inner: string
   quantity: string
 }
-
 interface BoxSpecTable {
   title: string
   specs: BoxSpec[]
 }
 
-const boxSpecs: BoxSpecTable[] = [
+const boxSpecs1: BoxSpecTable[] = [
   {
     title: '김치/다용도박스',
     specs: [
@@ -84,6 +83,7 @@ const boxSpecs: BoxSpecTable[] = [
 ]
 
 // 아이스 박스 규격 2 테이블 데이터
+
 const boxSpecs2: BoxSpecTable[] = [
   {
     title: '정육박스 (통형/칸없음)',
@@ -166,8 +166,8 @@ const boxSpecs2: BoxSpecTable[] = [
     ],
   },
 ]
-
 // 아이스 박스 규격 3 테이블 데이터
+
 const boxSpecs3: BoxSpecTable[] = [
   {
     title: '송이/버섯 피자박스',
@@ -217,6 +217,11 @@ const boxSpecs3: BoxSpecTable[] = [
     ],
   },
 ]
+const boxSpecsMap = {
+  'ice-box-1': boxSpecs1,
+  'ice-box-2': boxSpecs2,
+  'ice-box-3': boxSpecs3,
+}
 
 // 스티로폼 재단 데이터
 interface CornerBoxSpec {
@@ -260,69 +265,22 @@ defineComponent({
 
         <!-- 박스 콘텐츠 -->
         <div class="box-specs-content">
-          <div v-if="activeTab === 'ice-box-1'" class="tab-content">
+          <div
+            v-if="['ice-box-1', 'ice-box-2', 'ice-box-3'].includes(activeTab)"
+            class="tab-content"
+          >
             <!-- 각 박스 유형 별로 테이블 렌더링 -->
-            <div v-for="(tableData, index) in boxSpecs" :key="index" class="specs-table-container">
+            <div
+              v-for="(tableData, index) in boxSpecsMap[activeTab]"
+              :key="index"
+              class="specs-table-container"
+            >
               <table class="specs-table">
                 <thead>
                   <tr>
-                    <th rowspan="2">{{ tableData.title }}</th>
-                    <th colspan="2">규격(mm)</th>
-                    <th rowspan="2">한묶음 수량</th>
-                  </tr>
-                  <tr>
-                    <th>외경(mm)</th>
-                    <th>내경(mm)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(spec, specIndex) in tableData.specs" :key="specIndex">
-                    <td>{{ spec.name }}</td>
-                    <td>{{ spec.outer }}</td>
-                    <td>{{ spec.inner }}</td>
-                    <td>{{ spec.quantity }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div v-else-if="activeTab === 'ice-box-2'" class="tab-content">
-            <!-- 각 박스 유형 별로 테이블 렌더링 -->
-            <div v-for="(tableData, index) in boxSpecs2" :key="index" class="specs-table-container">
-              <table class="specs-table">
-                <thead>
-                  <tr>
-                    <th rowspan="2">{{ tableData.title }}</th>
-                    <th colspan="2">규격(mm)</th>
-                    <th rowspan="2">한묶음 수량</th>
-                  </tr>
-                  <tr>
-                    <th>외경(mm)</th>
-                    <th>내경(mm)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(spec, specIndex) in tableData.specs" :key="specIndex">
-                    <td>{{ spec.name }}</td>
-                    <td>{{ spec.outer }}</td>
-                    <td>{{ spec.inner }}</td>
-                    <td>{{ spec.quantity }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div v-else-if="activeTab === 'ice-box-3'" class="tab-content">
-            <!-- 각 박스 유형 별로 테이블 렌더링 -->
-            <div v-for="(tableData, index) in boxSpecs3" :key="index" class="specs-table-container">
-              <table class="specs-table">
-                <thead>
-                  <tr>
-                    <th rowspan="2">{{ tableData.title }}</th>
-                    <th colspan="2">규격(mm)</th>
-                    <th rowspan="2">한묶음 수량</th>
+                    <th rowspan="2" class="box-name">{{ tableData.title }}</th>
+                    <th colspan="2" class="box-size">규격(mm)</th>
+                    <th rowspan="2" class="box-quantity">한묶음 수량</th>
                   </tr>
                   <tr>
                     <th>외경(mm)</th>
@@ -509,46 +467,16 @@ defineComponent({
   background-color: #f0f0f0;
 }
 
-.spec-image {
-  max-width: 100%;
-  height: auto;
-}
-
 /* 반응형 */
 @media (max-width: 968px) {
-  .box-specs-tabs {
-    padding-bottom: 10px;
+  .box-name {
+    width: 29% !important;
   }
-
-  .tab-button {
-    padding: 8px 2px;
-    min-height: 60px;
-    min-width: 100px;
-    font-size: 15px;
+  .box-size {
+    width: 55% !important;
   }
-
-  .electronics-image-container,
-  .damage-prevention-image-container,
-  .packaging-pad-image-container {
-    width: 100%;
-    height: 300px;
-  }
-
-  .electronics-images,
-  .damage-prevention-images,
-  .packaging-pad-images {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .hide-on-mobile {
-    display: none !important;
-  }
-  .quantity-width {
-    width: 11% !important;
-  }
-  .product-name-width {
-    width: 24% !important;
+  .box-quantity {
+    width: 16% !important;
   }
 }
 </style>
