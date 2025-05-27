@@ -217,11 +217,19 @@ const boxSpecs3: BoxSpecTable[] = [
     ],
   },
 ]
+
 const boxSpecsMap = {
   'ice-box-1': boxSpecs1,
   'ice-box-2': boxSpecs2,
   'ice-box-3': boxSpecs3,
 }
+
+const currentBoxSpecs = computed(() => {
+  if (['ice-box-1', 'ice-box-2', 'ice-box-3'].includes(activeTab.value)) {
+    return boxSpecsMap[activeTab.value as keyof typeof boxSpecsMap]
+  }
+  return null
+})
 
 // 스티로폼 재단 데이터
 interface CornerBoxSpec {
@@ -271,7 +279,7 @@ defineComponent({
           >
             <!-- 각 박스 유형 별로 테이블 렌더링 -->
             <div
-              v-for="(tableData, index) in boxSpecsMap[activeTab]"
+              v-for="(tableData, index) in currentBoxSpecs"
               :key="index"
               class="specs-table-container"
             >
