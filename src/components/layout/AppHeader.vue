@@ -97,7 +97,7 @@ onUnmounted(() => {
   <header class="header">
     <div class="header-content">
       <router-link to="/" class="logo">
-        <img src="/images/logo/yjc-logo-img.png" alt="영진화학">
+        <img src="/images/logo/yjc-logo-img.png" alt="영진화학" />
         <span class="logo-text">영진화학</span>
       </router-link>
 
@@ -121,6 +121,8 @@ onUnmounted(() => {
           <div class="dropdown-column">
             <router-link to="/box-specs" class="dropdown-item">제품규격</router-link>
             <router-link to="/products" class="dropdown-item">제품안내</router-link>
+            <router-link to="/mold-making" class="dropdown-item">금형제작</router-link>
+            <router-link to="/ice-pack" class="dropdown-item">아이스팩</router-link>
           </div>
         </div>
         <div class="nav-item-wrapper">
@@ -192,6 +194,8 @@ onUnmounted(() => {
             <ul v-if="openAccordion === 'products'" class="submenu">
               <li><a @click.prevent="navigateTo('/box-specs')">제품규격</a></li>
               <li><a @click.prevent="navigateTo('/products')">제품안내</a></li>
+              <li><a @click.prevent="navigateTo('/mold-making')">금형제작</a></li>
+              <li><a @click.prevent="navigateTo('/ice-pack')">아이스팩</a></li>
             </ul>
           </li>
           <li>

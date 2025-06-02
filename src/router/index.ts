@@ -20,6 +20,16 @@ const router = createRouter({
       component: () => import('../views/BoxSpecsView.vue'),
     },
     {
+      path: '/mold-making',
+      name: 'mold-making',
+      component: () => import('../views/MoldMakingView.vue'),
+    },
+    {
+      path: '/ice-pack',
+      name: 'ice-pack',
+      component: () => import('../views/IcePackView.vue'),
+    },
+    {
       path: '/products',
       name: 'products',
       component: () => import('../views/ProductsView.vue'),
