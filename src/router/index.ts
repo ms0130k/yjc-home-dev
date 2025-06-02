@@ -50,9 +50,9 @@ const router = createRouter({
       component: () => import('../views/FacilitiesView.vue'),
     },
     {
-      path: '/technical-data',
-      name: 'technical-data',
-      component: () => import('../views/TechnicalDataView.vue'),
+      path: '/process',
+      name: 'process',
+      component: () => import('../views/ProcessView.vue'),
     },
     {
       path: '/recycling',

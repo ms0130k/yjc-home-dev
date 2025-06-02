@@ -1,5 +1,5 @@
 <template>
-  <div class="technical-data">
+  <div class="process-view">
     <PageBanner title="EPS 생산공정" description="EPS 생산공정 안내" />
     <PageTwoColumn>
       <template #right>
@@ -78,7 +78,7 @@ const rows = [processSteps.slice(0, 3), processSteps.slice(3, 6), processSteps.s
 </script>
 
 <style scoped>
-.technical-data {
+.process-view {
   width: 100%;
 }
 
