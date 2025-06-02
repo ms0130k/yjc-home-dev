@@ -36,6 +36,14 @@ import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
+@media (max-width: 768px) {
+  .ice-pack-image {
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+}
+
 .content {
   padding: 2rem;
 }

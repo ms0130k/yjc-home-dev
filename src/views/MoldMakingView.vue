@@ -1,6 +1,6 @@
 <template>
   <div class="mold-making">
-    <PageBanner title="금형제작"/>
+    <PageBanner title="금형제작" />
     <PageTwoColumn>
       <template #right>
         <img src="/images/mold/mold-stack-1.jpg" alt="금형 적재 모습" class="mold-stack-image" />
@@ -34,6 +34,14 @@ import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
   margin: 0 auto;
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+  .mold-stack-image {
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
 }
 
 .content {

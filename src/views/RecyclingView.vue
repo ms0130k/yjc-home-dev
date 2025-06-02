@@ -42,8 +42,16 @@ import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
+@media (max-width: 768px) {
+  .recycling-process-image {
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
+}
+
 .content {
-  margin-top: 2rem;
+  padding: 2rem;
 }
 
 h2 {
