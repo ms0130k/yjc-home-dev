@@ -30,7 +30,7 @@ import { RulerArrows, FrameTool, MessageText, MapPin } from '@iconoir/vue'
         </div>
       </router-link>
       <div class="info-divider"></div>
-      <router-link to="/technical-data" class="info-item" style="text-decoration: none">
+      <router-link to="/mold-making" class="info-item" style="text-decoration: none">
         <div class="info-content">
           <FrameTool :width="34" :height="34" color="#fff" class="info-icon" />
           <div class="info-text">

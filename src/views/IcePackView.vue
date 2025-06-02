@@ -3,10 +3,10 @@
     <PageBanner
       title="아이스팩"
       subtitle="고품질 아이스팩 제품"
-      background-image="/images/banner/ice-pack-banner.jpg"
     />
     <PageTwoColumn>
       <template #right>
+        <img src="/images/ice-pack/ice-pack-1.png" alt="아이스팩" class="ice-pack-image" />
         <div class="content">
           <h2>제품 특징</h2>
           <ul>
@@ -28,6 +28,15 @@ import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 <style scoped>
 .ice-pack {
   width: 100%;
+}
+
+.ice-pack-image {
+  display: block;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
 .content {
