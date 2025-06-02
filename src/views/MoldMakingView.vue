@@ -1,9 +1,9 @@
 <template>
   <div class="mold-making">
-    <PageBanner title="금형제작" />
+    <PageBanner title="금형제작" description="전자제품을 비롯한 다양한 제품의 금형 제작이 가능합니다."/>
     <PageTwoColumn>
       <template #right>
-        <img src="/images/mold/mold-stack-1.jpg" alt="금형 적재 모습" class="mold-stack-image" />
+        <img src="/images/mold/mold-introduction.png" alt="금형 제작 안내" class="mold-stack-image" />
         <div class="content">
           <h2>주요 특징</h2>
           <ul>

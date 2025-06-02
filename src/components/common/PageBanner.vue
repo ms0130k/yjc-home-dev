@@ -4,7 +4,7 @@ interface Props {
   description?: string
 }
 const props = withDefaults(defineProps<Props>(), {
-  description: '* 자세한 사항이나 기타 설비 문의는 전화 주시면 친절히 안내 드립니다.',
+  description: '자세한 사항이나 기타 설비 문의는 전화 주시면 친절히 안내 드립니다.',
 })
 </script>
 
@@ -56,13 +56,8 @@ const props = withDefaults(defineProps<Props>(), {
 }
 .banner-description {
   color: white;
-  font-size: 16px;
+  font-size: 1.2rem;
   margin-bottom: 5px;
-}
-.banner-tel {
-  color: white;
-  font-size: 16px;
-  font-weight: 500;
 }
 @media (max-width: 768px) {
   .page-banner {
@@ -70,6 +65,9 @@ const props = withDefaults(defineProps<Props>(), {
   }
   .banner-title {
     font-size: 1.5rem;
+  }
+  .banner-description {
+    font-size: 1rem;
   }
 }
 </style>

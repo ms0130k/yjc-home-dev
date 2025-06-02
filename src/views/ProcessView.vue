@@ -62,15 +62,15 @@ import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 
 // 공정 단계 데이터
 const processSteps = [
-  { label: '원료 투입', img: '/images/break/목재유리1.jpeg' },
-  { label: '예비발포', img: '/images/break/목재유리1.jpeg' },
-  { label: '숙성', img: '/images/break/목재유리1.jpeg' },
-  { label: '검사', img: '/images/break/목재유리1.jpeg' },
-  { label: '건조', img: '/images/break/목재유리1.jpeg' },
-  { label: '성형', img: '/images/break/목재유리1.jpeg' },
-  { label: '포장', img: '/images/break/목재유리1.jpeg' },
-  { label: '적재', img: '/images/break/목재유리1.jpeg' },
-  { label: '출하', img: '/images/break/목재유리1.jpeg' },
+  { label: '원료 투입', img: '/images/process/raw-material-input.jpg' },
+  { label: '발포', img: '/images/process/expansion.jpg' },
+  { label: '숙성', img: '/images/process/aging.jpg' },
+  { label: '검사', img: '/images/process/inspection.jpg' },
+  { label: '건조', img: '/images/process/drying.jpg' },
+  { label: '성형', img: '/images/process/molding.jpg' },
+  { label: '포장', img: '/images/process/packaging.jpg' },
+  { label: '적재', img: '/images/process/stacking.jpg' },
+  { label: '출하', img: '/images/process/shipping.jpg' },
 ]
 
 // 3x3 그리드로 데이터 분할
@@ -102,15 +102,14 @@ const rows = [processSteps.slice(0, 3), processSteps.slice(3, 6), processSteps.s
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  border-radius: 8px;
 }
 
 .process-img {
   width: 200px;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px 10px 0 0;
 }
 
 .process-arrow {
@@ -120,10 +119,15 @@ const rows = [processSteps.slice(0, 3), processSteps.slice(3, 6), processSteps.s
 }
 
 .process-label {
-  font-size: 1rem;
+  padding: 10px 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0c4da2;
+  font-size: 1.1rem;
   font-weight: 500;
-  color: #333;
+  color: #fff;
   text-align: center;
+  border-radius: 0 0 10px 10px;
 }
 
 /* 반응형 스타일 */
