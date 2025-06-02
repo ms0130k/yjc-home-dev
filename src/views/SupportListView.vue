@@ -87,14 +87,10 @@ onMounted(fetchInquiries)
             <col style="width: 15%" />
             <col style="width: 30%" />
             <col style="width: 20%" />
-            <col style="width: 20%" />
-            <col style="width: 15%" />
           </colgroup>
           <thead>
             <tr>
               <th class="col-title">제목</th>
-              <th class="col-content">내용</th>
-              <th class="col-email">이메일</th>
               <th class="col-contact">연락처</th>
               <th class="col-date">작성일</th>
             </tr>
@@ -102,8 +98,6 @@ onMounted(fetchInquiries)
           <tbody>
             <tr v-for="item in inquiries" :key="item.id">
               <td class="col-title">{{ item.title }}</td>
-              <td class="col-content">{{ item.content }}</td>
-              <td class="col-email">{{ maskEmail(item.email) }}</td>
               <td class="col-contact">{{ maskContact(item.contact) }}</td>
               <td class="col-date">{{ dayjs(item.createTime).format('YYYY-MM-DD') }}</td>
             </tr>
