@@ -145,6 +145,7 @@ const rows = [processSteps.slice(0, 3), processSteps.slice(3, 6), processSteps.s
 @media (max-width: 900px) {
   .process-flow {
     gap: 10px;
+    padding: 0;
   }
 
   .process-img {
@@ -158,6 +159,7 @@ const rows = [processSteps.slice(0, 3), processSteps.slice(3, 6), processSteps.s
 
   .process-label {
     font-size: 0.9rem;
+    padding: 4px 0;
   }
 }
 

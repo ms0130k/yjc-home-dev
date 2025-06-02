@@ -4,18 +4,17 @@
     <PageTwoColumn>
       <template #right>
         <img
-          src="/images/recycling/recycling-process.jpg"
-          alt="금형 적재 모습"
-          class="recycling-process-image"
+          src="/images/recycling/recycling-machine.png"
+          alt="스티로폼 재활용 설비"
+          class="recycling-main-image"
         />
-        <div class="content">
-          <h2>주요 특징</h2>
-          <div>
-            <ul>
-              <li>폐스티로폼 재활용</li>
-              <li>환경 친화적 처리 과정</li>
-              <li>고효율 재활용 기계 사용</li>
-            </ul>
+        <div class="recycling-steps">
+          <div class="step" v-for="step in steps" :key="step.num">
+            <div class="step-icon">{{ step.num }}</div>
+            <div class="step-content">
+              <div class="step-title">{{ step.title }}</div>
+              <div class="step-desc" v-if="step.desc">{{ step.desc }}</div>
+            </div>
           </div>
         </div>
       </template>
@@ -26,6 +25,24 @@
 <script setup lang="ts">
 import PageBanner from '@/components/common/PageBanner.vue'
 import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
+
+const steps = [
+  {
+    num: 1,
+    title: '깨끗한 폐스티로폼을 투입',
+    desc: '',
+  },
+  {
+    num: 2,
+    title: '분쇄 및 가열',
+    desc: '',
+  },
+  {
+    num: 3,
+    title: '잉코트로 재탄생',
+    desc: '잉코트는 각종 건축 자재 및 장식품 등에 재사용',
+  },
+]
 </script>
 
 <style scoped>
@@ -33,38 +50,76 @@ import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
   width: 100%;
 }
 
-.recycling-process-image {
+.recycling-main-image {
   display: block;
-  max-width: 900px;
+  max-width: 600px;
   width: 100%;
-  margin: 0 auto;
-  border-radius: 8px;
+  margin: 0 auto 2rem auto;
+  border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
-@media (max-width: 768px) {
-  .recycling-process-image {
-    padding-left: 15px;
-    padding-right: 15px;
-    box-sizing: border-box;
-  }
+.recycling-steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
-.content {
-  padding: 2rem;
+.step {
+  flex: 1 1 0;
+  min-width: 180px;
+  background: #f5f8ff;
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-h2 {
-  color: #1a237e;
+.step-icon {
+  width: 48px;
+  height: 48px;
+  background: #fff;
+  border: 2px solid #0c4da2;
+  color: #0c4da2;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 1rem;
 }
 
-ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
+.step-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #0c4da2;
 }
 
-li {
-  margin-bottom: 0.5rem;
+.step-desc {
+  font-size: 0.98rem;
+  color: #333;
+}
+
+@media (max-width: 900px) {
+  .recycling-steps {
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 15px;
+  }
+
+  .step {
+    min-width: 0;
+  }
+
+  .recycling-main-image {
+    padding: 0 15px;
+  }
 }
 </style>
