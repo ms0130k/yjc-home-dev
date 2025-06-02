@@ -1,9 +1,6 @@
 <template>
   <div class="ice-pack">
-    <PageBanner
-      title="아이스팩"
-      subtitle="고품질 아이스팩 제품"
-    />
+    <PageBanner title="아이스팩" />
     <PageTwoColumn>
       <template #right>
         <img src="/images/ice-pack/ice-pack-1.png" alt="아이스팩" class="ice-pack-image" />
@@ -45,7 +42,7 @@ import PageTwoColumn from '@/components/common/PageTwoColumn.vue'
 
 h2 {
   color: #1a237e;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 ul {

@@ -114,6 +114,7 @@ onUnmounted(() => {
           <div class="dropdown-column">
             <router-link to="/facilities" class="dropdown-item">설비현황</router-link>
             <router-link to="/technical-data" class="dropdown-item">생산공정</router-link>
+            <router-link to="/recycling" class="dropdown-item">재활용처리</router-link>
           </div>
         </div>
         <div class="nav-item-wrapper">
@@ -187,6 +188,7 @@ onUnmounted(() => {
             <ul v-if="openAccordion === 'facilities'" class="submenu">
               <li><a @click.prevent="navigateTo('/facilities')">설비현황</a></li>
               <li><a @click.prevent="navigateTo('/technical-data')">생산공정</a></li>
+              <li><a @click.prevent="navigateTo('/recycling')">재활용처리</a></li>
             </ul>
           </li>
           <li>

@@ -55,6 +55,11 @@ const router = createRouter({
       component: () => import('../views/TechnicalDataView.vue'),
     },
     {
+      path: '/recycling',
+      name: 'recycling',
+      component: () => import('../views/RecyclingView.vue'),
+    },
+    {
       path: '/support',
       name: 'support-list',
       component: () => import('../views/SupportListView.vue'),
