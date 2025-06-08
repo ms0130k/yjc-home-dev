@@ -192,7 +192,7 @@ const galleryItems = [
 }
 @media (max-width: 768px) {
   .facilities-container {
-    padding: 16px 4px 24px 4px;
+    padding-bottom: 0;
   }
   .facilities-table th,
   .facilities-table td {
