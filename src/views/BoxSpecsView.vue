@@ -263,7 +263,7 @@ defineComponent({
 </script>
 
 <template>
-  <PageBanner title="제품 규격" description="" />
+  <PageBanner title="제품 규격" />
 
   <PageTwoColumn>
     <template #right>

@@ -575,7 +575,7 @@ defineComponent({
 
 <template>
   <PageBanner
-    title="설비 현황"
+    title="제품 안내"
   />
   <PageTwoColumn>
     <template #right>

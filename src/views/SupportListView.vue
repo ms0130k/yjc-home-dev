@@ -23,15 +23,15 @@ const router = useRouter()
 function goToWrite() {
   router.push('/support/new')
 }
-
-function maskEmail(email: string): string {
-  if (!email) return ''
-  const [id, domain] = email.split('@')
-  if (!id || !domain) return email
-  const visible = id.slice(0, 2)
-  const masked = '*'.repeat(Math.max(0, id.length - 2))
-  return `${visible}${masked}@${domain}`
-}
+//
+// function maskEmail(email: string): string {
+//   if (!email) return ''
+//   const [id, domain] = email.split('@')
+//   if (!id || !domain) return email
+//   const visible = id.slice(0, 2)
+//   const masked = '*'.repeat(Math.max(0, id.length - 2))
+//   return `${visible}${masked}@${domain}`
+// }
 
 function maskContact(contact: string): string {
   if (!contact) return ''
@@ -73,7 +73,7 @@ onMounted(fetchInquiries)
 </script>
 
 <template>
-  <PageBanner title="견적 문의" description="" />
+  <PageBanner title="견적 문의" />
   <PageTwoColumn>
     <template #right>
       <div class="support-list-container">
@@ -112,6 +112,7 @@ onMounted(fetchInquiries)
 <style scoped>
 .support-list-container {
   max-width: 850px;
+  min-height: 650px;
   margin: 0 auto;
   background: #f7fafd;
   border-radius: 8px;
@@ -171,7 +172,6 @@ onMounted(fetchInquiries)
   padding: 40px 0;
 }
 .col-title,
-.col-email,
 .col-contact,
 .col-date {
   white-space: nowrap;
@@ -181,9 +181,6 @@ onMounted(fetchInquiries)
 .col-title {
   max-width: 220px;
 }
-.col-email {
-  max-width: 160px;
-}
 .col-contact {
   max-width: 120px;
 }
@@ -191,40 +188,14 @@ onMounted(fetchInquiries)
   max-width: 100px;
 }
 @media (max-width: 600px) {
-  .col-content,
-  .col-email {
-    display: none;
+  .support-list-container {
+    min-height: 350px;
   }
   .col-title {
     max-width: 180px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-}
-@media (max-width: 968px) {
-  .sort-left-group {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-
-  .sort-dimensions {
-    flex-wrap: wrap;
-  }
-
-  .dimension-values,
-  .dimension-header {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  .tolerance-info,
-  .sort-info {
-    margin-left: 0;
-    margin-top: 5px;
-  }
-  .product-category {
-    display: none;
   }
 }
 </style>
