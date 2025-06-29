@@ -31,7 +31,7 @@ const boxSpecs1: BoxSpecTable[] = [
     title: '김치/다용도박스',
     specs: [
       { name: 'Y-다용도(소)', outer: '280*210*150', inner: '240*175*100', quantity: '20*' },
-      { name: '계장원', outer: '340*270*210', inner: '300*230*150', quantity: '20*' },
+      { name: '게장원', outer: '340*270*210', inner: '300*230*150', quantity: '20*' },
       { name: 'Y-21', outer: '290*230*180', inner: '250*190*140', quantity: '24*' },
       { name: 'Y-22', outer: '320*260*200', inner: '270*210*130+30', quantity: '20*' },
       { name: 'Y-23', outer: '315*315*195', inner: '270*270*140', quantity: '20*' },
@@ -41,7 +41,7 @@ const boxSpecs1: BoxSpecTable[] = [
       { name: 'Y-3 (방울토마토)', outer: '303*220*185', inner: '250*165*130', quantity: '24*' },
       { name: 'S-3', outer: '265*215*180', inner: '225*175*135', quantity: '24*' },
       { name: 'S-5', outer: '255*315*220', inner: '205*265*195', quantity: '20*' },
-      { name: '김치2호(5kg)=멍개', outer: '260*260*250', inner: '220*220*200', quantity: '20*' },
+      { name: '김치2호(5kg)=멍게', outer: '260*260*250', inner: '220*220*200', quantity: '20*' },
       { name: '김치 2.5호(7kg)', outer: '335*310*250', inner: '290*260*190', quantity: '10*' },
       { name: '김치3호(10kg)', outer: '385*295*270', inner: '330*245*200', quantity: '12*' },
       { name: '김치4호(15kg)', outer: '415*305*365', inner: '365*255*290', quantity: '8*' },
@@ -199,8 +199,8 @@ const boxSpecs3: BoxSpecTable[] = [
     specs: [
       { name: '대하 1K', outer: '305*205*95', inner: '280*180*65', quantity: '40*' },
       { name: '대하 2K', outer: '335*235*130', inner: '305*205*85', quantity: '32*' },
-      { name: '망계반품', outer: '250*250*180', inner: '210*210*130', quantity: '24*' },
-      { name: '망계박스', outer: '260*260*250', inner: '220*220*200', quantity: '16' },
+      { name: '멍게반품', outer: '250*250*180', inner: '210*210*130', quantity: '24*' },
+      { name: '멍게박스', outer: '260*260*250', inner: '220*220*200', quantity: '16' },
       { name: '굴박스 (소)', outer: '260*260*260', inner: '220*220*210', quantity: '16*' },
       { name: '굴박스 (대)', outer: '300*300*275', inner: '250*250*225', quantity: '16*' },
       { name: '어상자 5K(신)', outer: '505*345*185', inner: '450*290*125', quantity: '12*' },
@@ -246,7 +246,7 @@ interface FoamPanelSpec {
 // 코너/모서리 보호 데이터
 const cornerBoxSpecs: CornerBoxSpec[] = [
   { name: '코너 소', size: '60*60*60(두께 15)', quantity: '600*' },
-  { name: '샌추리코너 [코너 중]', size: '80*80*60(두께 20)', quantity: '360*' },
+  { name: '센추리코너 [코너 중]', size: '80*80*60(두께 20)', quantity: '360*' },
   { name: '코너 대', size: '175*95*95(두께25)', quantity: '96*' },
 ]
 
@@ -254,7 +254,7 @@ const cornerBoxSpecs: CornerBoxSpec[] = [
 const foamPanelSpecs: FoamPanelSpec[] = [
   { name: '평판', description: '1790*800*600 사이즈 (3X6 스티로폼 원단)' },
   { name: '평판 재단', description: '맞춤 사이즈로 재단 가능 (막대기/ 평판)' },
-  { name: '도형 품파기 재단', description: '막대기 모형 품파기로 재단 가능' },
+  { name: 'ㄷ모형 홈파기 재단', description: '막대기 모형 홈파기로 재단 가능' },
 ]
 
 defineComponent({
@@ -329,7 +329,7 @@ defineComponent({
               </table>
             </div>
 
-            <!-- 맞춤 평판/품파기 재단 테이블 -->
+            <!-- 맞춤 평판/홈파기 재단 테이블 -->
             <div class="cutting-table-container">
               <table class="cutting-table">
                 <thead>

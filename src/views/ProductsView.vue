@@ -523,8 +523,8 @@ const boxSpecs3: BoxSpecTable[] = [
     specs: [
       { name: '대하 1K', outer: '305*205*95', inner: '280*180*65', quantity: '40*' },
       { name: '대하 2K', outer: '335*235*130', inner: '305*205*85', quantity: '32*' },
-      { name: '망계반품', outer: '250*250*180', inner: '210*210*130', quantity: '24*' },
-      { name: '망계박스', outer: '260*260*250', inner: '220*220*200', quantity: '16' },
+      { name: '멍게반품', outer: '250*250*180', inner: '210*210*130', quantity: '24*' },
+      { name: '멍게박스', outer: '260*260*250', inner: '220*220*200', quantity: '16' },
       { name: '굴박스 (소)', outer: '260*260*260', inner: '220*220*210', quantity: '16*' },
       { name: '굴박스 (대)', outer: '300*300*275', inner: '250*250*225', quantity: '16*' },
       { name: '어상자 5K(신)', outer: '505*345*185', inner: '450*290*125', quantity: '12*' },
@@ -557,7 +557,7 @@ interface FoamPanelSpec {
 // 코너/모서리 보호 데이터
 const cornerBoxSpecs: CornerBoxSpec[] = [
   { name: '코너 소', size: '60*60*60(두께 15)', quantity: '600*' },
-  { name: '샌추리코너 [코너 중]', size: '80*80*60(두께 20)', quantity: '360*' },
+  { name: '센추리코너 [코너 중]', size: '80*80*60(두께 20)', quantity: '360*' },
   { name: '코너 대', size: '175*95*95(두께25)', quantity: '96*' },
 ]
 
@@ -565,7 +565,7 @@ const cornerBoxSpecs: CornerBoxSpec[] = [
 const foamPanelSpecs: FoamPanelSpec[] = [
   { name: '평판', description: '1790*800*600 사이즈 (3X6 스티로폼 원단)' },
   { name: '평판 재단', description: '맞춤 사이즈로 재단 가능 (막대기/ 평판)' },
-  { name: '도형 품파기 재단', description: '막대기 모형 품파기로 재단 가능' },
+  { name: 'ㄷ모형 홈파기 재단', description: '막대기 모형 홈파기로 재단 가능' },
 ]
 
 defineComponent({
