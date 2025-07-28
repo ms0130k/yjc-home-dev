@@ -1,0 +1,26 @@
+# robots.txt for yjc-home
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Disallow temporary or development files
+Disallow: /temp/
+Disallow: /dev/
+Disallow: /test/
+
+# Allow important files
+Allow: /favicon.ico
+Allow: /images/
+Allow: /assets/
+
+# Sitemap location
+Sitemap: https://yeongjin.co.kr/sitemap.xml
+
+# Crawl delay (optional - reduces server load)
+Crawl-delay: 1 
